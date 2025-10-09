@@ -49,8 +49,8 @@ export function Contact() {
                 <div>
                   <div className="font-semibold mb-1">Dirección</div>
                   <p className="text-muted-foreground">
-                    Av. Corrientes 1234, Piso 5<br />
-                    C1043AAZ - Ciudad Autónoma de Buenos Aires
+                   Ruta 36 Nº 1354, entre calles 13 y 14<br />
+                    Cruce de Florencio Varela, Berazategui, Buenos Aires, Argentina
                     <br />
                     Argentina
                   </p>
