@@ -2,18 +2,21 @@
 
 import { useState } from "react"
 import { Menu, X, Phone, Mail } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { useHashNavigation } from "@/hooks/use-hash-navigation"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { navigateWithHash } = useHashNavigation()
 
   const navItems = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "UVT", href: "#uvt" },
-    { label: "Equipo", href: "#equipo" },
-    { label: "Contacto", href: "#contacto" },
-    { label: "Donaciones", href: "#donaciones" },
-    { label: "Noticias", href: "#noticias" },
+    { label: "Inicio", href: "/inicio" },
+    { label: "Programas", href: "/programas" },
+    { label: "Donaciones", href: "/inicio#donaciones", isHashLink: true },
+    { label: "Institucional", href: "/institucional" },
+    { label: "Equipo", href: "/equipo" },
+    { label: "Contacto", href: "/contacto" },
   ]
 
   return (
@@ -43,7 +46,7 @@ export function Header() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#inicio" className="flex items-center gap-3">
+            <Link href="/inicio" className="flex items-center gap-3">
               <img
                 src="/placeholder.svg?height=50&width=50"
                 alt="Fundación Pro Buenos Aires"
@@ -57,18 +60,28 @@ export function Header() {
                 </div>
                 <div className="text-xs text-muted-foreground">Desde 1998 trabajando por Argentina</div>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </a>
+                <div key={item.href}>
+                  {item.isHashLink ? (
+                    <button
+                      onClick={() => navigateWithHash(item.href)}
+                      className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -82,14 +95,27 @@ export function Header() {
           {isMenuOpen && (
             <nav className="lg:hidden py-4 border-t border-border">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="block py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                <div key={item.href}>
+                  {item.isHashLink ? (
+                    <button
+                      onClick={() => {
+                        navigateWithHash(item.href)
+                        setIsMenuOpen(false)
+                      }}
+                      className="block py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors w-full text-left"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
           )}

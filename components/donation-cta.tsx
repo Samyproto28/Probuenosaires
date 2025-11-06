@@ -3,7 +3,7 @@ import { Heart } from "lucide-react"
 
 export function DonationCTA() {
   return (
-    <section className="py-20 lg:py-32">
+    <section id="donaciones" className="py-20 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-0 overflow-hidden rounded-2xl shadow-xl">
           <div className="bg-[#272d64] text-white p-12 lg:p-16 flex flex-col justify-center">
