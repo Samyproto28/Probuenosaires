@@ -8,6 +8,7 @@ import { useHashNavigation } from "@/hooks/use-hash-navigation"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -75,21 +76,26 @@ export function Header() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-18 lg:h-20">
             {/* Logo */}
-            <Link href="/inicio" className="flex items-center gap-3 group">
+            <Link href="/inicio" className="flex items-center gap-3 lg:gap-4 group">
               <div className="relative">
-                <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-[#1a2744] to-[#3d5a80] flex items-center justify-center shadow-lg shadow-[#1a2744]/20 group-hover:shadow-[#1a2744]/30 transition-shadow">
-                  <span className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-playfair)" }}>P</span>
+                <div className="w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/logo.png"
+                    alt="Fundación Pro Buenos Aires"
+                    width={200}
+                    height={200}
+                    className="object-contain w-full h-full"
+                    priority
+                  />
                 </div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#c9a962] border-2 border-white" />
               </div>
               <div className="hidden sm:block">
-                <div className="text-base lg:text-lg font-semibold leading-tight">
-                  <span className="text-[#1a2744]">Fundación</span>
-                  <br />
-                  <span className="text-[#3d5a80]">Pro Buenos Aires</span>
+                <div className="text-base lg:text-lg font-bold leading-tight flex flex-col">
+                  <span className="text-[#1a2744] font-playfair tracking-tight">Fundación</span>
+                  <span className="text-[#3d5a80] font-playfair tracking-tight">Pro Buenos Aires</span>
                 </div>
-                <div className="text-[11px] text-muted-foreground font-medium tracking-wide mt-0.5">
-                  Desde 1998 • Argentina
+                <div className="text-[10px] lg:text-[11px] text-muted-foreground font-semibold tracking-[0.1em] uppercase mt-0.5 opacity-80">
+                  Desarrollo Sustentable • Arg
                 </div>
               </div>
             </Link>

@@ -4,6 +4,7 @@ import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Heart
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -71,14 +72,15 @@ export function Footer() {
               className="lg:col-span-2"
             >
               {/* Logo */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
-                  <span
-                    className="text-[#c9a962] font-bold text-xl"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                  >
-                    P
-                  </span>
+              <div className="flex items-center gap-4 mb-6 group">
+                <div className="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/logo.png"
+                    alt="Logo Fundación Pro Buenos Aires"
+                    width={100}
+                    height={100}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
                 <div>
                   <div
