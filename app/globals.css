@@ -58,12 +58,12 @@
   --sidebar-border: #e8e4df;
   --sidebar-ring: #c9a962;
 
-  /* Typography */
-  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: var(--font-playfair), "Georgia", serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  /* Typography - Synced with Next.js layout */
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-playfair), serif;
+  --font-mono: var(--font-mono);
 
-  /* Shadows - Warm undertone */
+  /* Shadows - Premium optimized */
   --shadow-x: 0px;
   --shadow-y: 4px;
   --shadow-blur: 16px;
@@ -217,7 +217,7 @@
   }
 
   .text-gradient-gold {
-    background: linear-gradient(135deg, #c9a962 0%, #e0c77d 50%, #b8963f 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #e0c77d 50%, var(--accent-hover) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -231,7 +231,7 @@
 
   .hover-lift:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 48px -12px rgba(26, 39, 68, 0.15);
+    box-shadow: 0 24px 48px -12px color-mix(in srgb, rgb(var(--shadow-color)) 15%, transparent);
   }
 
   /* Subtle pattern backgrounds */
@@ -309,8 +309,8 @@
   .btn-premium {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #c9a962 0%, #b8963f 100%);
-    color: #1a2744;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: var(--primary);
     font-weight: 600;
     transition: all 0.3s ease;
   }
@@ -319,7 +319,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #d4b874 0%, #c9a962 100%);
+    background: linear-gradient(135deg, #d4b874 0%, var(--accent) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
