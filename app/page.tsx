@@ -10,20 +10,24 @@ import { Partners } from "@/components/partners"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { Suspense } from "react"
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <ImpactStats />
-      <About />
-      <Services />
-      <Programs />
-      <DonationCTA />
-      <News />
-      <Partners />
-      <Newsletter />
-      <Contact />
+      <Suspense fallback={<div className="h-96" />}>
+        <ImpactStats />
+        <About />
+        <Services />
+        <Programs />
+        <DonationCTA />
+        <News />
+        <Partners />
+        <Newsletter />
+        <Contact />
+      </Suspense>
       <Footer />
     </main>
   )

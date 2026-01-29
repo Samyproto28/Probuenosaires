@@ -1,15 +1,10 @@
-"use client"
-
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Heart } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-  const footerRef = useRef(null)
-  const isInView = useInView(footerRef, { once: true, margin: "-50px" })
 
   const footerLinks = {
     "Sobre Nosotros": [
@@ -39,10 +34,7 @@ export function Footer() {
   ]
 
   return (
-    <footer
-      ref={footerRef}
-      className="relative bg-[#1a2744] text-white overflow-hidden"
-    >
+    <footer className="relative bg-[#1a2744] text-white overflow-hidden">
       {/* Decorative gradient orbs */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] opacity-10 blur-3xl pointer-events-none"
@@ -65,12 +57,7 @@ export function Footer() {
         <div className="py-16 lg:py-20">
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
             {/* Brand Column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
+            <MotionViewport className="lg:col-span-2" initial={{ opacity: 0, y: 20 }}>
               {/* Logo */}
               <div className="flex items-center gap-4 mb-6 group">
                 <div className="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-105 transition-transform duration-300">
@@ -80,6 +67,7 @@ export function Footer() {
                     width={100}
                     height={100}
                     className="object-contain w-full h-full"
+                    sizes="(max-width: 768px) 64px, 100px"
                   />
                 </div>
                 <div>
@@ -127,30 +115,33 @@ export function Footer() {
               {/* Social Links */}
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
-                  <motion.a
+                  <MotionViewport
                     key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.3 + index * 0.1, duration: 0.4 }}
+                    delay={0.3 + index * 0.1}
                     className="w-10 h-10 bg-white/5 hover:bg-[#c9a962]/20 border border-white/10 hover:border-[#c9a962]/30 flex items-center justify-center rounded-lg transition-all duration-300 hover:scale-110"
                   >
-                    <social.icon className="w-4 h-4 text-white/70 hover:text-[#c9a962]" />
-                  </motion.a>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="w-full h-full flex items-center justify-center"
+                    >
+                      <social.icon className="w-4 h-4 text-white/70 hover:text-[#c9a962]" />
+                    </a>
+                  </MotionViewport>
                 ))}
               </div>
-            </motion.div>
+            </MotionViewport>
 
             {/* Links Columns */}
             {Object.entries(footerLinks).map(([title, links], columnIndex) => (
-              <motion.div
+              <MotionViewport
                 key={title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + columnIndex * 0.1, duration: 0.6 }}
+                delay={0.2 + columnIndex * 0.1}
+                className="flex flex-col"
               >
                 <h3 className="font-semibold mb-5 text-lg text-white/90">{title}</h3>
                 <ul className="space-y-3">
@@ -166,7 +157,7 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </MotionViewport>
             ))}
           </div>
         </div>

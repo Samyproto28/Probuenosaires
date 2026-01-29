@@ -1,8 +1,5 @@
-"use client"
-
 import { Target, Eye, Award, ArrowUpRight } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function About() {
   const values = [
@@ -29,11 +26,8 @@ export function About() {
     },
   ]
 
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
   return (
-    <section id="nosotros" className="relative py-24 lg:py-32 overflow-hidden" ref={sectionRef}>
+    <section id="nosotros" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[#fdfcfb]" />
 
@@ -58,12 +52,7 @@ export function About() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center mb-20"
-        >
+        <MotionViewport className="max-w-4xl mx-auto text-center mb-20" initial={{ opacity: 0, y: 30 }}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#1a2744]/5 text-[#1a2744] text-sm font-semibold tracking-wide mb-6">
             SOBRE NOSOTROS
           </span>
@@ -75,12 +64,7 @@ export function About() {
             Construyendo un{" "}
             <span className="relative inline-block">
               <span className="relative z-10">futuro mejor</span>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={isInView ? { scaleX: 1 } : {}}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute bottom-2 left-0 right-0 h-3 bg-[#c9a962]/20 rounded-full -z-0 origin-left"
-              />
+              <div className="absolute bottom-2 left-0 right-0 h-3 bg-[#c9a962]/20 rounded-full -z-0" />
             </span>
           </h2>
 
@@ -95,17 +79,16 @@ export function About() {
               <strong className="text-[#1a2744]">CUIT: 30-70807514-7</strong> • Personería Jurídica otorgada por la IGJ
             </span>
           </div>
-        </motion.div>
+        </MotionViewport>
 
         {/* Values Cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {values.map((value, index) => (
-            <motion.div
+            <MotionViewport
               key={index}
+              delay={0.2 + index * 0.15}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + index * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group"
+              className="group h-full"
             >
               <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e8e4df] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full">
                 {/* Top accent */}
@@ -146,17 +129,12 @@ export function About() {
                   style={{ background: `radial-gradient(circle, ${value.accent} 0%, transparent 70%)` }}
                 />
               </div>
-            </motion.div>
+            </MotionViewport>
           ))}
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 text-center"
-        >
+        <MotionViewport className="mt-16 text-center" initial={{ opacity: 0, y: 30 }} delay={0.8}>
           <a
             href="/institucional"
             className="inline-flex items-center gap-2 text-[#1a2744] font-semibold hover:text-[#c9a962] transition-colors group"
@@ -164,7 +142,7 @@ export function About() {
             <span>Conocer más sobre nuestra historia</span>
             <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-        </motion.div>
+        </MotionViewport>
       </div>
     </section>
   )

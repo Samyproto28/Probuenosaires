@@ -86,6 +86,7 @@ export function Header() {
                     height={200}
                     className="object-contain w-full h-full"
                     priority
+                    sizes="(max-width: 768px) 100px, 200px"
                   />
                 </div>
               </div>

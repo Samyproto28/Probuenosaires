@@ -1,9 +1,6 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Target, TrendingUp, Radio, Globe } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function Programs() {
   const programs = [
@@ -39,11 +36,8 @@ export function Programs() {
     },
   ]
 
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
   return (
-    <section id="programas" className="relative py-24 lg:py-32 overflow-hidden" ref={sectionRef}>
+    <section id="programas" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f7f5f3] via-[#fdfcfb] to-[#f7f5f3]" />
 
@@ -54,12 +48,7 @@ export function Programs() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20"
-        >
+        <MotionViewport className="text-center mb-16 lg:mb-20" initial={{ opacity: 0, y: 20 }}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-6">
             PROGRAMAS DESTACADOS
           </span>
@@ -77,17 +66,16 @@ export function Programs() {
           <p className="text-xl text-[#1a2744]/60 max-w-2xl mx-auto font-light">
             Programas especializados que generan impacto sostenible en toda Argentina
           </p>
-        </motion.div>
+        </MotionViewport>
 
         {/* Programs Grid */}
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {programs.map((program, index) => (
-            <motion.div
+            <MotionViewport
               key={index}
+              delay={index * 0.15}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group"
+              className="group h-full"
             >
               <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e8e4df] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
                 {/* Header with gradient */}
@@ -148,19 +136,14 @@ export function Programs() {
                   </Button>
                 </div>
               </div>
-            </motion.div>
+            </MotionViewport>
           ))}
         </div>
 
         {/* ODS Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-24"
-        >
+        <MotionViewport className="mt-24" initial={{ opacity: 0, y: 30 }} delay={0.6}>
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-4">
               <Globe className="w-4 h-4" />
               AGENDA 2030
             </span>
@@ -208,11 +191,10 @@ export function Programs() {
                 color: "#19486A",
               },
             ].map((ods, index) => (
-              <motion.div
+              <MotionViewport
                 key={ods.num}
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                delay={0.7 + index * 0.1}
                 className="group relative bg-white rounded-xl overflow-hidden shadow-lg border border-[#e8e4df] hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
               >
                 {/* Header Color Bar */}
@@ -250,10 +232,10 @@ export function Programs() {
                     {ods.desc}
                   </p>
                 </div>
-              </motion.div>
+              </MotionViewport>
             ))}
           </div>
-        </motion.div>
+        </MotionViewport>
       </div>
     </section>
   )

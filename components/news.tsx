@@ -1,9 +1,6 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowRight, ArrowUpRight, Newspaper } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function News() {
   const newsItems = [
@@ -33,11 +30,8 @@ export function News() {
     },
   ]
 
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
   return (
-    <section id="noticias" className="py-24 lg:py-32 relative overflow-hidden" ref={sectionRef}>
+    <section id="noticias" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[#fdfcfb]" />
 
@@ -49,14 +43,12 @@ export function News() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+        <MotionViewport
           className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-6"
+          initial={{ opacity: 0, y: 20 }}
         >
           <div>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1a2744]/5 text-[#1a2744] text-sm font-semibold tracking-wide mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#1a2744]/5 text-[#1a2744] text-sm font-semibold tracking-wide mb-4">
               <Newspaper className="w-4 h-4" />
               NOTICIAS Y EVENTOS
             </span>
@@ -75,17 +67,16 @@ export function News() {
             <span>Ver todas las noticias</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
-        </motion.div>
+        </MotionViewport>
 
         {/* News Grid */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {newsItems.map((item, index) => (
-            <motion.article
+            <MotionViewport
               key={index}
+              delay={index * 0.15}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="group"
+              className="group h-full"
             >
               <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e8e4df] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
                 {/* Placeholder image/gradient header */}
@@ -95,7 +86,7 @@ export function News() {
                     <div
                       className="w-32 h-32 rounded-full opacity-20"
                       style={{
-                        background: `radial-gradient(circle, ${index === 0 ? '#c9a962' : index === 1 ? '#3d5a80' : '#1a2744'} 0%, transparent 70%)`,
+                        background: `radial-gradient(circle, ${index === 0 ? "#c9a962" : index === 1 ? "#3d5a80" : "#1a2744"} 0%, transparent 70%)`,
                       }}
                     />
                   </div>
@@ -135,7 +126,7 @@ export function News() {
                   </a>
                 </div>
               </div>
-            </motion.article>
+            </MotionViewport>
           ))}
         </div>
       </div>

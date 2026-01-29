@@ -1,9 +1,6 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Handshake, ArrowRight } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function Partners() {
   const partners = [
@@ -15,11 +12,8 @@ export function Partners() {
     { name: "CAME", abbr: "CAM" },
   ]
 
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden" ref={sectionRef}>
+    <section className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#fdfcfb] via-[#f7f5f3] to-[#fdfcfb]" />
 
@@ -28,12 +22,7 @@ export function Partners() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <MotionViewport className="text-center mb-16" initial={{ opacity: 0, y: 20 }}>
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-6">
             <Handshake className="w-4 h-4" />
             NUESTROS ALIADOS
@@ -49,21 +38,16 @@ export function Partners() {
           <p className="text-lg text-[#1a2744]/60 max-w-2xl mx-auto">
             Empresas y organizaciones que nos acompañan en nuestra misión de desarrollo sustentable
           </p>
-        </motion.div>
+        </MotionViewport>
 
         {/* Partners Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 mb-16"
-        >
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 mb-16">
           {partners.map((partner, index) => (
-            <motion.div
+            <MotionViewport
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.3 + index * 0.05, duration: 0.4 }}
+              delay={0.3 + index * 0.05}
+              transition={{ duration: 0.4 }}
               className="group"
             >
               <div className="bg-white p-6 lg:p-8 rounded-2xl border border-[#e8e4df] hover:border-[#c9a962]/30 hover:shadow-lg hover:shadow-[#c9a962]/5 transition-all duration-300 flex flex-col items-center justify-center aspect-square">
@@ -77,15 +61,14 @@ export function Partners() {
                   {partner.name}
                 </span>
               </div>
-            </motion.div>
+            </MotionViewport>
           ))}
-        </motion.div>
+        </div>
 
         {/* Join CTA Card */}
-        <motion.div
+        <MotionViewport
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          delay={0.5}
           className="relative rounded-3xl overflow-hidden"
         >
           {/* Gradient background */}
@@ -131,14 +114,15 @@ export function Partners() {
             <Button
               size="lg"
               className="group bg-gradient-to-r from-[#c9a962] to-[#b8963f] text-[#1a2744] hover:from-[#d4b874] hover:to-[#c9a962] h-14 px-10 font-semibold rounded-xl shadow-lg shadow-[#c9a962]/20 transition-all duration-300 hover:scale-[1.02] flex-shrink-0"
-              onClick={() => document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })}
+              asChild
             >
-              <span>Conocé cómo sumarte</span>
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <a href="#contacto">
+                <span>Conocé cómo sumarte</span>
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
-
           </div>
-        </motion.div>
+        </MotionViewport>
       </div>
     </section>
   )
