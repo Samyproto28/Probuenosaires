@@ -13,7 +13,7 @@ export function News() {
         "Descargá el programa completo de este taller pensado para importadores. Claves para entender el proceso completo de importación en Argentina.",
     },
     {
-      title: "Pymes Saludables - Alianza estratégica con IINCA",
+      title: "Pyme Saludable - Alianza estratégica con IINCA",
       date: "Sep 15, 2025",
       category: "Novedades",
       categoryColor: "bg-[#3d5a80]",

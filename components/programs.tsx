@@ -1,38 +1,68 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Target, TrendingUp, Radio, Globe } from "lucide-react"
+import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function Programs() {
   const programs = [
     {
-      icon: TrendingUp,
-      title: "Proba Comex",
+      icon: Handshake,
+      title: "Programa Vinculando",
       description:
-        "Programa integral de asistencia en Comercio Exterior y Misiones Comerciales. Brindamos capacitación, asesoramiento técnico y acompañamiento a empresas que buscan expandirse a mercados internacionales.",
-      impact: "150+",
-      impactLabel: "empresas exportadoras asistidas",
+        "Conectamos a estudiantes de escuelas técnicas con empresas para sus 200 horas de prácticas profesionalizantes. Un programa central que impulsa la formación de futuros técnicos y la empleabilidad juvenil en Quilmes, Florencio Varela y Berazategui.",
+      impact: "200h",
+      impactLabel: "prácticas profesionalizantes por alumno",
       gradient: "from-[#1a2744] to-[#3d5a80]",
       lightGradient: "from-[#1a2744]/5 to-[#3d5a80]/5",
     },
     {
-      icon: Target,
-      title: "Pymes Saludables",
+      icon: Network,
+      title: "Programa Encadenar",
       description:
-        "Alianza estratégica con IINCA para impulsar el desarrollo productivo y la competitividad de pequeñas y medianas empresas argentinas. Incluye diagnóstico empresarial y planes de mejora.",
-      impact: "200+",
-      impactLabel: "PyMEs fortalecidas",
+        "Fortalecemos los vínculos entre PyMEs promoviendo el trabajo colaborativo mediante rondas de negocios, espacios de networking y articulación entre proveedores y demandantes para impulsar el sector productivo.",
+      impact: "Sinergia",
+      impactLabel: "rondas de negocios y networking",
       gradient: "from-[#3d5a80] to-[#5a7ca8]",
       lightGradient: "from-[#3d5a80]/5 to-[#5a7ca8]/5",
+    },
+    {
+      icon: Globe,
+      title: "Programa Proba Comex",
+      description:
+        "Orientado a PyMEs que buscan iniciarse o fortalecerse en el comercio exterior. Brindamos capacitación en importación/exportación, asesoramiento técnico y acompañamiento en los primeros pasos del camino exportador.",
+      impact: "Exportar",
+      impactLabel: "apoyo integral al comercio exterior",
+      gradient: "from-[#c9a962] to-[#b8963f]",
+      lightGradient: "from-[#c9a962]/5 to-[#b8963f]/5",
+    },
+    {
+      icon: HeartPulse,
+      title: "Programa Pyme Saludable",
+      description:
+        "Promovemos el bienestar integral y la salud laboral en las PyMEs. Trabajamos en ejes de clima organizacional, prevención y concientización para mejorar la calidad de vida y la sostenibilidad de las organizaciones.",
+      impact: "Salud",
+      impactLabel: "bienestar y productividad organizacional",
+      gradient: "from-[#5a7ca8] to-[#1a2744]",
+      lightGradient: "from-[#5a7ca8]/5 to-[#1a2744]/5",
     },
     {
       icon: Radio,
       title: "Radio Empresaria",
       description:
-        "Plataforma de comunicación dedicada a visibilizar la realidad de las Cadenas de Valor argentinas. Un espacio para compartir experiencias y buenas prácticas.",
-      impact: "50+",
-      impactLabel: "episodios publicados",
-      gradient: "from-[#c9a962] to-[#b8963f]",
-      lightGradient: "from-[#c9a962]/5 to-[#b8963f]/5",
+        "Nuestra emisora online brinda visibilidad y posicionamiento para empresas y emprendedores a través de entrevistas y difusión de productos. Un motor que sostiene y potencia el resto de los programas de la Fundación.",
+      impact: "Difusión",
+      impactLabel: "espacio de visibilidad empresarial",
+      gradient: "from-[#b8963f] to-[#c9a962]",
+      lightGradient: "from-[#b8963f]/5 to-[#c9a962]/5",
+    },
+    {
+      icon: Cpu,
+      title: "Centro Tecnológico 4.0",
+      description:
+        "Acercamos a las PyMEs a la innovación y la transformación digital. Ofrecemos capacitaciones, charlas técnicas y espacios de actualización para preparar a las empresas ante los desafíos tecnológicos actuales.",
+      impact: "4.0",
+      impactLabel: "innovación y tecnología aplicada",
+      gradient: "from-[#1a2744] to-[#c9a962]",
+      lightGradient: "from-[#1a2744]/5 to-[#c9a962]/5",
     },
   ]
 

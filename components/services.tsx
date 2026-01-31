@@ -26,7 +26,7 @@ export function Services() {
     },
     {
       icon: GraduationCap,
-      title: "Capacitación CT4.0",
+      title: "Centro Tecnológico 4.0",
       description:
         "Programas de formación en competencias digitales y tecnologías 4.0 para la industria del futuro.",
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
