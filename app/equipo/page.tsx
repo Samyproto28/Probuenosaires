@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function EquipoPage() {
   return (
-    <main className="min-h-screen bg-[#fdfcfb]">
+    <main className="min-h-screen bg-[#ffffff]">
       <Header />
       <EquipoContent />
       <Footer />

@@ -9,36 +9,28 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1a2744',
-          foreground: '#ffffff',
+          DEFAULT: '#8dc2ff',
+          foreground: '#111269',
+        },
+        secondary: {
+          DEFAULT: '#ffffff',
+          foreground: '#111269',
         },
         accent: {
-          DEFAULT: '#c9a962',
-          foreground: '#1a2744',
+          DEFAULT: '#111269',
+          foreground: '#ffffff',
         },
-        'navy-blue': {
-          50: '#f0f4f8',
-          100: '#d9e2ec',
-          200: '#bcccdc',
-          300: '#9fb3c8',
-          400: '#829ab1',
-          500: '#627d98',
-          600: '#486581',
-          700: '#334e68',
-          800: '#243b53',
-          900: '#1a2744',
-        },
-        'copper': {
-          50: '#fdf8f0',
-          100: '#f9eed9',
-          200: '#f2ddb0',
-          300: '#e7c77d',
-          400: '#d4b874',
-          500: '#c9a962',
-          600: '#b8963f',
-          700: '#9a7a2e',
-          800: '#7d6125',
-          900: '#634c1e',
+        'brand-blue': {
+          50: '#f0f7ff',
+          100: '#e0efff',
+          200: '#8dc2ff', // Principal
+          300: '#89abe6', // Other color
+          400: '#7599d4',
+          500: '#5a7ca8',
+          600: '#405e8c',
+          700: '#2a4170',
+          800: '#1a2754',
+          900: '#111269', // Other color (Navy)
         },
       },
       fontFamily: {

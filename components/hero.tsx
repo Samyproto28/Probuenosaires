@@ -20,16 +20,16 @@ export function Hero() {
       {/* Deep gradient background with texture */}
       <div className="absolute inset-0 z-0">
         {/* Primary gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f1625] via-[#1a2744] to-[#1e3a5f]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0b0c2a] via-[#111269] to-[#1a2754]" />
 
         {/* Mesh gradient overlay */}
         <div
           className="absolute inset-0 opacity-60"
           style={{
             background: `
-              radial-gradient(ellipse 80% 50% at 20% 40%, rgba(61, 90, 128, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 169, 98, 0.2) 0%, transparent 50%),
-              radial-gradient(ellipse 100% 80% at 50% 100%, rgba(26, 39, 68, 0.8) 0%, transparent 60%)
+              radial-gradient(ellipse 80% 50% at 20% 40%, rgba(141, 194, 255, 0.4) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 40% at 80% 60%, rgba(137, 171, 230, 0.2) 0%, transparent 50%),
+              radial-gradient(ellipse 100% 80% at 50% 100%, rgba(17, 18, 105, 0.8) 0%, transparent 60%)
             `
           }}
         />
@@ -38,7 +38,7 @@ export function Hero() {
         <motion.div
           className="absolute w-[800px] h-[800px] rounded-full opacity-20 blur-3xl"
           style={{
-            background: "radial-gradient(circle, rgba(201, 169, 98, 0.4) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(141, 194, 255, 0.4) 0%, transparent 70%)",
             top: "10%",
             right: "-20%",
           }}
@@ -57,7 +57,7 @@ export function Hero() {
         <motion.div
           className="absolute w-[600px] h-[600px] rounded-full opacity-15 blur-3xl"
           style={{
-            background: "radial-gradient(circle, rgba(61, 90, 128, 0.5) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(137, 171, 230, 0.5) 0%, transparent 70%)",
             bottom: "10%",
             left: "-10%",
           }}
@@ -114,8 +114,8 @@ export function Hero() {
             className="inline-flex items-center gap-2 mb-8"
           >
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c9a962] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#c9a962]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8dc2ff] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#8dc2ff]"></span>
             </span>
             <span className="px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/[0.12] text-white/90 text-sm font-medium tracking-wide">
               Desde 1998 trabajando por Argentina
@@ -133,7 +133,7 @@ export function Hero() {
             <span className="text-white">Impulsando el</span>
             <br />
             <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-[#c9a962] via-[#e0c77d] to-[#c9a962] bg-clip-text text-transparent">
+              <span className="relative z-10 bg-gradient-to-r from-[#8dc2ff] via-[#89abe6] to-[#8dc2ff] bg-clip-text text-transparent">
                 desarrollo sustentable
               </span>
               {/* Decorative underline */}
@@ -147,16 +147,16 @@ export function Hero() {
               >
                 <motion.path
                   d="M2 8C50 2 100 10 150 6C200 2 250 8 298 4"
-                  stroke="url(#gold-gradient)"
+                  stroke="url(#blue-brand-gradient)"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   fill="none"
                 />
                 <defs>
-                  <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#c9a962" />
-                    <stop offset="50%" stopColor="#e0c77d" />
-                    <stop offset="100%" stopColor="#c9a962" />
+                  <linearGradient id="blue-brand-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#8dc2ff" />
+                    <stop offset="50%" stopColor="#89abe6" />
+                    <stop offset="100%" stopColor="#8dc2ff" />
                   </linearGradient>
                 </defs>
               </motion.svg>
@@ -183,7 +183,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group text-lg h-14 px-8 bg-gradient-to-r from-[#c9a962] to-[#b8963f] text-[#1a2744] hover:from-[#d4b874] hover:to-[#c9a962] shadow-xl shadow-[#c9a962]/20 transition-all duration-300 hover:scale-[1.02] font-semibold rounded-xl"
+              className="group text-lg h-14 px-8 bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#a5cfff] hover:to-[#8dc2ff] shadow-xl shadow-[#8dc2ff]/20 transition-all duration-300 hover:scale-[1.02] font-semibold rounded-xl"
               onClick={() => document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" })}
             >
               <span className="flex items-center gap-2">
@@ -245,12 +245,12 @@ export function Hero() {
           <span className="text-white/40 text-xs uppercase tracking-widest group-hover:text-white/60 transition-colors">
             Descubrir más
           </span>
-          <ChevronDown className="w-5 h-5 text-white/40 group-hover:text-[#c9a962] transition-colors" />
+          <ChevronDown className="w-5 h-5 text-white/40 group-hover:text-[#8dc2ff] transition-colors" />
         </motion.div>
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fdfcfb] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
     </section>
   )
 }

@@ -15,27 +15,27 @@ export function Partners() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fdfcfb] via-[#f7f5f3] to-[#fdfcfb]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#f0f7ff] to-[#ffffff]" />
 
       {/* Top divider */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e8e4df] to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <MotionViewport className="text-center mb-16" initial={{ opacity: 0, y: 20 }}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-6">
             <Handshake className="w-4 h-4" />
             NUESTROS ALIADOS
           </span>
 
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a2744] mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111269] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Alianzas estratégicas
           </h2>
 
-          <p className="text-lg text-[#1a2744]/60 max-w-2xl mx-auto">
+          <p className="text-lg text-[#111269]/60 max-w-2xl mx-auto">
             Empresas y organizaciones que nos acompañan en nuestra misión de desarrollo sustentable
           </p>
         </MotionViewport>
@@ -50,14 +50,14 @@ export function Partners() {
               transition={{ duration: 0.4 }}
               className="group"
             >
-              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-[#e8e4df] hover:border-[#c9a962]/30 hover:shadow-lg hover:shadow-[#c9a962]/5 transition-all duration-300 flex flex-col items-center justify-center aspect-square">
+              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-[#e2e8f0] hover:border-[#8dc2ff]/30 hover:shadow-lg hover:shadow-[#8dc2ff]/5 transition-all duration-300 flex flex-col items-center justify-center aspect-square">
                 {/* Placeholder logo - using abbreviation */}
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1a2744]/5 to-[#3d5a80]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-xl font-bold text-[#1a2744]/60 group-hover:text-[#1a2744] transition-colors">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#111269]/5 to-[#89abe6]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-xl font-bold text-[#111269]/60 group-hover:text-[#111269] transition-colors">
                     {partner.abbr}
                   </span>
                 </div>
-                <span className="text-xs text-[#1a2744]/50 text-center font-medium">
+                <span className="text-xs text-[#111269]/50 text-center font-medium">
                   {partner.name}
                 </span>
               </div>
@@ -72,12 +72,12 @@ export function Partners() {
           className="relative rounded-3xl overflow-hidden"
         >
           {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a2744] via-[#243352] to-[#3d5a80]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#111269] via-[#1a2754] to-[#89abe6]" />
 
           {/* Decorative elements */}
           <div
             className="absolute top-0 right-0 w-96 h-96 opacity-15"
-            style={{ background: "radial-gradient(circle, rgba(201, 169, 98, 0.5) 0%, transparent 60%)" }}
+            style={{ background: "radial-gradient(circle, rgba(141, 194, 255, 0.5) 0%, transparent 60%)" }}
           />
           <div
             className="absolute bottom-0 left-0 w-64 h-64 opacity-10"
@@ -103,7 +103,7 @@ export function Partners() {
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 ¿Querés ser parte de nuestra{" "}
-                <span className="text-[#c9a962]">red de aliados</span>?
+                <span className="text-[#8dc2ff]">red de aliados</span>?
               </h3>
               <p className="text-white/60 text-lg max-w-2xl">
                 Sumate y ayudanos a construir un futuro mejor para Argentina.
@@ -113,7 +113,7 @@ export function Partners() {
 
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-[#c9a962] to-[#b8963f] text-[#1a2744] hover:from-[#d4b874] hover:to-[#c9a962] h-14 px-10 font-semibold rounded-xl shadow-lg shadow-[#c9a962]/20 transition-all duration-300 hover:scale-[1.02] flex-shrink-0"
+              className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 font-semibold rounded-xl shadow-lg shadow-[#8dc2ff]/20 transition-all duration-300 hover:scale-[1.02] flex-shrink-0"
               asChild
             >
               <a href="#contacto">

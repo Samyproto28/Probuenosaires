@@ -56,7 +56,7 @@ const StatItem = ({
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className="group relative"
     >
-      <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e8e4df] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2">
+      <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2">
         {/* Accent line */}
         <div
           className="absolute top-0 left-8 right-8 h-1 rounded-b-full opacity-80"
@@ -78,7 +78,7 @@ const StatItem = ({
         <div className="flex items-baseline gap-1 mb-3">
           <span
             className="text-5xl lg:text-6xl font-bold tabular-nums tracking-tight"
-            style={{ fontFamily: "var(--font-playfair)", color: "#1a2744" }}
+            style={{ fontFamily: "var(--font-playfair)", color: "#111269" }}
           >
             {count.toLocaleString()}
           </span>
@@ -91,7 +91,7 @@ const StatItem = ({
         </div>
 
         {/* Label */}
-        <p className="text-[#1a2744]/60 font-medium text-base lg:text-lg leading-snug">
+        <p className="text-[#111269]/60 font-medium text-base lg:text-lg leading-snug">
           {label}
         </p>
 
@@ -111,26 +111,26 @@ export function ImpactStats() {
       icon: Users,
       number: "7,513",
       label: "Participantes en nuestros programas",
-      accentColor: "#1a2744",
+      accentColor: "#111269",
     },
     {
       icon: Briefcase,
       number: "2,411",
       label: "Empresas asistidas y fortalecidas",
-      accentColor: "#3d5a80",
+      accentColor: "#89abe6",
     },
     {
       icon: GraduationCap,
       number: "10,000",
       suffix: "+",
       label: "Personas capacitadas",
-      accentColor: "#c9a962",
+      accentColor: "#8dc2ff",
     },
     {
       icon: TrendingUp,
       number: "25",
       label: "Años de trayectoria",
-      accentColor: "#1a2744",
+      accentColor: "#111269",
     },
   ]
 
@@ -140,17 +140,17 @@ export function ImpactStats() {
   return (
     <section id="impacto" className="relative py-24 lg:py-32 overflow-hidden" ref={sectionRef}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fdfcfb] via-[#f7f5f3] to-[#fdfcfb]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#f0f7ff] to-[#ffffff]" />
 
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e8e4df] to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e8e4df] to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent" />
 
       {/* Subtle pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #1a2744 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #111269 1px, transparent 1px)`,
           backgroundSize: "32px 32px",
         }}
       />
@@ -163,16 +163,16 @@ export function ImpactStats() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#c9a962]/10 text-[#b8963f] text-sm font-semibold tracking-wide mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-4">
             NUESTRO IMPACTO
           </span>
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1a2744] mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111269] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Resultados que transforman
           </h2>
-          <p className="text-lg text-[#1a2744]/60 max-w-2xl mx-auto">
+          <p className="text-lg text-[#111269]/60 max-w-2xl mx-auto">
             Desde 1998, trabajamos incansablemente para generar un impacto positivo y duradero en las comunidades argentinas.
           </p>
         </motion.div>
@@ -191,7 +191,7 @@ export function ImpactStats() {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <p className="text-[#1a2744]/50 text-sm">
+          <p className="text-[#111269]/50 text-sm">
             Datos actualizados al cierre del año fiscal 2024
           </p>
         </motion.div>

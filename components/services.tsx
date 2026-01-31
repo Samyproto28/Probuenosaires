@@ -10,8 +10,8 @@ export function Services() {
       description:
         "Brindamos asistencia técnica y financiera a micro, pequeñas y medianas empresas para mejorar su competitividad y sostenibilidad.",
       features: ["Asesoramiento personalizado", "Acceso a créditos", "Planes de mejora"],
-      gradient: "from-[#1a2744] to-[#3d5a80]",
-      accentColor: "#3d5a80",
+      gradient: "from-[#111269] to-[#89abe6]",
+      accentColor: "#89abe6",
       link: "#uvt",
     },
     {
@@ -20,8 +20,8 @@ export function Services() {
       description:
         "Conectamos personas en búsqueda de empleo con empresas que necesitan talento. Orientación laboral integral.",
       features: ["Bolsa de trabajo", "Capacitación laboral", "Seguimiento continuo"],
-      gradient: "from-[#3d5a80] to-[#5a7ca8]",
-      accentColor: "#5a7ca8",
+      gradient: "from-[#89abe6] to-[#405e8c]",
+      accentColor: "#405e8c",
       link: "#empleo",
     },
     {
@@ -30,8 +30,8 @@ export function Services() {
       description:
         "Programas de formación en competencias digitales y tecnologías 4.0 para la industria del futuro.",
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
-      gradient: "from-[#c9a962] to-[#b8963f]",
-      accentColor: "#c9a962",
+      gradient: "from-[#8dc2ff] to-[#89abe6]",
+      accentColor: "#8dc2ff",
       link: "#capacitacion",
     },
   ]
@@ -39,19 +39,19 @@ export function Services() {
   return (
     <section id="servicios" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a2744]" />
+      <div className="absolute inset-0 bg-[#111269]" />
 
       {/* Decorative gradient orbs */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20 blur-3xl"
         style={{
-          background: "radial-gradient(circle, rgba(201, 169, 98, 0.4) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(141, 194, 255, 0.4) 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-15 blur-3xl"
         style={{
-          background: "radial-gradient(circle, rgba(61, 90, 128, 0.5) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(137, 171, 230, 0.5) 0%, transparent 70%)",
         }}
       />
 
@@ -70,7 +70,7 @@ export function Services() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <MotionViewport className="text-center mb-16 lg:mb-20" initial={{ opacity: 0, y: 20 }}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#c9a962] text-sm font-semibold tracking-wide mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#8dc2ff] text-sm font-semibold tracking-wide mb-6">
             <Sparkles className="w-4 h-4" />
             NUESTROS SERVICIOS
           </span>
@@ -79,7 +79,7 @@ export function Services() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Soluciones integrales para el{" "}
-            <span className="bg-gradient-to-r from-[#c9a962] to-[#e0c77d] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] bg-clip-text text-transparent">
               crecimiento
             </span>
           </h2>
@@ -118,7 +118,7 @@ export function Services() {
 
                   {/* Title */}
                   <h3
-                    className="text-2xl font-bold mb-4 text-white group-hover:text-[#c9a962] transition-colors duration-300"
+                    className="text-2xl font-bold mb-4 text-white group-hover:text-[#8dc2ff] transition-colors duration-300"
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
                     {service.title}
@@ -173,7 +173,7 @@ export function Services() {
           delay={0.8}
           className="mt-16 flex justify-center"
         >
-          <div className="h-px w-48 bg-gradient-to-r from-transparent via-[#c9a962]/40 to-transparent" />
+          <div className="h-px w-48 bg-gradient-to-r from-transparent via-[#8dc2ff]/40 to-transparent" />
         </MotionViewport>
       </div>
     </section>

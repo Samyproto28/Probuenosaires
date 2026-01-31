@@ -42,10 +42,10 @@ export function Contact() {
       title: "Teléfono",
       content: (
         <div className="space-y-1">
-          <a href="tel:+541143044266" className="block hover:text-[#c9a962] transition-colors">
+          <a href="tel:+541143044266" className="block hover:text-[#8dc2ff] transition-colors">
             (011) 4304-4266
           </a>
-          <a href="tel:+541152634256" className="block hover:text-[#c9a962] transition-colors">
+          <a href="tel:+541152634256" className="block hover:text-[#8dc2ff] transition-colors">
             (011) 5263-4256
           </a>
         </div>
@@ -55,7 +55,7 @@ export function Contact() {
       icon: Mail,
       title: "Email",
       content: (
-        <a href="mailto:info@probuenosaires.org" className="hover:text-[#c9a962] transition-colors">
+        <a href="mailto:info@probuenosaires.org" className="hover:text-[#8dc2ff] transition-colors">
           info@probuenosaires.org
         </a>
       ),
@@ -75,16 +75,16 @@ export function Contact() {
   return (
     <section id="contacto" className="py-24 lg:py-32 relative overflow-hidden" ref={sectionRef}>
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a2744]" />
+      <div className="absolute inset-0 bg-[#111269]" />
 
       {/* Decorative gradient orbs */}
       <div
         className="absolute top-0 left-0 w-[600px] h-[600px] opacity-15"
-        style={{ background: "radial-gradient(circle, rgba(61, 90, 128, 0.5) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(137, 171, 230, 0.5) 0%, transparent 60%)" }}
       />
       <div
         className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-10"
-        style={{ background: "radial-gradient(circle, rgba(201, 169, 98, 0.4) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(141, 194, 255, 0.4) 0%, transparent 60%)" }}
       />
 
       {/* Grid pattern */}
@@ -107,7 +107,7 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#c9a962] text-sm font-semibold tracking-wide mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#8dc2ff] text-sm font-semibold tracking-wide mb-6">
             <Mail className="w-4 h-4" />
             CONTACTO
           </span>
@@ -117,7 +117,7 @@ export function Contact() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Comunicate con{" "}
-            <span className="bg-gradient-to-r from-[#c9a962] to-[#e0c77d] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#8dc2ff] to-[#ffffff] bg-clip-text text-transparent">
               Nosotros
             </span>
           </h2>
@@ -151,8 +151,8 @@ export function Contact() {
                   transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#c9a962]/20 group-hover:border-[#c9a962]/30 transition-all duration-300">
-                    <item.icon className="w-5 h-5 text-[#c9a962]" />
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#8dc2ff]/20 group-hover:border-[#8dc2ff]/30 transition-all duration-300">
+                    <item.icon className="w-5 h-5 text-[#8dc2ff]" />
                   </div>
                   <div>
                     <div className="font-semibold text-white mb-1">{item.title}</div>
@@ -172,7 +172,7 @@ export function Contact() {
               className="mt-8 p-6 bg-white/5 border border-white/10 rounded-2xl"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-5 h-5 text-[#c9a962]" />
+                <Building2 className="w-5 h-5 text-[#8dc2ff]" />
                 <h4 className="font-semibold text-white">Datos institucionales</h4>
               </div>
               <div className="space-y-2 text-sm text-white/60">
@@ -192,7 +192,7 @@ export function Contact() {
           >
             <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl">
               <h3
-                className="text-2xl font-bold text-[#1a2744] mb-6"
+                className="text-2xl font-bold text-[#111269] mb-6"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 Envianos tu consulta
@@ -201,7 +201,7 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#1a2744]/80 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-[#111269]/80 mb-2">
                       Nombre completo *
                     </label>
                     <Input
@@ -211,12 +211,12 @@ export function Contact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="h-12 rounded-xl border-[#e8e4df] focus:border-[#c9a962] focus:ring-[#c9a962]/20"
+                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#1a2744]/80 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-[#111269]/80 mb-2">
                       Email *
                     </label>
                     <Input
@@ -226,14 +226,14 @@ export function Contact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="h-12 rounded-xl border-[#e8e4df] focus:border-[#c9a962] focus:ring-[#c9a962]/20"
+                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[#1a2744]/80 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-[#111269]/80 mb-2">
                       Teléfono
                     </label>
                     <Input
@@ -242,12 +242,12 @@ export function Contact() {
                       placeholder="+54 11 1234-5678"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="h-12 rounded-xl border-[#e8e4df] focus:border-[#c9a962] focus:ring-[#c9a962]/20"
+                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-[#1a2744]/80 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-[#111269]/80 mb-2">
                       Asunto *
                     </label>
                     <Input
@@ -257,13 +257,13 @@ export function Contact() {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       required
-                      className="h-12 rounded-xl border-[#e8e4df] focus:border-[#c9a962] focus:ring-[#c9a962]/20"
+                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#1a2744]/80 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-[#111269]/80 mb-2">
                     Mensaje *
                   </label>
                   <Textarea
@@ -273,20 +273,20 @@ export function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={5}
-                    className="rounded-xl border-[#e8e4df] focus:border-[#c9a962] focus:ring-[#c9a962]/20 resize-none"
+                    className="rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20 resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full h-14 bg-gradient-to-r from-[#1a2744] to-[#3d5a80] hover:from-[#243352] hover:to-[#4a6a9a] text-white rounded-xl font-semibold group transition-all duration-300"
+                  className="w-full h-14 bg-gradient-to-r from-[#111269] to-[#8dc2ff] hover:from-[#1a2754] hover:to-[#89abe6] text-white rounded-xl font-semibold group transition-all duration-300"
                 >
                   <span>Enviar mensaje</span>
                   <Send className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Button>
 
-                <p className="text-xs text-[#1a2744]/50 text-center">
+                <p className="text-xs text-[#111269]/50 text-center">
                   Al enviar este formulario, aceptás nuestra política de privacidad.
                 </p>
               </form>

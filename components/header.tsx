@@ -36,20 +36,20 @@ export function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-[#1a2744] text-white py-2.5 relative z-50">
+      <div className="bg-[#111269] text-white py-2.5 relative z-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
             <div className="flex items-center gap-6">
               <a
                 href="tel:+541143044266"
-                className="flex items-center gap-2 hover:text-[#c9a962] transition-colors duration-300"
+                className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
               >
                 <Phone className="h-3.5 w-3.5" />
                 <span className="font-medium">(011) 4304-4266</span>
               </a>
               <a
                 href="mailto:info@probuenosaires.org"
-                className="flex items-center gap-2 hover:text-[#c9a962] transition-colors duration-300"
+                className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
               >
                 <Mail className="h-3.5 w-3.5" />
                 <span className="font-medium">info@probuenosaires.org</span>
@@ -69,7 +69,7 @@ export function Header() {
         className={cn(
           "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-black/[0.03] border-b border-[#e8e4df]"
+            ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-black/[0.03] border-b border-[#e2e8f0]"
             : "bg-white/80 backdrop-blur-md border-b border-transparent"
         )}
       >
@@ -92,8 +92,8 @@ export function Header() {
               </div>
               <div className="hidden sm:block">
                 <div className="text-base lg:text-lg font-bold leading-tight flex flex-col">
-                  <span className="text-[#1a2744] font-playfair tracking-tight">Fundación</span>
-                  <span className="text-[#3d5a80] font-playfair tracking-tight">Pro Buenos Aires</span>
+                  <span className="text-[#111269] font-playfair tracking-tight">Fundación</span>
+                  <span className="text-[#89abe6] font-playfair tracking-tight">Pro Buenos Aires</span>
                 </div>
                 <div className="text-[10px] lg:text-[11px] text-muted-foreground font-semibold tracking-[0.1em] uppercase mt-0.5 opacity-80">
                   Desarrollo Sustentable • Arg
@@ -112,7 +112,7 @@ export function Header() {
                         onClick={() => navigateWithHash(item.href)}
                         className={cn(
                           "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
-                          "text-[#1a2744]/70 hover:text-[#1a2744] hover:bg-[#1a2744]/5"
+                          "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
                         )}
                       >
                         {item.label}
@@ -123,15 +123,15 @@ export function Header() {
                         className={cn(
                           "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 relative",
                           isActive
-                            ? "text-[#1a2744] bg-[#1a2744]/5"
-                            : "text-[#1a2744]/70 hover:text-[#1a2744] hover:bg-[#1a2744]/5"
+                            ? "text-[#111269] bg-[#111269]/5"
+                            : "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
                         )}
                       >
                         {item.label}
                         {isActive && (
                           <motion.div
                             layoutId="activeNav"
-                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#c9a962] rounded-full"
+                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#8dc2ff] rounded-full"
                           />
                         )}
                       </Link>
@@ -147,7 +147,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden rounded-lg hover:bg-[#1a2744]/5"
+              className="lg:hidden rounded-lg hover:bg-[#111269]/5"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <AnimatePresence mode="wait">
@@ -159,7 +159,7 @@ export function Header() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="h-5 w-5 text-[#1a2744]" />
+                    <X className="h-5 w-5 text-[#111269]" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -169,7 +169,7 @@ export function Header() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="h-5 w-5 text-[#1a2744]" />
+                    <Menu className="h-5 w-5 text-[#111269]" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -186,7 +186,7 @@ export function Header() {
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:hidden overflow-hidden"
               >
-                <div className="py-4 space-y-1 border-t border-[#e8e4df]">
+                <div className="py-4 space-y-1 border-t border-[#e2e8f0]">
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.href}
@@ -200,7 +200,7 @@ export function Header() {
                             navigateWithHash(item.href)
                             setIsMenuOpen(false)
                           }}
-                          className="block w-full text-left py-3 px-4 text-base font-medium text-[#1a2744]/80 hover:text-[#1a2744] hover:bg-[#1a2744]/5 rounded-lg transition-colors"
+                          className="block w-full text-left py-3 px-4 text-base font-medium text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5 rounded-lg transition-colors"
                         >
                           {item.label}
                         </button>
@@ -210,8 +210,8 @@ export function Header() {
                           className={cn(
                             "block py-3 px-4 text-base font-medium rounded-lg transition-colors",
                             pathname === item.href
-                              ? "text-[#1a2744] bg-[#1a2744]/5"
-                              : "text-[#1a2744]/80 hover:text-[#1a2744] hover:bg-[#1a2744]/5"
+                              ? "text-[#111269] bg-[#111269]/5"
+                              : "text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5"
                           )}
                           onClick={() => setIsMenuOpen(false)}
                         >

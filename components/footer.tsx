@@ -34,23 +34,23 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative bg-[#1a2744] text-white overflow-hidden">
+    <footer className="relative bg-[#111269] text-white overflow-hidden">
       {/* Decorative gradient orbs */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] opacity-10 blur-3xl pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(201, 169, 98, 0.4) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(141, 194, 255, 0.4) 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-10 blur-3xl pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(61, 90, 128, 0.5) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(137, 171, 230, 0.5) 0%, transparent 70%)",
         }}
       />
 
       {/* Top border gradient */}
-      <div className="h-1 bg-gradient-to-r from-[#1a2744] via-[#c9a962] to-[#1a2744]" />
+      <div className="h-1 bg-gradient-to-r from-[#111269] via-[#8dc2ff] to-[#111269]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Main Footer Content */}
@@ -89,7 +89,7 @@ export function Footer() {
               {/* Contact Info */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3 text-sm">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#c9a962]" />
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#8dc2ff]" />
                   <span className="text-white/70">
                     Ruta 36 Nº 1354, entre calles 13 y 14<br />
                     Cruce de Florencio Varela, Berazategui<br />
@@ -98,16 +98,16 @@ export function Footer() {
                 </div>
                 <a
                   href="tel:+541143044266"
-                  className="flex items-center gap-3 text-sm text-white/70 hover:text-[#c9a962] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
                 >
-                  <Phone className="w-4 h-4 flex-shrink-0 text-[#c9a962]" />
+                  <Phone className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" />
                   <span className="group-hover:underline">(011) 4304-4266</span>
                 </a>
                 <a
                   href="mailto:info@probuenosaires.org"
-                  className="flex items-center gap-3 text-sm text-white/70 hover:text-[#c9a962] transition-colors group"
+                  className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
                 >
-                  <Mail className="w-4 h-4 flex-shrink-0 text-[#c9a962]" />
+                  <Mail className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" />
                   <span className="group-hover:underline">info@probuenosaires.org</span>
                 </a>
               </div>
@@ -119,7 +119,7 @@ export function Footer() {
                     key={index}
                     initial={{ opacity: 0, scale: 0.8 }}
                     delay={0.3 + index * 0.1}
-                    className="w-10 h-10 bg-white/5 hover:bg-[#c9a962]/20 border border-white/10 hover:border-[#c9a962]/30 flex items-center justify-center rounded-lg transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 bg-white/5 hover:bg-[#8dc2ff]/20 border border-white/10 hover:border-[#8dc2ff]/30 flex items-center justify-center rounded-lg transition-all duration-300 hover:scale-110"
                   >
                     <a
                       href={social.href}
@@ -128,7 +128,7 @@ export function Footer() {
                       aria-label={social.label}
                       className="w-full h-full flex items-center justify-center"
                     >
-                      <social.icon className="w-4 h-4 text-white/70 hover:text-[#c9a962]" />
+                      <social.icon className="w-4 h-4 text-white/70 hover:text-[#8dc2ff]" />
                     </a>
                   </MotionViewport>
                 ))}
@@ -149,7 +149,7 @@ export function Footer() {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-white/50 hover:text-[#c9a962] transition-colors text-sm flex items-center gap-1 group"
+                        className="text-white/50 hover:text-[#8dc2ff] transition-colors text-sm flex items-center gap-1 group"
                       >
                         <span>{link.label}</span>
                         <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -178,19 +178,19 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
             <p className="text-white/40 flex items-center gap-1">
               © {currentYear} Fundación Pro Buenos Aires. Hecho con
-              <Heart className="w-3.5 h-3.5 text-[#c9a962] mx-1" />
+              <Heart className="w-3.5 h-3.5 text-[#8dc2ff] mx-1" />
               en Argentina.
             </p>
             <div className="flex gap-6">
               <Link
                 href="#"
-                className="text-white/40 hover:text-[#c9a962] transition-colors"
+                className="text-white/40 hover:text-[#8dc2ff] transition-colors"
               >
                 Política de Privacidad
               </Link>
               <Link
                 href="#"
-                className="text-white/40 hover:text-[#c9a962] transition-colors"
+                className="text-white/40 hover:text-[#8dc2ff] transition-colors"
               >
                 Términos y Condiciones
               </Link>
