@@ -96,10 +96,13 @@ export function DonationCTA() {
                 <Button
                   size="lg"
                   className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 text-base font-semibold w-fit shadow-lg shadow-[#8dc2ff]/20 rounded-xl transition-all duration-300 hover:scale-[1.02]"
+                  asChild
                 >
-                  <Heart className="mr-2 h-5 w-5" />
-                  Quiero donar ahora
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
+                    <Heart className="mr-2 h-5 w-5" />
+                    Quiero donar
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </a>
                 </Button>
               </motion.div>
             </div>
