@@ -81,17 +81,8 @@ export function DonationCTA() {
                   Cada aporte, sin importar el monto, hace la diferencia en la vida de alguien.
                 </p>
 
-                {/* Donation options */}
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {["$1.000", "$5.000", "$10.000", "Otro monto"].map((amount) => (
-                    <button
-                      key={amount}
-                      className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 hover:border-[#8dc2ff]/40 hover:text-white transition-all duration-300 text-sm font-medium"
-                    >
-                      {amount}
-                    </button>
-                  ))}
-                </div>
+                {/* Se eliminaron los botones de montos por solicitud del usuario */}
+
 
                 <Button
                   size="lg"
