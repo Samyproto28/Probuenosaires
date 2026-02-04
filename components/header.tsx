@@ -26,9 +26,10 @@ export function Header() {
 
   const navItems = [
     { label: "Inicio", href: "/inicio" },
-    { label: "Programas", href: "/programas" },
-    { label: "Donaciones", href: "/inicio#donaciones", isHashLink: true },
     { label: "Institucional", href: "/institucional" },
+    { label: "Programas", href: "/programas" },
+    { label: "Novedades", href: "/novedades" },
+    { label: "Donaciones", href: "/inicio#donaciones", isHashLink: true },
     { label: "Equipo", href: "/equipo" },
     { label: "Contacto", href: "/contacto" },
   ]
@@ -149,6 +150,7 @@ export function Header() {
               size="icon"
               className="lg:hidden rounded-lg hover:bg-[#111269]/5"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               <AnimatePresence mode="wait">
                 {isMenuOpen ? (

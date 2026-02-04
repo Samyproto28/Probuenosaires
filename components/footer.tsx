@@ -8,22 +8,22 @@ export function Footer() {
 
   const footerLinks = {
     "Sobre Nosotros": [
-      { label: "Quiénes somos", href: "#nosotros" },
-      { label: "Misión y Visión", href: "#nosotros" },
+      { label: "Quiénes somos", href: "/institucional" },
+      { label: "Misión y Visión", href: "/institucional" },
       { label: "Equipo", href: "/equipo" },
-      { label: "Memoria y Balance", href: "#" },
+      { label: "Objetivos e Historia", href: "/institucional" },
     ],
-    Servicios: [
-      { label: "Asistencia UVT", href: "#uvt" },
-      { label: "Intermediación de Empleo", href: "#empleo" },
-      { label: "Capacitación CT4.0", href: "#capacitacion" },
-      { label: "Consultoría", href: "#" },
+    Programas: [
+      { label: "Programa Vinculando", href: "/programas" },
+      { label: "Radio Empresaria", href: "/programas" },
+      { label: "Encadenar y Comex", href: "/programas" },
+      { label: "Gestión Pymes", href: "/programas" },
     ],
-    Recursos: [
-      { label: "Noticias", href: "#noticias" },
-      { label: "Eventos", href: "#" },
-      { label: "Publicaciones", href: "#" },
-      { label: "Preguntas Frecuentes", href: "#" },
+    Novedades: [
+      { label: "Últimas noticias", href: "/novedades" },
+      { label: "Eventos", href: "/novedades" },
+      { label: "Publicaciones", href: "/novedades" },
+      { label: "Contacto", href: "/contacto" },
     ],
   }
 

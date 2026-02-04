@@ -1,6 +1,6 @@
 "use client"
 
-import { Target, Eye, Award, Building, Users, Handshake, CheckCircle2 } from "lucide-react"
+import { Target, Eye, Award, Building, Users, Handshake, CheckCircle2, Cpu } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { cn } from "@/lib/utils"
@@ -35,19 +35,19 @@ export function InstitucionalContent() {
             icon: Building,
             title: "Nuestra Historia",
             description:
-                "Fundada en 1998, nuestra organización ha trabajado incansablemente durante más de dos décadas para promover el desarrollo sustentable en Argentina, adaptándonos a los desafíos cambiantes del contexto nacional y regional.",
+                "Fundada en 1998, nuestra organización ha trabajado incansablemente durante más de dos décadas para promover el desarrollo sustentable en Argentina, adaptándonos a los desafíos del contexto nacional.",
         },
         {
-            icon: Users,
-            title: "Nuestra Estructura",
+            icon: Cpu,
+            title: "UVT - Vinculación",
             description:
-                "Contamos con un equipo multidisciplinario de profesionales dedicados a diferentes áreas de expertise, asegurando un abordaje integral y especializado para cada uno de nuestros programas y proyectos.",
+                "Somos una Unidad de Vinculación Tecnológica (UVT) habilitada, facilitando la conexión entre el sistema científico-tecnológico y el sector productivo para fomentar la innovación.",
         },
         {
             icon: Handshake,
             title: "Nuestras Alianzas",
             description:
-                "Desarrollamos alianzas estratégicas con organizaciones públicas y privadas, universidades y otras ONGs para maximizar nuestro impacto y alcance en toda la geografía argentina.",
+                "Desarrollamos alianzas estratégicas con universidades, organismos públicos y empresas líderes (como Arcor y Oracle) para maximizar nuestro impacto en el desarrollo regional.",
         },
     ]
 

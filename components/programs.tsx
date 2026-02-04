@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu } from "lucide-react"
+import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu, Palette, Flag, Video, Layers, Factory } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function Programs() {
@@ -48,9 +48,9 @@ export function Programs() {
       icon: Radio,
       title: "Radio Empresaria",
       description:
-        "Nuestra emisora online brinda visibilidad y posicionamiento para empresas y emprendedores a través de entrevistas y difusión de productos. Un motor que sostiene y potencia el resto de los programas de la Fundación.",
+        "Nuestra emisora online (RadioEmpresaria.com.ar) brinda visibilidad y posicionamiento para empresas del sector productivo. Un espacio para comunicar la realidad de las cadenas de valor regionales.",
       impact: "Difusión",
-      impactLabel: "espacio de visibilidad empresarial",
+      impactLabel: "visibilidad para la cadena de valor",
       gradient: "from-[#89abe6] to-[#8dc2ff]",
       lightGradient: "from-[#89abe6]/5 to-[#8dc2ff]/5",
     },
@@ -63,6 +63,36 @@ export function Programs() {
       impactLabel: "innovación y tecnología aplicada",
       gradient: "from-[#111269] to-[#8dc2ff]",
       lightGradient: "from-[#111269]/5 to-[#8dc2ff]/5",
+    },
+    {
+      icon: Layers,
+      title: "Gestión Pymes",
+      description:
+        "Asistencia integral en productividad: Implementación de 5S, mejora de procesos, planificación estratégica y transformación digital para el fortalecimiento del negocio.",
+      impact: "Eficiencia",
+      impactLabel: "optimización de procesos productivos",
+      gradient: "from-[#405e8c] to-[#89abe6]",
+      lightGradient: "from-[#405e8c]/5 to-[#89abe6]/5",
+    },
+    {
+      icon: Palette,
+      title: "Industrias Culturales",
+      description:
+        "Fomentamos el desarrollo de las industrias culturales y creativas como motor de identidad y economía regional, integrando el arte y la creatividad con el sector productivo.",
+      impact: "Cultura",
+      impactLabel: "impulso a la economía creativa",
+      gradient: "from-[#8dc2ff] to-[#111269]",
+      lightGradient: "from-[#8dc2ff]/5 to-[#111269]/5",
+    },
+    {
+      icon: Flag,
+      title: "Argentina 2050",
+      description:
+        "Plataforma de pensamiento y acción para el desarrollo sustentable del país a largo plazo, enfocada en la competitividad y la inclusión social.",
+      impact: "Futuro",
+      impactLabel: "visión estratégica de país",
+      gradient: "from-[#111269] to-[#405e8c]",
+      lightGradient: "from-[#111269]/5 to-[#405e8c]/5",
     },
   ]
 

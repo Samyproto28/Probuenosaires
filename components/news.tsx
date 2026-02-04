@@ -1,32 +1,33 @@
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowRight, ArrowUpRight, Newspaper } from "lucide-react"
+import Link from "next/link"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export function News() {
   const newsItems = [
     {
-      title: "ABC de la Importación - Proba Comex",
-      date: "Sep 26, 2025",
-      category: "Capacitación",
-      categoryColor: "bg-[#8dc2ff]",
-      excerpt:
-        "Descargá el programa completo de este taller pensado para importadores. Claves para entender el proceso completo de importación en Argentina.",
-    },
-    {
-      title: "Pyme Saludable - Alianza estratégica con IINCA",
-      date: "Sep 15, 2025",
-      category: "Novedades",
-      categoryColor: "bg-[#89abe6]",
-      excerpt:
-        "Nos enorgullece anunciar esta alianza estratégica que permitirá diseñar e implementar proyectos innovadores para el desarrollo productivo de PyMEs.",
-    },
-    {
-      title: "John Maxwell en Argentina: Liderazgo que transforma",
-      date: "Sep 3, 2025",
-      category: "Eventos",
+      title: "Reconocimiento a mujeres con compromiso social en Florencio Varela",
+      date: "30 Ene, 2026",
+      category: "Institucional",
       categoryColor: "bg-[#111269]",
       excerpt:
-        "Fundación Pro Buenos Aires fue aliada estratégica en este evento que reunió a más de 500 líderes y profesionales.",
+        "En el marco del 135° aniversario de Florencio Varela, participamos del reconocimiento a mujeres que transforman la comunidad con su labor diaria.",
+    },
+    {
+      title: "Inauguramos nueva sede en Quilmes Oeste",
+      date: "25 Ene, 2026",
+      category: "Novedades",
+      categoryColor: "bg-[#8dc2ff]",
+      excerpt:
+        "¡Comenzamos una nueva etapa! Abrimos las puertas de nuestra nueva sede para ampliar el impacto de nuestros programas en la región sur.",
+    },
+    {
+      title: "Convenio clave para impulsar la economía verde",
+      date: "15 Ene, 2026",
+      category: "Sustentabilidad",
+      categoryColor: "bg-[#89abe6]",
+      excerpt:
+        "Firmamos un acuerdo estratégico para promover prácticas sustentables en el sector industrial y fortalecer el compromiso ambiental.",
     },
   ]
 
@@ -56,17 +57,19 @@ export function News() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111269]"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              Últimas novedades
+              Novedades
             </h2>
           </div>
 
-          <Button
-            variant="outline"
-            className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-6 font-medium group transition-all duration-300"
-          >
-            <span>Ver todas las noticias</span>
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link href="/novedades">
+            <Button
+              variant="outline"
+              className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-6 font-medium group transition-all duration-300"
+            >
+              <span>Ver todas las novedades</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </MotionViewport>
 
         {/* News Grid */}
