@@ -1,6 +1,7 @@
 "use client"
 
 import { Analytics } from "@vercel/analytics/next"
+import { PageTransition } from "@/components/page-transition"
 
 interface LayoutClientProps {
   children: React.ReactNode
@@ -9,7 +10,9 @@ interface LayoutClientProps {
 export function LayoutClient({ children }: LayoutClientProps) {
   return (
     <>
-      {children}
+      <PageTransition>
+        {children}
+      </PageTransition>
       <Analytics />
     </>
   )

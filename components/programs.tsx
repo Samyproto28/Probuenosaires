@@ -2,9 +2,14 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu, Palette, Flag, Video, Layers, Factory } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 import Image from "next/image"
+import Link from "next/link"
 
-export function Programs() {
-  const programs = [
+interface ProgramsProps {
+  limit?: number
+}
+
+export function Programs({ limit }: ProgramsProps) {
+  const allPrograms = [
     {
       icon: Handshake,
       title: "Programa Vinculando",
@@ -96,6 +101,8 @@ export function Programs() {
       lightGradient: "from-[#111269]/5 to-[#405e8c]/5",
     },
   ]
+
+  const programs = limit ? allPrograms.slice(0, limit) : allPrograms
 
   return (
     <section id="programas" className="relative py-24 lg:py-32 overflow-hidden">
@@ -200,6 +207,20 @@ export function Programs() {
             </MotionViewport>
           ))}
         </div>
+
+        {limit && (
+          <MotionViewport className="mt-12 flex justify-center" initial={{ opacity: 0, y: 20 }}>
+            <Link href="/programas">
+              <Button
+                variant="outline"
+                className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-8 font-medium group transition-all duration-300"
+              >
+                <span>Ver Todos los Programas</span>
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </MotionViewport>
+        )}
 
         {/* ODS Section */}
         <MotionViewport className="mt-24" initial={{ opacity: 0, y: 30 }} delay={0.6}>

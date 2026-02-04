@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Heart } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, Heart, MessageCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { MotionViewport } from "@/components/ui/motion-viewport"
@@ -102,6 +102,15 @@ export function Footer() {
                 >
                   <Phone className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
                   <span className="group-hover:underline">(011) 4304-4266</span>
+                </a>
+                <a
+                  href="https://wa.me/5491141899250"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
+                >
+                  <MessageCircle className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
+                  <span className="group-hover:underline">+54 9 11 4189-9250</span>
                 </a>
                 <a
                   href="mailto:info@probuenosaires.org"

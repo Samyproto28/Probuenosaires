@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Phone, Mail, ExternalLink } from "lucide-react"
+import { Menu, X, Phone, Mail, ExternalLink, MessageCircle } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { useHashNavigation } from "@/hooks/use-hash-navigation"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
@@ -13,7 +12,6 @@ import Image from "next/image"
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { navigateWithHash } = useHashNavigation()
   const pathname = usePathname()
 
   useEffect(() => {
@@ -25,11 +23,11 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { label: "Inicio", href: "/inicio" },
+    { label: "Inicio", href: "/" },
     { label: "Institucional", href: "/institucional" },
     { label: "Programas", href: "/programas" },
     { label: "Novedades", href: "/novedades" },
-    { label: "Donaciones", href: "/inicio#donaciones", isHashLink: true },
+    { label: "Donaciones", href: "/donaciones" },
     { label: "Equipo", href: "/equipo" },
     { label: "Contacto", href: "/contacto" },
   ]
@@ -47,6 +45,15 @@ export function Header() {
               >
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                 <span className="font-medium">(011) 4304-4266</span>
+              </a>
+              <a
+                href="https://wa.me/5491141899250"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
+              >
+                <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                <span className="font-medium">WhatsApp</span>
               </a>
               <a
                 href="mailto:info@probuenosaires.org"
@@ -108,39 +115,23 @@ export function Header() {
                 const isActive = pathname === item.href
                 return (
                   <div key={item.href}>
-                    {item.isHashLink ? (
-                      <a
-                        href={item.href}
-                        onClick={(e) => {
-                          e.preventDefault()
-                          navigateWithHash(item.href)
-                        }}
-                        className={cn(
-                          "px-4 py-2 text-sm font-medium rounded-lg transition-[color,background-color] duration-300 flex items-center",
-                          "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
-                        )}
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "px-4 py-2 text-sm font-medium rounded-lg transition-[color,background-color] duration-300 relative",
-                          isActive
-                            ? "text-[#111269] bg-[#111269]/5"
-                            : "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
-                        )}
-                      >
-                        {item.label}
-                        {isActive && (
-                          <motion.div
-                            layoutId="activeNav"
-                            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#8dc2ff] rounded-full"
-                          />
-                        )}
-                      </Link>
-                    )}
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-lg transition-[color,background-color] duration-300 relative",
+                        isActive
+                          ? "text-[#111269] bg-[#111269]/5"
+                          : "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
+                      )}
+                    >
+                      {item.label}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeNav"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#8dc2ff] rounded-full"
+                        />
+                      )}
+                    </Link>
                   </div>
                 )
               })}
@@ -200,32 +191,18 @@ export function Header() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                     >
-                      {item.isHashLink ? (
-                        <a
-                          href={item.href}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            navigateWithHash(item.href)
-                            setIsMenuOpen(false)
-                          }}
-                          className="block w-full text-left py-3 px-4 text-base font-medium text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5 rounded-lg transition-[color,background-color]"
-                        >
-                          {item.label}
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            "block py-3 px-4 text-base font-medium rounded-lg transition-colors",
-                            pathname === item.href
-                              ? "text-[#111269] bg-[#111269]/5"
-                              : "text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5"
-                          )}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      )}
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "block py-3 px-4 text-base font-medium rounded-lg transition-colors",
+                          pathname === item.href
+                            ? "text-[#111269] bg-[#111269]/5"
+                            : "text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5"
+                        )}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                     </motion.div>
                   ))}
 

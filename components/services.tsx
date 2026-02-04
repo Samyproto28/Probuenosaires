@@ -12,7 +12,7 @@ export function Services() {
       features: ["Asesoramiento personalizado", "Acceso a créditos", "Planes de mejora"],
       gradient: "from-[#111269] to-[#89abe6]",
       accentColor: "#89abe6",
-      link: "#uvt",
+      link: "/uvt",
     },
     {
       icon: Users,

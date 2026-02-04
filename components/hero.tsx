@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import Link from "next/link"
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -186,18 +187,12 @@ export function Hero() {
               className="group text-lg h-14 px-8 bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#a5cfff] hover:to-[#8dc2ff] shadow-xl shadow-[#8dc2ff]/20 transition-[transform,background-color,shadow] duration-300 hover:scale-[1.02] font-semibold rounded-xl"
               asChild
             >
-              <a
-                href="#programas"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" })
-                }}
-              >
+              <Link href="/programas">
                 <span className="flex items-center gap-2">
                   Conocer Nuestros Programas
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </span>
-              </a>
+              </Link>
             </Button>
             <Button
               size="lg"
@@ -205,13 +200,7 @@ export function Hero() {
               className="text-lg h-14 px-8 border-2 border-white/20 bg-white/[0.05] text-white hover:bg-white/[0.1] hover:border-white/30 backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-[1.02] rounded-xl font-medium"
               asChild
             >
-              <a
-                href="#donaciones"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("donaciones")?.scrollIntoView({ behavior: "smooth" })
-                }}
-              >
+              <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
                 Hacer Una Donación
               </a>
             </Button>

@@ -5,24 +5,36 @@ import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Clock, Send, Building2 } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Send, Building2, MessageCircle } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
-    subject: "",
     message: "",
   })
+  const [submitMethod, setSubmitMethod] = useState<"whatsapp" | "email">("whatsapp")
 
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+
+    const message = `Buenas soy ${formData.name}
+
+Les escribia para ${formData.message}`
+
+    if (submitMethod === "whatsapp") {
+      const encodedMessage = encodeURIComponent(message)
+      const whatsappUrl = `https://wa.me/5491141899250?text=${encodedMessage}`
+      window.open(whatsappUrl, "_blank")
+    } else {
+      const subject = encodeURIComponent(`Consulta de ${formData.name}`)
+      const body = encodeURIComponent(message)
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@probuenosaires.org&su=${subject}&body=${body}`
+      window.open(gmailUrl, "_blank")
+    }
   }
 
   const contactInfo = [
@@ -42,23 +54,15 @@ export function Contact() {
       title: "Teléfono",
       content: (
         <div className="space-y-1">
-          <a href="tel:+541143044266" className="block hover:text-[#8dc2ff] transition-colors">
-            (011) 4304-4266
-          </a>
-          <a href="tel:+541152634256" className="block hover:text-[#8dc2ff] transition-colors">
-            (011) 5263-4256
-          </a>
+          <div>(011) 4304-4266</div>
+          <div>(011) 5263-4256</div>
         </div>
       ),
     },
     {
       icon: Mail,
       title: "Email",
-      content: (
-        <a href="mailto:info@probuenosaires.org" className="hover:text-[#8dc2ff] transition-colors">
-          info@probuenosaires.org
-        </a>
-      ),
+      content: "info@probuenosaires.org",
     },
     {
       icon: Clock,
@@ -199,70 +203,20 @@ export function Contact() {
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                      Nombre completo *
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Tu nombre"
-                      autoComplete="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="tu@email.com"
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                      Teléfono
-                    </label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+54 11 1234-5678"
-                      autoComplete="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                      Asunto *
-                    </label>
-                    <Input
-                      id="subject"
-                      type="text"
-                      placeholder="¿En qué podemos ayudarte?"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      required
-                      className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-[#111269]/80 mb-2">
+                    Nombre completo *
+                  </label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Tu nombre"
+                    autoComplete="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
+                  />
                 </div>
 
                 <div>
@@ -275,19 +229,32 @@ export function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    rows={5}
+                    rows={6}
                     className="rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20 resize-none"
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full h-14 bg-gradient-to-r from-[#111269] to-[#8dc2ff] hover:from-[#1a2754] hover:to-[#89abe6] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300"
-                >
-                  <span>Enviar Mensaje</span>
-                  <Send className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </Button>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    onClick={() => setSubmitMethod("whatsapp")}
+                    className="w-full h-14 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20ba5a] hover:to-[#0e6e62] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300 shadow-lg shadow-green-500/20"
+                  >
+                    <span>WhatsApp</span>
+                    <MessageCircle className="ml-2 w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
+                  </Button>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    onClick={() => setSubmitMethod("email")}
+                    className="w-full h-14 bg-[#111269] hover:bg-[#1a2754] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300"
+                  >
+                    <span>Email / Gmail</span>
+                    <Mail className="ml-2 w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
+                  </Button>
+                </div>
 
                 <p className="text-xs text-[#111269]/50 text-center">
                   Al enviar este formulario, aceptás nuestra política de privacidad.

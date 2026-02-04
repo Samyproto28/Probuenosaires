@@ -21,7 +21,7 @@ export default function Home() {
         <ImpactStats />
         <About />
         <Services />
-        <Programs />
+        <Programs limit={3} />
         <DonationCTA />
         <News />
         <Partners />

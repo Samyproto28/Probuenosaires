@@ -27,7 +27,7 @@ export default function Inicio() {
       <ImpactStats />
       <About />
       <Services />
-      <Programs />
+      <Programs limit={3} />
       <DonationCTA />
       <News />
       <Partners />
