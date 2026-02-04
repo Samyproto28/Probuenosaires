@@ -56,7 +56,7 @@ const StatItem = ({
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className="group relative"
     >
-      <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2">
+      <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow] duration-500 hover:-translate-y-2">
         {/* Accent line */}
         <div
           className="absolute top-0 left-8 right-8 h-1 rounded-b-full opacity-80"
@@ -71,6 +71,7 @@ const StatItem = ({
           <Icon
             className="w-8 h-8 lg:w-10 lg:h-10 transition-colors duration-300"
             style={{ color: accentColor }}
+            aria-hidden="true"
           />
         </div>
 
@@ -110,26 +111,26 @@ export function ImpactStats() {
     {
       icon: Users,
       number: "7,513",
-      label: "Participantes en nuestros programas",
+      label: "Participantes En Nuestros Programas",
       accentColor: "#111269",
     },
     {
       icon: Briefcase,
       number: "2,411",
-      label: "Empresas asistidas y fortalecidas",
+      label: "Empresas Asistidas Y Fortalecidas",
       accentColor: "#89abe6",
     },
     {
       icon: GraduationCap,
       number: "10,000",
       suffix: "+",
-      label: "Personas capacitadas",
+      label: "Personas Capacitadas",
       accentColor: "#8dc2ff",
     },
     {
       icon: TrendingUp,
       number: "25",
-      label: "Años de trayectoria",
+      label: "Años De Trayectoria",
       accentColor: "#111269",
     },
   ]

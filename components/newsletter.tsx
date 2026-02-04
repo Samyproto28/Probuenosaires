@@ -42,7 +42,7 @@ export function Newsletter() {
 
             <div className="relative z-10 p-10 lg:p-12">
               <div className="w-14 h-14 bg-gradient-to-br from-[#8dc2ff] to-[#89abe6] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#8dc2ff]/20">
-                <Mail className="w-7 h-7 text-[#111269]" />
+                <Mail className="w-7 h-7 text-[#111269]" aria-hidden="true" />
               </div>
 
               <h2
@@ -62,20 +62,22 @@ export function Newsletter() {
                   <Input
                     type="email"
                     placeholder="tu@email.com"
+                    aria-label="Correo electrónico para suscripción"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="bg-white/10 backdrop-blur-sm text-white placeholder:text-white/40 h-14 border-white/10 focus:border-[#8dc2ff]/50 rounded-xl px-5 pr-12"
                   />
-                  <Mail className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+                  <Mail className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" aria-hidden="true" />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 font-semibold rounded-xl group shadow-lg shadow-[#8dc2ff]/20 transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 font-semibold rounded-xl group shadow-lg shadow-[#8dc2ff]/20 transition-[background-color,transform,box-shadow] duration-300"
                 >
                   <span>Suscribirme</span>
-                  <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Button>
               </form>
 
@@ -102,7 +104,7 @@ export function Newsletter() {
 
             <div className="relative z-10 p-10 lg:p-12">
               <div className="w-14 h-14 bg-[#111269]/5 rounded-2xl flex items-center justify-center mb-6">
-                <MessageSquare className="w-7 h-7 text-[#111269]" />
+                <MessageSquare className="w-7 h-7 text-[#111269]" aria-hidden="true" />
               </div>
 
               <h2
@@ -134,10 +136,10 @@ export function Newsletter() {
 
               <Button
                 size="lg"
-                className="w-full bg-[#111269] hover:bg-[#1a2754] text-white h-14 font-semibold rounded-xl group transition-all duration-300"
+                className="w-full bg-[#111269] hover:bg-[#1a2754] text-white h-14 font-semibold rounded-xl group transition-[background-color,transform] duration-300"
               >
-                <span>Enviar mensaje</span>
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <span>Enviar Mensaje</span>
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Button>
             </div>
           </motion.div>

@@ -59,7 +59,7 @@ export function DonationCTA() {
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-[#8dc2ff] text-sm font-semibold tracking-wide mb-6">
-                  <Heart className="w-4 h-4" />
+                  <Heart className="w-4 h-4" aria-hidden="true" />
                   <span>HACÉ TU APORTE</span>
                 </div>
 
@@ -86,13 +86,13 @@ export function DonationCTA() {
 
                 <Button
                   size="lg"
-                  className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 text-base font-semibold w-fit shadow-lg shadow-[#8dc2ff]/20 rounded-xl transition-all duration-300 hover:scale-[1.02]"
+                  className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 text-base font-semibold w-fit shadow-lg shadow-[#8dc2ff]/20 rounded-xl transition-[background-color,transform,shadow] duration-300 hover:scale-[1.02]"
                   asChild
                 >
                   <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
-                    <Heart className="mr-2 h-5 w-5" />
-                    Quiero donar
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <Heart className="mr-2 h-5 w-5" aria-hidden="true" />
+                    Quiero Donar
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </a>
                 </Button>
               </motion.div>
@@ -107,7 +107,7 @@ export function DonationCTA() {
             >
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-10">
                 <div className="flex items-center gap-2 mb-6">
-                  <Sparkles className="w-5 h-5 text-[#8dc2ff]" />
+                  <Sparkles className="w-5 h-5 text-[#8dc2ff]" aria-hidden="true" />
                   <span className="text-white/60 text-sm font-medium">IMPACTO DE TU DONACIÓN</span>
                 </div>
 

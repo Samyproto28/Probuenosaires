@@ -183,21 +183,37 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="group text-lg h-14 px-8 bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#a5cfff] hover:to-[#8dc2ff] shadow-xl shadow-[#8dc2ff]/20 transition-all duration-300 hover:scale-[1.02] font-semibold rounded-xl"
-              onClick={() => document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" })}
+              className="group text-lg h-14 px-8 bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#a5cfff] hover:to-[#8dc2ff] shadow-xl shadow-[#8dc2ff]/20 transition-[transform,background-color,shadow] duration-300 hover:scale-[1.02] font-semibold rounded-xl"
+              asChild
             >
-              <span className="flex items-center gap-2">
-                Conocer nuestros programas
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
+              <a
+                href="#programas"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                <span className="flex items-center gap-2">
+                  Conocer Nuestros Programas
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
+              </a>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-lg h-14 px-8 border-2 border-white/20 bg-white/[0.05] text-white hover:bg-white/[0.1] hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] rounded-xl font-medium"
-              onClick={() => document.getElementById("donaciones")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-lg h-14 px-8 border-2 border-white/20 bg-white/[0.05] text-white hover:bg-white/[0.1] hover:border-white/30 backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-[1.02] rounded-xl font-medium"
+              asChild
             >
-              Hacer una donación
+              <a
+                href="#donaciones"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById("donaciones")?.scrollIntoView({ behavior: "smooth" })
+                }}
+              >
+                Hacer Una Donación
+              </a>
             </Button>
           </motion.div>
 
@@ -243,9 +259,9 @@ export function Hero() {
           }}
         >
           <span className="text-white/40 text-xs uppercase tracking-widest group-hover:text-white/60 transition-colors">
-            Descubrir más
+            Descubrir Más
           </span>
-          <ChevronDown className="w-5 h-5 text-white/40 group-hover:text-[#8dc2ff] transition-colors" />
+          <ChevronDown className="w-5 h-5 text-white/40 group-hover:text-[#8dc2ff] transition-colors" aria-hidden="true" />
         </motion.div>
       </motion.div>
 

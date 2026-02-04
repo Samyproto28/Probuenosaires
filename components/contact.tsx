@@ -151,8 +151,8 @@ export function Contact() {
                   transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#8dc2ff]/20 group-hover:border-[#8dc2ff]/30 transition-all duration-300">
-                    <item.icon className="w-5 h-5 text-[#8dc2ff]" />
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#8dc2ff]/20 group-hover:border-[#8dc2ff]/30 transition-[background-color,border-color] duration-300">
+                    <item.icon className="w-5 h-5 text-[#8dc2ff]" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="font-semibold text-white mb-1">{item.title}</div>
@@ -172,8 +172,8 @@ export function Contact() {
               className="mt-8 p-6 bg-white/5 border border-white/10 rounded-2xl"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-5 h-5 text-[#8dc2ff]" />
-                <h4 className="font-semibold text-white">Datos institucionales</h4>
+                <Building2 className="w-5 h-5 text-[#8dc2ff]" aria-hidden="true" />
+                <h4 className="font-semibold text-white">Datos Institucionales</h4>
               </div>
               <div className="space-y-2 text-sm text-white/60">
                 <p><strong className="text-white/80">CUIT:</strong> 30-70807514-7</p>
@@ -208,6 +208,7 @@ export function Contact() {
                       id="name"
                       type="text"
                       placeholder="Tu nombre"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
@@ -223,6 +224,7 @@ export function Contact() {
                       id="email"
                       type="email"
                       placeholder="tu@email.com"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
@@ -240,6 +242,7 @@ export function Contact() {
                       id="phone"
                       type="tel"
                       placeholder="+54 11 1234-5678"
+                      autoComplete="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
@@ -268,7 +271,7 @@ export function Contact() {
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Contanos sobre tu consulta o proyecto..."
+                    placeholder="Contanos sobre tu consulta o proyecto…"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
@@ -280,10 +283,10 @@ export function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full h-14 bg-gradient-to-r from-[#111269] to-[#8dc2ff] hover:from-[#1a2754] hover:to-[#89abe6] text-white rounded-xl font-semibold group transition-all duration-300"
+                  className="w-full h-14 bg-gradient-to-r from-[#111269] to-[#8dc2ff] hover:from-[#1a2754] hover:to-[#89abe6] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300"
                 >
-                  <span>Enviar mensaje</span>
-                  <Send className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  <span>Enviar Mensaje</span>
+                  <Send className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Button>
 
                 <p className="text-xs text-[#111269]/50 text-center">

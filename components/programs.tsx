@@ -138,7 +138,7 @@ export function Programs() {
               initial={{ opacity: 0, y: 40 }}
               className="group h-full"
             >
-              <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
+              <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-2 h-full flex flex-col">
                 {/* Header with gradient */}
                 <div className={`relative h-40 bg-gradient-to-br ${program.gradient} overflow-hidden`}>
                   {/* Pattern overlay */}
@@ -156,7 +156,7 @@ export function Programs() {
                   {/* Icon container */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-white/30">
-                      <program.icon className="w-10 h-10 text-white" />
+                      <program.icon className="w-10 h-10 text-white" aria-hidden="true" />
                     </div>
                   </div>
 
@@ -190,10 +190,10 @@ export function Programs() {
                   {/* CTA Button */}
                   <Button
                     variant="outline"
-                    className="w-full border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 font-medium group/btn transition-all duration-300"
+                    className="w-full border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 font-medium group/btn transition-[background-color,color,border-color] duration-300"
                   >
-                    <span>Conocer más</span>
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    <span>Conocer Más</span>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
                   </Button>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export function Programs() {
         <MotionViewport className="mt-24" initial={{ opacity: 0, y: 30 }} delay={0.6}>
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-4">
-              <Globe className="w-4 h-4" />
+              <Globe className="w-4 h-4" aria-hidden="true" />
               AGENDA 2030
             </span>
             <h2

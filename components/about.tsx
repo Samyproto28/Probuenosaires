@@ -90,7 +90,7 @@ export function About() {
               initial={{ opacity: 0, y: 40 }}
               className="group h-full"
             >
-              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full">
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,background-color] duration-500 hover:-translate-y-2 h-full">
                 {/* Top accent */}
                 <div
                   className="absolute top-0 left-8 right-8 h-1 rounded-b-full"
@@ -107,6 +107,7 @@ export function About() {
                   <value.icon
                     className="w-8 h-8"
                     style={{ color: value.accent }}
+                    aria-hidden="true"
                   />
                 </div>
 
@@ -139,8 +140,8 @@ export function About() {
             href="/institucional"
             className="inline-flex items-center gap-2 text-[#111269] font-semibold hover:text-[#8dc2ff] transition-colors group"
           >
-            <span>Conocer más sobre nuestra historia</span>
-            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span>Conocer Más Sobre Nuestra Historia</span>
+            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
           </a>
         </MotionViewport>
       </div>

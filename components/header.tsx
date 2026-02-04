@@ -45,14 +45,14 @@ export function Header() {
                 href="tel:+541143044266"
                 className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
               >
-                <Phone className="h-3.5 w-3.5" />
+                <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                 <span className="font-medium">(011) 4304-4266</span>
               </a>
               <a
                 href="mailto:info@probuenosaires.org"
                 className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
               >
-                <Mail className="h-3.5 w-3.5" />
+                <Mail className="h-3.5 w-3.5" aria-hidden="true" />
                 <span className="font-medium">info@probuenosaires.org</span>
               </a>
             </div>
@@ -68,7 +68,7 @@ export function Header() {
       {/* Main Header */}
       <header
         className={cn(
-          "sticky top-0 left-0 right-0 z-50 transition-all duration-500",
+          "sticky top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,shadow,border-color] duration-500",
           scrolled
             ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-black/[0.03] border-b border-[#e2e8f0]"
             : "bg-white/80 backdrop-blur-md border-b border-transparent"
@@ -109,20 +109,24 @@ export function Header() {
                 return (
                   <div key={item.href}>
                     {item.isHashLink ? (
-                      <button
-                        onClick={() => navigateWithHash(item.href)}
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          navigateWithHash(item.href)
+                        }}
                         className={cn(
-                          "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
+                          "px-4 py-2 text-sm font-medium rounded-lg transition-[color,background-color] duration-300 flex items-center",
                           "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
                         )}
                       >
                         {item.label}
-                      </button>
+                      </a>
                     ) : (
                       <Link
                         href={item.href}
                         className={cn(
-                          "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 relative",
+                          "px-4 py-2 text-sm font-medium rounded-lg transition-[color,background-color] duration-300 relative",
                           isActive
                             ? "text-[#111269] bg-[#111269]/5"
                             : "text-[#111269]/70 hover:text-[#111269] hover:bg-[#111269]/5"
@@ -161,7 +165,7 @@ export function Header() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X className="h-5 w-5 text-[#111269]" />
+                    <X className="h-5 w-5 text-[#111269]" aria-hidden="true" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -171,7 +175,7 @@ export function Header() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu className="h-5 w-5 text-[#111269]" />
+                    <Menu className="h-5 w-5 text-[#111269]" aria-hidden="true" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -197,15 +201,17 @@ export function Header() {
                       transition={{ delay: index * 0.05 }}
                     >
                       {item.isHashLink ? (
-                        <button
-                          onClick={() => {
+                        <a
+                          href={item.href}
+                          onClick={(e) => {
+                            e.preventDefault()
                             navigateWithHash(item.href)
                             setIsMenuOpen(false)
                           }}
-                          className="block w-full text-left py-3 px-4 text-base font-medium text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5 rounded-lg transition-colors"
+                          className="block w-full text-left py-3 px-4 text-base font-medium text-[#111269]/80 hover:text-[#111269] hover:bg-[#111269]/5 rounded-lg transition-[color,background-color]"
                         >
                           {item.label}
-                        </button>
+                        </a>
                       ) : (
                         <Link
                           href={item.href}

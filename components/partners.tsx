@@ -1,7 +1,10 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 const redLogos = [
   { name: "RACI", src: "/Redes/raci-logo.png" },
@@ -101,6 +104,61 @@ const supportLogos = [
   { name: "Sinergia", src: "/Alianzas/sinergiaempresarialok_logo.jpg" },
 ]
 
+// Split support logos into two rows for the marquee
+const firstRow = supportLogos.slice(0, Math.ceil(supportLogos.length / 2))
+const secondRow = supportLogos.slice(Math.ceil(supportLogos.length / 2))
+
+function LogoMarquee({ logos, reverse = false, speed = 40 }: { logos: typeof supportLogos, reverse?: boolean, speed?: number }) {
+  return (
+    <div className="flex overflow-hidden select-none gap-0 group/marquee py-4">
+      <motion.div
+        animate={{
+          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
+        }}
+        transition={{
+          duration: logos.length * (speed / 10),
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop"
+        }}
+        className="flex flex-nowrap gap-12 px-6"
+      >
+        {/* Render logos once */}
+        {logos.map((logo, index) => (
+          <div
+            key={`${logo.src}-${index}`}
+            className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+          >
+            <Image
+              src={logo.src}
+              alt={logo.name}
+              fill
+              sizes="(max-width: 768px) 160px, 192px"
+              className="object-contain"
+              priority={index < 8}
+            />
+          </div>
+        ))}
+        {/* Duplicate logos for seamless loop */}
+        {logos.map((logo, index) => (
+          <div
+            key={`${logo.src}-clone-${index}`}
+            className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+          >
+            <Image
+              src={logo.src}
+              alt={logo.name}
+              fill
+              sizes="(max-width: 768px) 160px, 192px"
+              className="object-contain"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
 export function Partners() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden bg-white">
@@ -116,7 +174,6 @@ export function Partners() {
             className="flex justify-center mb-16"
           >
             <div className="relative group max-w-3xl w-full">
-              {/* Outer glow/border effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-[#8dc2ff]/20 via-[#111269]/10 to-[#8dc2ff]/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 
               <div className="relative px-8 py-4 bg-white/90 backdrop-blur-sm border border-[#8dc2ff]/30 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(141,194,255,0.15)] overflow-hidden">
@@ -128,12 +185,12 @@ export function Partners() {
             </div>
           </MotionViewport>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-16 items-center max-w-5xl mx-auto">
             {redLogos.map((logo, index) => (
               <MotionViewport
                 key={logo.src}
                 initial={{ opacity: 0, scale: 0.9 }}
-                delay={index * 0.1}
+                delay={index * 0.05} // Reduced delay
                 className="group relative h-20 md:h-24 w-full"
               >
                 <Image
@@ -142,6 +199,7 @@ export function Partners() {
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   className="object-contain transition-transform duration-300 hover:scale-110"
+                  aria-hidden="true"
                 />
               </MotionViewport>
             ))}
@@ -149,13 +207,12 @@ export function Partners() {
         </div>
 
         {/* Support Section */}
-        <div className="mb-24">
+        <div className="mb-24 overflow-hidden">
           <MotionViewport
             initial={{ opacity: 0, y: 20 }}
             className="flex justify-center mb-16"
           >
             <div className="relative group max-w-3xl w-full">
-              {/* Outer glow/border effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-[#8dc2ff]/20 via-[#111269]/10 to-[#8dc2ff]/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-1000"></div>
 
               <div className="relative px-8 py-4 bg-white/90 backdrop-blur-sm border border-[#8dc2ff]/30 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(141,194,255,0.15)] overflow-hidden">
@@ -167,30 +224,20 @@ export function Partners() {
             </div>
           </MotionViewport>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 items-center">
-            {supportLogos.map((logo, index) => (
-              <MotionViewport
-                key={logo.src}
-                initial={{ opacity: 0, scale: 0.9 }}
-                delay={0.3 + index * 0.05}
-                className="group relative h-16 md:h-20 w-full"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                  className="object-contain transition-transform duration-300 hover:scale-110"
-                />
-              </MotionViewport>
-            ))}
+          <div className="relative space-y-8">
+            {/* Added subtle edge fades */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            <LogoMarquee logos={firstRow} speed={50} />
+            <LogoMarquee logos={secondRow} reverse speed={50} />
           </div>
         </div>
 
         {/* Join CTA Card */}
         <MotionViewport
           initial={{ opacity: 0, y: 30 }}
-          delay={0.5}
+          delay={0.2}
           className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#111269]/10"
         >
           {/* Gradient background */}
@@ -212,8 +259,8 @@ export function Partners() {
                 className="text-3xl lg:text-5xl font-bold text-white mb-6"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
-                ¿Querés ser parte de nuestra{" "}
-                <span className="text-[#8dc2ff]">red de aliados</span>?
+                ¿Querés Ser Parte De Nuestra{" "}
+                <span className="text-[#8dc2ff]">Red De Aliados</span>?
               </h3>
               <p className="text-white/70 text-lg lg:text-xl max-w-2xl leading-relaxed">
                 Sumate y ayudanos a construir un futuro mejor para Argentina.
@@ -227,8 +274,8 @@ export function Partners() {
               asChild
             >
               <a href="#contacto">
-                <span>Conocé cómo sumarte</span>
-                <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-2" />
+                <span>Conocé Cómo Sumarte</span>
+                <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-2" aria-hidden="true" />
               </a>
             </Button>
           </div>

@@ -97,7 +97,7 @@ export function Services() {
               initial={{ opacity: 0, y: 40 }}
               className="group relative h-full"
             >
-              <div className="relative bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 h-full flex flex-col">
+              <div className="relative bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/[0.06] hover:border-white/20 transition-[background-color,border-color] duration-500 h-full flex flex-col">
                 {/* Top gradient bar */}
                 <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
 
@@ -113,6 +113,7 @@ export function Services() {
                     <service.icon
                       className="w-7 h-7"
                       style={{ color: service.accentColor }}
+                      aria-hidden="true"
                     />
                   </div>
 
@@ -149,8 +150,8 @@ export function Services() {
                     asChild
                   >
                     <a href={service.link}>
-                      <span>Más información</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      <span>Más Información</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
                     </a>
                   </Button>
                 </div>

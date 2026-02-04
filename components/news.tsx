@@ -64,10 +64,10 @@ export function News() {
           <Link href="/novedades">
             <Button
               variant="outline"
-              className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-6 font-medium group transition-all duration-300"
+              className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-6 font-medium group transition-[background-color,color,border-color] duration-300"
             >
-              <span>Ver todas las novedades</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span>Ver Todas Las Novedades</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Button>
           </Link>
         </MotionViewport>
@@ -81,7 +81,7 @@ export function News() {
               initial={{ opacity: 0, y: 40 }}
               className="group h-full"
             >
-              <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
+              <div className="relative bg-white rounded-2xl p-0 overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-2 h-full flex flex-col">
                 {/* Placeholder image/gradient header */}
                 <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#111269]/5 to-[#89abe6]/10">
                   {/* Abstract decoration */}
@@ -105,7 +105,7 @@ export function News() {
                 {/* Content */}
                 <div className="p-6 lg:p-8 flex flex-col flex-grow">
                   <div className="flex items-center gap-2 text-sm text-[#111269]/50 mb-4">
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="w-4 h-4" aria-hidden="true" />
                     <time>{item.date}</time>
                   </div>
 
@@ -124,8 +124,8 @@ export function News() {
                     href="#"
                     className="inline-flex items-center gap-1 text-[#111269] font-semibold hover:text-[#8dc2ff] transition-colors group/link"
                   >
-                    <span>Leer más</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    <span>Leer Más</span>
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>

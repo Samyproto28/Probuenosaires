@@ -89,7 +89,7 @@ export function Footer() {
               {/* Contact Info */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3 text-sm">
-                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#8dc2ff]" />
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
                   <span className="text-white/70">
                     Venezuela Nº 2543<br />
                     Quilmes Oeste<br />
@@ -100,14 +100,14 @@ export function Footer() {
                   href="tel:+541143044266"
                   className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
                 >
-                  <Phone className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" />
+                  <Phone className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
                   <span className="group-hover:underline">(011) 4304-4266</span>
                 </a>
                 <a
                   href="mailto:info@probuenosaires.org"
                   className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
                 >
-                  <Mail className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" />
+                  <Mail className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
                   <span className="group-hover:underline">info@probuenosaires.org</span>
                 </a>
               </div>
@@ -128,7 +128,7 @@ export function Footer() {
                       aria-label={social.label}
                       className="w-full h-full flex items-center justify-center"
                     >
-                      <social.icon className="w-4 h-4 text-white/70 hover:text-[#8dc2ff]" />
+                      <social.icon className="w-4 h-4 text-white/70 hover:text-[#8dc2ff]" aria-hidden="true" />
                     </a>
                   </MotionViewport>
                 ))}
@@ -152,7 +152,7 @@ export function Footer() {
                         className="text-white/50 hover:text-[#8dc2ff] transition-colors text-sm flex items-center gap-1 group"
                       >
                         <span>{link.label}</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" aria-hidden="true" />
                       </a>
                     </li>
                   ))}
@@ -178,7 +178,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
             <p className="text-white/40 flex items-center gap-1">
               © {currentYear} Fundación Pro Buenos Aires. Hecho con
-              <Heart className="w-3.5 h-3.5 text-[#8dc2ff] mx-1" />
+              <Heart className="w-3.5 h-3.5 text-[#8dc2ff] mx-1" aria-hidden="true" />
               en Argentina.
             </p>
             <div className="flex gap-6">
