@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { Clock, ChevronRight, Share2, Printer, ArrowUp, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 interface TableOfContentsItem {
@@ -33,6 +34,7 @@ export function ArticleLayout({
     toc,
     readTime = "5 min",
     date,
+    heroImage,
 }: ArticleLayoutProps) {
     const { scrollYProgress } = useScroll()
     const scaleX = useSpring(scrollYProgress, {
@@ -162,6 +164,17 @@ export function ArticleLayout({
                                         {summary}
                                     </p>
                                 )}
+                                {heroImage && (
+                                    <div className="mt-8 relative rounded-2xl overflow-hidden shadow-xl aspect-video w-full border border-[#e2e8f0]">
+                                        <Image
+                                            src={heroImage}
+                                            alt={title}
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                        />
+                                    </div>
+                                )}
                             </motion.div>
 
                             {/* Desktop Actions Sidebar (Optional for Header) */}
@@ -183,10 +196,10 @@ export function ArticleLayout({
                         </div>
                     </div>
                 </div>
-            </header>
+            </header >
 
             {/* Main Content Layout */}
-            <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24 relative">
+            < div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24 relative" >
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_280px] gap-16 relative">
 
                     {/* Content Column */}
@@ -258,50 +271,54 @@ export function ArticleLayout({
                         </div>
                     </aside>
                 </div>
-            </div>
+            </div >
 
             {/* Mobile TOC Fab */}
-            {toc && toc.length > 0 && (
-                <div className="fixed bottom-6 right-6 lg:hidden z-40">
-                    <Button
-                        size="icon"
-                        className="rounded-full h-14 w-14 bg-[#111269] hover:bg-[#1a2754] text-white shadow-2xl"
-                        onClick={() => setIsMobileTocOpen(!isMobileTocOpen)}
-                    >
-                        <Menu className="w-6 h-6" />
-                    </Button>
-                </div>
-            )}
+            {
+                toc && toc.length > 0 && (
+                    <div className="fixed bottom-6 right-6 lg:hidden z-40">
+                        <Button
+                            size="icon"
+                            className="rounded-full h-14 w-14 bg-[#111269] hover:bg-[#1a2754] text-white shadow-2xl"
+                            onClick={() => setIsMobileTocOpen(!isMobileTocOpen)}
+                        >
+                            <Menu className="w-6 h-6" />
+                        </Button>
+                    </div>
+                )
+            }
 
             {/* Mobile TOC Drawer (Simplified) */}
-            {isMobileTocOpen && toc && (
-                <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsMobileTocOpen(false)} />
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl relative z-10 mx-auto"
-                    >
-                        <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-xl font-bold text-[#111269]" style={{ fontFamily: "var(--font-playfair)" }}>Indice</h3>
-                            <Button variant="ghost" size="sm" onClick={() => setIsMobileTocOpen(false)}>Cerrar</Button>
-                        </div>
-                        <nav className="flex flex-col gap-2">
-                            {toc.map((item) => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => scrollToSection(item.id)}
-                                    className="w-full text-left p-3 rounded-xl hover:bg-[#efefef] text-[#111269] font-medium transition-colors"
-                                >
-                                    {item.label}
-                                </button>
-                            ))}
-                        </nav>
-                    </motion.div>
-                </div>
-            )}
+            {
+                isMobileTocOpen && toc && (
+                    <div className="fixed inset-0 z-50 lg:hidden flex items-end sm:items-center justify-center p-4">
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsMobileTocOpen(false)} />
+                        <motion.div
+                            initial={{ opacity: 0, y: 100 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl relative z-10 mx-auto"
+                        >
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-xl font-bold text-[#111269]" style={{ fontFamily: "var(--font-playfair)" }}>Indice</h3>
+                                <Button variant="ghost" size="sm" onClick={() => setIsMobileTocOpen(false)}>Cerrar</Button>
+                            </div>
+                            <nav className="flex flex-col gap-2">
+                                {toc.map((item) => (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => scrollToSection(item.id)}
+                                        className="w-full text-left p-3 rounded-xl hover:bg-[#efefef] text-[#111269] font-medium transition-colors"
+                                    >
+                                        {item.label}
+                                    </button>
+                                ))}
+                            </nav>
+                        </motion.div>
+                    </div>
+                )
+            }
 
             <Footer />
-        </div>
+        </div >
     )
 }

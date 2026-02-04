@@ -1,6 +1,7 @@
 import { Briefcase, Users, GraduationCap, ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { MotionViewport } from "@/components/ui/motion-viewport"
+import Link from "next/link"
 
 export function Services() {
   const services = [
@@ -22,7 +23,7 @@ export function Services() {
       features: ["Bolsa de trabajo", "Capacitación laboral", "Seguimiento continuo"],
       gradient: "from-[#89abe6] to-[#405e8c]",
       accentColor: "#405e8c",
-      link: "#empleo",
+      link: "/programas/intermediacion-laboral",
     },
     {
       icon: GraduationCap,
@@ -32,7 +33,7 @@ export function Services() {
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
       gradient: "from-[#8dc2ff] to-[#89abe6]",
       accentColor: "#8dc2ff",
-      link: "#capacitacion",
+      link: "/programas/centro-tecnologico",
     },
   ]
 
@@ -149,10 +150,10 @@ export function Services() {
                     className="w-full justify-between items-center text-white/80 hover:text-white hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl h-12 font-medium group/btn"
                     asChild
                   >
-                    <a href={service.link}>
+                    <Link href={service.link}>
                       <span>Más Información</span>
                       <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
-                    </a>
+                    </Link>
                   </Button>
                 </div>
 
