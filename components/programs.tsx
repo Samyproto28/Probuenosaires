@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu, Palette, Flag, Video, Layers, Factory } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
+import Image from "next/image"
 
 export function Programs() {
   const programs = [
@@ -216,6 +217,18 @@ export function Programs() {
             <p className="text-xl text-[#111269]/60 max-w-3xl mx-auto leading-relaxed font-light">
               Nuestros programas contribuyen directamente al cumplimiento de las metas globales de las Naciones Unidas.
             </p>
+          </div>
+          <div className="max-w-4xl mx-auto mb-16 px-4">
+            <div className="relative aspect-[16/9] w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#e2e8f0] group">
+              <Image
+                src="/ods-goals.png"
+                alt="Objetivos de Desarrollo Sostenible"
+                fill
+                className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">

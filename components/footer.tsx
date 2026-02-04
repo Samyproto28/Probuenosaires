@@ -91,8 +91,8 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-sm">
                   <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#8dc2ff]" />
                   <span className="text-white/70">
-                    Ruta 36 Nº 1354, entre calles 13 y 14<br />
-                    Cruce de Florencio Varela, Berazategui<br />
+                    Venezuela Nº 2543<br />
+                    Quilmes Oeste<br />
                     Buenos Aires, Argentina
                   </span>
                 </div>

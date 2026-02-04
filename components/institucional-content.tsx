@@ -238,14 +238,14 @@ export function InstitucionalContent() {
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
                                                 <strong className="block text-white text-sm opacity-60">Dirección</strong>
-                                                Ruta 36 Nº 1354, entre calles 13 y 14
+                                                Venezuela Nº 2543
                                             </div>
                                         </li>
                                         <li className="flex gap-3 text-white/80">
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
                                                 <strong className="block text-white text-sm opacity-60">Localidad</strong>
-                                                Cruce de Florencio Varela, Berazategui
+                                                Quilmes Oeste
                                             </div>
                                         </li>
                                         <li className="flex gap-3 text-white/80">
