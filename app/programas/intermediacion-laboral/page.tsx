@@ -16,7 +16,7 @@ export default function IntermediacionLaboralPage() {
         <ArticleLayout
             title="Intermediación de Empleo"
             category="Programas"
-            summary="Herramientas para la búsqueda laboral y selección de personal. Conectamos la oferta y demanda de empleo en la región, vinculando a estudiantes y egresados de escuelas técnicas con empresas que requieren talento calificado."
+            summary="Herramientas para la búsqueda laboral y selección de personal. Brindamos soporte integral para conectar la oferta y demanda de empleo en la región, facilitando la inserción laboral de profesionales y técnicos en empresas que requieren talento calificado."
             toc={toc}
             readTime="3 min"
             date="Octubre 2024"

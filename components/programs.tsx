@@ -29,6 +29,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "rondas de negocios y networking",
       gradient: "from-[#89abe6] to-[#405e8c]",
       lightGradient: "from-[#89abe6]/5 to-[#405e8c]/5",
+      href: "/programas/encadenar",
     },
     {
       icon: Globe,
@@ -39,6 +40,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "apoyo integral al comercio exterior",
       gradient: "from-[#8dc2ff] to-[#89abe6]",
       lightGradient: "from-[#8dc2ff]/5 to-[#89abe6]/5",
+      href: "/programas/proba-comex",
     },
     {
       icon: HeartPulse,
@@ -49,6 +51,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "bienestar y productividad organizacional",
       gradient: "from-[#405e8c] to-[#111269]",
       lightGradient: "from-[#405e8c]/5 to-[#111269]/5",
+      href: "/programas/pyme-saludable",
     },
     {
       icon: Radio,
@@ -59,6 +62,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "visibilidad para la cadena de valor",
       gradient: "from-[#89abe6] to-[#8dc2ff]",
       lightGradient: "from-[#89abe6]/5 to-[#8dc2ff]/5",
+      href: "/programas/radio-empresaria",
     },
     {
       icon: Cpu,
@@ -69,6 +73,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "innovación y tecnología aplicada",
       gradient: "from-[#111269] to-[#8dc2ff]",
       lightGradient: "from-[#111269]/5 to-[#8dc2ff]/5",
+      href: "/programas/centro-tecnologico",
     },
     {
       icon: Layers,
@@ -99,6 +104,7 @@ export function Programs({ limit }: ProgramsProps) {
       impactLabel: "visión estratégica de país",
       gradient: "from-[#111269] to-[#405e8c]",
       lightGradient: "from-[#111269]/5 to-[#405e8c]/5",
+      href: "#",
     },
   ]
 
@@ -196,11 +202,14 @@ export function Programs({ limit }: ProgramsProps) {
 
                   {/* CTA Button */}
                   <Button
+                    asChild
                     variant="outline"
                     className="w-full border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 font-medium group/btn transition-[background-color,color,border-color] duration-300"
                   >
-                    <span>Conocer Más</span>
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
+                    <Link href={program.href || "#"}>
+                      <span>Conocer Más</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
+                    </Link>
                   </Button>
                 </div>
               </div>
