@@ -23,13 +23,15 @@ function MemberCard({ member, index, isInView }: { member: Member, index: number
             transition={{ delay: index * 0.1, duration: 0.5 }}
             className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 border border-[#e2e8f0] flex flex-col h-full"
         >
-            <div className="relative h-64 overflow-hidden bg-[#111269]">
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#111269]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#111269] to-[#89abe6] opacity-80" />
                 {member.image ? (
                     <Image
                         src={member.image}
                         alt={member.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        quality={85}
                         className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
                     />
                 ) : (
@@ -298,9 +300,11 @@ export function EquipoContent() {
                         <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-8">
                         {coordinationTeam.map((member, index) => (
-                            <MemberCard key={index} member={member} index={index} isInView={isInView} />
+                            <div key={index} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+                                <MemberCard member={member} index={index} isInView={isInView} />
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -340,9 +344,11 @@ export function EquipoContent() {
                         <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-8">
                         {internationalTeam.map((member, index) => (
-                            <MemberCard key={index} member={member} index={index} isInView={isInView} />
+                            <div key={index} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+                                <MemberCard member={member} index={index} isInView={isInView} />
+                            </div>
                         ))}
                     </div>
                 </div>
