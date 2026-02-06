@@ -14,6 +14,7 @@ export function NovedadesContent() {
     const blogPosts = [
         {
             id: 1,
+            slug: "reconocimiento-mujeres",
             title: "Reconocimiento a mujeres con compromiso social en Florencio Varela",
             date: "30 Ene, 2026",
             category: "Institucional",
@@ -25,6 +26,7 @@ export function NovedadesContent() {
         },
         {
             id: 2,
+            slug: "#",
             title: "Inauguramos nueva sede en Quilmes Oeste",
             date: "25 Ene, 2026",
             category: "Novedades",
@@ -36,6 +38,7 @@ export function NovedadesContent() {
         },
         {
             id: 3,
+            slug: "#",
             title: "Convenio clave para impulsar la economía verde",
             date: "15 Ene, 2026",
             category: "Novedades",
@@ -47,6 +50,7 @@ export function NovedadesContent() {
         },
         {
             id: 4,
+            slug: "#",
             title: "Colaboración estratégica con Grupo Arcor",
             date: "10 Ene, 2026",
             category: "Alianzas",
@@ -58,6 +62,7 @@ export function NovedadesContent() {
         },
         {
             id: 5,
+            slug: "#",
             title: "Oracle y Fundación: Aliados para potenciar el Programa Vinculando",
             date: "05 Ene, 2026",
             category: "Institucional",
@@ -69,6 +74,7 @@ export function NovedadesContent() {
         },
         {
             id: 6,
+            slug: "#",
             title: "Visita de Gleyson Santos (NeuroIdentify)",
             date: "20 Dic, 2025",
             category: "Novedades",
@@ -161,9 +167,11 @@ export function NovedadesContent() {
                                     <p className="text-lg text-white/70 mb-8 line-clamp-2">
                                         {filteredPosts[0].excerpt}
                                     </p>
-                                    <Button className="bg-[#8dc2ff] hover:bg-white text-[#111269] font-bold rounded-xl px-8 h-12 transition-all group/btn">
-                                        Leer artículo completo
-                                        <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                                    <Button className="bg-[#8dc2ff] hover:bg-white text-[#111269] font-bold rounded-xl px-8 h-12 transition-all group/btn" asChild>
+                                        <Link href={filteredPosts[0].slug === '#' ? '#' : `/novedades/${filteredPosts[0].slug}`}>
+                                            Leer artículo completo
+                                            <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>
@@ -211,7 +219,7 @@ export function NovedadesContent() {
                                     <div className="flex items-center justify-between pt-6 border-t border-[#e2e8f0]">
                                         <span className="text-sm font-semibold text-[#111269]/40">{post.author}</span>
                                         <Link
-                                            href={`/novedades/${post.id}`}
+                                            href={post.slug === '#' ? '#' : `/novedades/${post.slug}`}
                                             className="inline-flex items-center gap-2 text-[#111269] font-bold hover:text-[#8dc2ff] transition-colors group/link"
                                         >
                                             Leer más

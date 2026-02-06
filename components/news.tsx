@@ -10,6 +10,7 @@ export function News() {
       date: "30 Ene, 2026",
       category: "Institucional",
       categoryColor: "bg-[#111269]",
+      slug: "/novedades/reconocimiento-mujeres",
       excerpt:
         "En el marco del 135° aniversario de Florencio Varela, participamos del reconocimiento a mujeres que transforman la comunidad con su labor diaria.",
     },
@@ -18,6 +19,7 @@ export function News() {
       date: "25 Ene, 2026",
       category: "Novedades",
       categoryColor: "bg-[#8dc2ff]",
+      slug: "#",
       excerpt:
         "¡Comenzamos una nueva etapa! Abrimos las puertas de nuestra nueva sede para ampliar el impacto de nuestros programas en la región sur.",
     },
@@ -26,6 +28,7 @@ export function News() {
       date: "15 Ene, 2026",
       category: "Sustentabilidad",
       categoryColor: "bg-[#89abe6]",
+      slug: "#",
       excerpt:
         "Firmamos un acuerdo estratégico para promover prácticas sustentables en el sector industrial y fortalecer el compromiso ambiental.",
     },
@@ -120,13 +123,13 @@ export function News() {
                     {item.excerpt}
                   </p>
 
-                  <a
-                    href="#"
+                  <Link
+                    href={item.slug}
                     className="inline-flex items-center gap-1 text-[#111269] font-semibold hover:text-[#8dc2ff] transition-colors group/link"
                   >
                     <span>Leer Más</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </MotionViewport>
@@ -134,5 +137,6 @@ export function News() {
         </div>
       </div>
     </section>
+
   )
 }
