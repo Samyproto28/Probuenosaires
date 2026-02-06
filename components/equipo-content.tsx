@@ -135,6 +135,14 @@ export function EquipoContent() {
             expertise: ["Voluntariado", "Acción Social", "Logística"],
             accent: "#8dc2ff"
         },
+        {
+            name: "Samuel",
+            position: "Coordinador",
+            bio: "Colaborador voluntario en las acciones sociales y operativas de los diversos programas de la Fundación",
+            image: "",
+            expertise: ["Coordinación", "Acción Social", "Operaciones"],
+            accent: "#405e8c"
+        },
     ]
 
     const professionalTeam: Member[] = [

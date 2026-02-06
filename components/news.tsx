@@ -16,10 +16,10 @@ export function News() {
     },
     {
       title: "Inauguramos nueva sede en Quilmes Oeste",
-      date: "25 Ene, 2026",
+      date: "24 Dic, 2025",
       category: "Novedades",
       categoryColor: "bg-[#8dc2ff]",
-      slug: "#",
+      slug: "/novedades/nueva-sede-quilmes",
       excerpt:
         "¡Comenzamos una nueva etapa! Abrimos las puertas de nuestra nueva sede para ampliar el impacto de nuestros programas en la región sur.",
     },
@@ -28,7 +28,7 @@ export function News() {
       date: "15 Ene, 2026",
       category: "Sustentabilidad",
       categoryColor: "bg-[#89abe6]",
-      slug: "#",
+      slug: "/novedades/convenio-economia-verde",
       excerpt:
         "Firmamos un acuerdo estratégico para promover prácticas sustentables en el sector industrial y fortalecer el compromiso ambiental.",
     },
