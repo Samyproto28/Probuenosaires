@@ -17,7 +17,8 @@ export function Programs({ limit }: ProgramsProps) {
         "Conectamos a estudiantes de escuelas técnicas con empresas para sus 200 horas de prácticas profesionalizantes. Un programa central que impulsa la formación de futuros técnicos y la empleabilidad juvenil en Quilmes, Florencio Varela y Berazategui.",
       impact: "200h",
       impactLabel: "prácticas profesionalizantes por alumno",
-      gradient: "from-[#111269] to-[#89abe6]",
+      image: "/vinculando.webp",
+      gradient: "from-black/40 to-black/10",
       lightGradient: "from-[#111269]/5 to-[#89abe6]/5",
     },
     {
@@ -27,7 +28,8 @@ export function Programs({ limit }: ProgramsProps) {
         "Fortalecemos los vínculos entre PyMEs promoviendo el trabajo colaborativo mediante rondas de negocios, espacios de networking y articulación entre proveedores y demandantes para impulsar el sector productivo.",
       impact: "Sinergia",
       impactLabel: "rondas de negocios y networking",
-      gradient: "from-[#89abe6] to-[#405e8c]",
+      image: "/encadenar.webp",
+      gradient: "from-black/40 to-black/10",
       lightGradient: "from-[#89abe6]/5 to-[#405e8c]/5",
       href: "/programas/encadenar",
     },
@@ -60,7 +62,8 @@ export function Programs({ limit }: ProgramsProps) {
         "Nuestra emisora online (RadioEmpresaria.com.ar) brinda visibilidad y posicionamiento para empresas del sector productivo. Un espacio para comunicar la realidad de las cadenas de valor regionales.",
       impact: "Difusión",
       impactLabel: "visibilidad para la cadena de valor",
-      gradient: "from-[#89abe6] to-[#8dc2ff]",
+      image: "/radio-empresario.webp",
+      gradient: "from-black/40 to-black/10",
       lightGradient: "from-[#89abe6]/5 to-[#8dc2ff]/5",
       href: "/programas/radio-empresaria",
     },
@@ -71,7 +74,8 @@ export function Programs({ limit }: ProgramsProps) {
         "Acercamos a las PyMEs a la innovación y la transformación digital. Ofrecemos capacitaciones, charlas técnicas y espacios de actualización para preparar a las empresas ante los desafíos tecnológicos actuales.",
       impact: "4.0",
       impactLabel: "innovación y tecnología aplicada",
-      gradient: "from-[#111269] to-[#8dc2ff]",
+      image: "/centro-4-0.webp",
+      gradient: "from-black/40 to-black/10",
       lightGradient: "from-[#111269]/5 to-[#8dc2ff]/5",
       href: "/programas/centro-tecnologico",
     },
@@ -152,26 +156,33 @@ export function Programs({ limit }: ProgramsProps) {
               className="group h-full"
             >
               <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-2 h-full flex flex-col">
-                {/* Header with gradient */}
-                <div className={`relative h-40 bg-gradient-to-br ${program.gradient} overflow-hidden`}>
-                  {/* Pattern overlay */}
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%),
-                        linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%)
-                      `,
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-
-                  {/* Icon container */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-white/30">
-                      <program.icon className="w-10 h-10 text-white" aria-hidden="true" />
+                {/* Header with image/gradient */}
+                <div className={`relative h-48 overflow-hidden`}>
+                  {program.image ? (
+                    <>
+                      <Image
+                        src={program.image}
+                        alt={program.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${program.gradient}`} />
+                    </>
+                  ) : (
+                    <div className={`absolute inset-0 bg-gradient-to-br ${program.gradient}`}>
+                      {/* Pattern overlay */}
+                      <div
+                        className="absolute inset-0 opacity-10"
+                        style={{
+                          backgroundImage: `
+                            linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%),
+                            linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%)
+                          `,
+                          backgroundSize: "20px 20px",
+                        }}
+                      />
                     </div>
-                  </div>
+                  )}
 
                   {/* Decorative circle */}
                   <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/10" />

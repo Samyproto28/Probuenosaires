@@ -2,6 +2,7 @@ import { Briefcase, Users, GraduationCap, ArrowRight, Sparkles } from "lucide-re
 import { Button } from "@/components/ui/button"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Services() {
   const services = [
@@ -11,9 +12,10 @@ export function Services() {
       description:
         "Brindamos asistencia técnica y financiera a micro, pequeñas y medianas empresas para mejorar su competitividad y sostenibilidad.",
       features: ["Asesoramiento personalizado", "Acceso a créditos", "Planes de mejora"],
-      gradient: "from-[#111269] to-[#89abe6]",
+      gradient: "from-black/40 to-black/10",
       accentColor: "#89abe6",
       link: "/uvt",
+      image: "", // Espacio para imagen
     },
     {
       icon: Users,
@@ -21,9 +23,10 @@ export function Services() {
       description:
         "Conectamos personas en búsqueda de empleo con empresas que necesitan talento. Orientación laboral integral.",
       features: ["Bolsa de trabajo", "Capacitación laboral", "Seguimiento continuo"],
-      gradient: "from-[#89abe6] to-[#405e8c]",
+      gradient: "from-black/40 to-black/10",
       accentColor: "#405e8c",
       link: "/programas/intermediacion-laboral",
+      image: "", // Espacio para imagen
     },
     {
       icon: GraduationCap,
@@ -31,9 +34,10 @@ export function Services() {
       description:
         "Programas de formación en competencias digitales y tecnologías 4.0 para la industria del futuro.",
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
-      gradient: "from-[#8dc2ff] to-[#89abe6]",
+      gradient: "from-black/40 to-black/10",
       accentColor: "#8dc2ff",
       link: "/programas/centro-tecnologico",
+      image: "/centro-4-0.webp", // Imagen añadida
     },
   ]
 
@@ -99,24 +103,37 @@ export function Services() {
               className="group relative h-full"
             >
               <div className="relative bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/[0.06] hover:border-white/20 transition-[background-color,border-color] duration-500 h-full flex flex-col">
-                {/* Top gradient bar */}
-                <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
+                {/* Header with image/gradient */}
+                <div className="relative h-48 overflow-hidden bg-[#111269]/50">
+                  {service.image ? (
+                    <>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient}`} />
+                    </>
+                  ) : (
+                    <div className={`absolute inset-0 bg-gradient-to-br from-[#111269] to-[#405e8c] opacity-40`}>
+                      {/* Pattern overlay */}
+                      <div
+                        className="absolute inset-0 opacity-10"
+                        style={{
+                          backgroundImage: `
+                            linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%),
+                            linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%)
+                          `,
+                          backgroundSize: "20px 20px",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                </div>
 
                 <div className="p-8 lg:p-10 flex flex-col flex-grow">
-                  {/* Icon */}
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      background: `linear-gradient(135deg, ${service.accentColor}20, ${service.accentColor}40)`,
-                      boxShadow: `0 4px 20px ${service.accentColor}20`,
-                    }}
-                  >
-                    <service.icon
-                      className="w-7 h-7"
-                      style={{ color: service.accentColor }}
-                      aria-hidden="true"
-                    />
-                  </div>
 
                   {/* Title */}
                   <h3

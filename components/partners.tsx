@@ -1,10 +1,12 @@
 "use client"
 
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 const redLogos = [
   { name: "RACI", src: "/Redes/raci-logo.png" },
@@ -108,53 +110,118 @@ const supportLogos = [
 const firstRow = supportLogos.slice(0, Math.ceil(supportLogos.length / 2))
 const secondRow = supportLogos.slice(Math.ceil(supportLogos.length / 2))
 
-function LogoMarquee({ logos, reverse = false, speed = 40 }: { logos: typeof supportLogos, reverse?: boolean, speed?: number }) {
+function LogoMarquee({ logos, reverse = false, speed = 0.6 }: { logos: typeof supportLogos, reverse?: boolean, speed?: number }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const [isManual, setIsManual] = useState(false)
+
+  const handleManualScroll = useCallback((direction: 'left' | 'right') => {
+    if (!scrollRef.current) return
+    setIsManual(true) // Permanently stop auto-scroll after first interaction
+    const container = scrollRef.current
+    const amount = 300 // Jump amount in pixels
+    container.scrollBy({
+      left: direction === 'left' ? -amount : amount,
+      behavior: 'smooth'
+    })
+  }, [])
+
+  useEffect(() => {
+    const container = scrollRef.current
+    if (!container || isManual) return // Don't run auto-scroll if manual mode is active
+
+    let frameId: number
+    const move = () => {
+      if (!isPaused) {
+        if (reverse) {
+          container.scrollLeft -= speed
+          if (container.scrollLeft <= 0) {
+            container.scrollLeft = container.scrollWidth / 2
+          }
+        } else {
+          container.scrollLeft += speed
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            container.scrollLeft = 0
+          }
+        }
+      }
+      frameId = requestAnimationFrame(move)
+    }
+
+    frameId = requestAnimationFrame(move)
+    return () => cancelAnimationFrame(frameId)
+  }, [isPaused, isManual, reverse, speed])
+
   return (
-    <div className="flex overflow-hidden select-none gap-0 group/marquee py-4">
-      <motion.div
-        animate={{
-          x: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
-        }}
-        transition={{
-          duration: logos.length * (speed / 10),
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop"
-        }}
-        className="flex flex-nowrap gap-12 px-6"
+    <div className="group/marquee relative w-full overflow-visible py-4">
+      {/* Scrollable Container */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-hidden select-none cursor-grab active:cursor-grabbing no-scrollbar"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
-        {/* Render logos once */}
-        {logos.map((logo, index) => (
-          <div
-            key={`${logo.src}-${index}`}
-            className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
-          >
-            <Image
-              src={logo.src}
-              alt={logo.name}
-              fill
-              sizes="(max-width: 768px) 160px, 192px"
-              className="object-contain"
-              priority={index < 8}
-            />
-          </div>
-        ))}
-        {/* Duplicate logos for seamless loop */}
-        {logos.map((logo, index) => (
-          <div
-            key={`${logo.src}-clone-${index}`}
-            className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
-          >
-            <Image
-              src={logo.src}
-              alt={logo.name}
-              fill
-              sizes="(max-width: 768px) 160px, 192px"
-              className="object-contain"
-            />
-          </div>
-        ))}
-      </motion.div>
+        <div className="flex flex-nowrap gap-12 px-6">
+          {/* Render logos once */}
+          {logos.map((logo, index) => (
+            <div
+              key={`${logo.src}-${index}`}
+              className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                fill
+                sizes="(max-width: 768px) 160px, 192px"
+                className="object-contain"
+                priority={index < 8}
+              />
+            </div>
+          ))}
+          {/* Duplicate logos for seamless loop */}
+          {logos.map((logo, index) => (
+            <div
+              key={`${logo.src}-clone-${index}`}
+              className="relative h-16 md:h-20 w-40 md:w-48 flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                fill
+                sizes="(max-width: 768px) 160px, 192px"
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Manual Navigation Arrows */}
+      <div className="absolute inset-y-0 left-2 md:left-4 flex items-center z-50">
+        <Button
+          variant="outline"
+          size="icon"
+          className="rounded-full bg-white/90 backdrop-blur-md border-[#8dc2ff] text-[#111269] shadow-[0_0_20px_rgba(141,194,255,0.3)] hover:bg-[#111269] hover:text-white transition-all duration-300 h-10 w-10 md:h-12 md:w-12 border-2"
+          onClick={() => handleManualScroll('left')}
+          aria-label="Anterior"
+        >
+          <ChevronLeft className="h-6 w-6 stroke-[3px]" />
+        </Button>
+      </div>
+
+      <div className="absolute inset-y-0 right-2 md:right-4 flex items-center z-50">
+        <Button
+          variant="outline"
+          size="icon"
+          className="rounded-full bg-white/90 backdrop-blur-md border-[#8dc2ff] text-[#111269] shadow-[0_0_20px_rgba(141,194,255,0.3)] hover:bg-[#111269] hover:text-white transition-all duration-300 h-10 w-10 md:h-12 md:w-12 border-2"
+          onClick={() => handleManualScroll('right')}
+          aria-label="Siguiente"
+        >
+          <ChevronRight className="h-6 w-6 stroke-[3px]" />
+        </Button>
+      </div>
     </div>
   )
 }
@@ -229,8 +296,8 @@ export function Partners() {
             <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-            <LogoMarquee logos={firstRow} speed={50} />
-            <LogoMarquee logos={secondRow} reverse speed={50} />
+            <LogoMarquee logos={firstRow} speed={0.6} />
+            <LogoMarquee logos={secondRow} reverse speed={0.6} />
           </div>
         </div>
 
