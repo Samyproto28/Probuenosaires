@@ -76,7 +76,7 @@ export function About() {
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-lg shadow-black/[0.03] border border-[#e2e8f0]">
             <div className="w-2 h-2 rounded-full bg-[#8dc2ff]" />
             <span className="text-sm text-[#111269]/70">
-              <strong className="text-[#111269]">CUIT: 30-70807514-7</strong> • Personería Jurídica otorgada por la IGJ
+              <strong className="text-[#111269]">CUIT: 30-69894716-7</strong> • Personería Jurídica otorgada por la IGJ (1649721)
             </span>
           </div>
         </MotionViewport>

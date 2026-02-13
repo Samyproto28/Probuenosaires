@@ -216,14 +216,14 @@ export function InstitucionalContent() {
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
                                                 <strong className="block text-white text-sm opacity-60">Personería Jurídica</strong>
-                                                Resolución IGJ N° 123/98
+                                                IGJ N° 1649721
                                             </div>
                                         </li>
                                         <li className="flex gap-3 text-white/80">
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
                                                 <strong className="block text-white text-sm opacity-60">CUIT</strong>
-                                                30-70807514-7
+                                                30-69894716-7
                                             </div>
                                         </li>
                                     </ul>
@@ -231,28 +231,21 @@ export function InstitucionalContent() {
 
                                 <div className="space-y-6">
                                     <h4 className="flex items-center gap-2 text-[#8dc2ff] font-semibold tracking-wide uppercase text-sm">
-                                        <CheckCircle2 className="w-4 h-4" /> Domicilio Fiscal
+                                        <CheckCircle2 className="w-4 h-4" /> Sedes
                                     </h4>
                                     <ul className="space-y-4">
                                         <li className="flex gap-3 text-white/80">
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
-                                                <strong className="block text-white text-sm opacity-60">Dirección</strong>
-                                                Venezuela Nº 2543
+                                                <strong className="block text-white text-sm opacity-60">Dirección Principal (CABA)</strong>
+                                                Piedras 113 piso 5 of 1
                                             </div>
                                         </li>
                                         <li className="flex gap-3 text-white/80">
                                             <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
                                             <div>
-                                                <strong className="block text-white text-sm opacity-60">Localidad</strong>
-                                                Quilmes Oeste
-                                            </div>
-                                        </li>
-                                        <li className="flex gap-3 text-white/80">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] mt-2 shrink-0" />
-                                            <div>
-                                                <strong className="block text-white text-sm opacity-60">Provincia</strong>
-                                                Buenos Aires, Argentina
+                                                <strong className="block text-white text-sm opacity-60">Sede Quilmes</strong>
+                                                Venezuela Nº 2543 (Quilmes Oeste)
                                             </div>
                                         </li>
                                     </ul>

@@ -40,11 +40,11 @@ export function Header() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
             <div className="flex items-center gap-6">
               <a
-                href="tel:+541143044266"
+                href="tel:+541152580226"
                 className="flex items-center gap-2 hover:text-[#8dc2ff] transition-colors duration-300"
               >
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-                <span className="font-medium">(011) 4304-4266</span>
+                <span className="font-medium">(011) 5258-0226</span>
               </a>
               <a
                 href="https://wa.me/5491141899250"
@@ -66,7 +66,7 @@ export function Header() {
             <div className="flex items-center gap-4 text-white/70 text-xs">
               <span>Organización sin fines de lucro</span>
               <span className="w-1 h-1 rounded-full bg-white/30" />
-              <span>CUIT: 30-70807514-7</span>
+              <span>CUIT: 30-69894716-7</span>
             </div>
           </div>
         </div>

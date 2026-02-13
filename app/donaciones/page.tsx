@@ -98,8 +98,7 @@ export default function DonacionesPage() {
                         <div className="space-y-4">
                             {[
                                 { label: "Alias", value: "Fundacion.Pro.BsAs" },
-                                { label: "CVU", value: "0000003100015386008825" },
-                                { label: "CUIT", value: "30-70807514-7" }
+                                { label: "CUIT", value: "30-69894716-7" }
                             ].map((item) => (
                                 <div key={item.label} className="bg-white/5 rounded-xl p-4 border border-white/5 group/row hover:border-white/10 transition-colors">
                                     <div className="flex justify-between items-center mb-1">

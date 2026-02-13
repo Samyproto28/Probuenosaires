@@ -40,7 +40,17 @@ Les escribia para ${formData.message}`
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Dirección",
+      title: "Dirección Principal",
+      content: (
+        <>
+          Piedras 113 piso 5 of 1<br />
+          CABA, Argentina
+        </>
+      ),
+    },
+    {
+      icon: MapPin,
+      title: "Sede Quilmes",
       content: (
         <>
           Venezuela Nº 2543<br />
@@ -54,8 +64,7 @@ Les escribia para ${formData.message}`
       title: "Teléfono",
       content: (
         <div className="space-y-1">
-          <div>(011) 4304-4266</div>
-          <div>(011) 5263-4256</div>
+          <div>(011) 5258-0226</div>
         </div>
       ),
     },
@@ -180,8 +189,8 @@ Les escribia para ${formData.message}`
                 <h4 className="font-semibold text-white">Datos Institucionales</h4>
               </div>
               <div className="space-y-2 text-sm text-white/60">
-                <p><strong className="text-white/80">CUIT:</strong> 30-70807514-7</p>
-                <p><strong className="text-white/80">Personería Jurídica:</strong> Otorgada por IGJ</p>
+                <p><strong className="text-white/80">CUIT:</strong> 30-69894716-7</p>
+                <p><strong className="text-white/80">Personería Jurídica:</strong> Otorgada por IGJ (1649721)</p>
                 <p><strong className="text-white/80">Organización:</strong> Sin fines de lucro</p>
               </div>
             </motion.div>
@@ -264,36 +273,7 @@ Les escribia para ${formData.message}`
           </motion.div>
         </div>
 
-        {/* Google Map Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-16 relative group"
-        >
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#8dc2ff] to-[#ffffff] opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500 rounded-[2.5rem]" />
-          <div className="relative h-[450px] w-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm bg-white/5">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.8645027279044!2d-58.26727062456566!3d-34.76710696614493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32ebc0d14d52d%3A0x2ebb295965a55bc5!2sVenezuela%202543%2C%20B1840%20Quilmes%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1sen!2sar!4v1770228030099!5m2!1sen!2sar"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "grayscale(0.2) contrast(1.1) brightness(0.9)" }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale-0 hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
 
-          {/* Floating Address Indicator */}
-          <div className="absolute bottom-6 right-6 p-4 rounded-2xl bg-[#111269]/90 backdrop-blur-md border border-white/10 text-white shadow-xl max-w-[240px] hidden md:block">
-            <div className="flex items-center gap-3 mb-1">
-              <MapPin className="w-4 h-4 text-[#8dc2ff]" />
-              <span className="font-semibold text-sm">Nuestra Oficina</span>
-            </div>
-            <p className="text-xs text-white/70">Venezuela 2543, Quilmes Oeste, Buenos Aires</p>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

@@ -90,18 +90,23 @@ export function Footer() {
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3 text-sm">
                   <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
-                  <span className="text-white/70">
-                    Venezuela Nº 2543<br />
-                    Quilmes Oeste<br />
-                    Buenos Aires, Argentina
-                  </span>
+                  <div className="text-white/70 space-y-4">
+                    <div>
+                      <span className="block font-semibold text-white/90">Dirección Principal:</span>
+                      Piedras 113 piso 5 of 1, CABA
+                    </div>
+                    <div>
+                      <span className="block font-semibold text-white/90">Sede Quilmes:</span>
+                      Venezuela Nº 2543, Quilmes Oeste
+                    </div>
+                  </div>
                 </div>
                 <a
-                  href="tel:+541143044266"
+                  href="tel:+541152580226"
                   className="flex items-center gap-3 text-sm text-white/70 hover:text-[#8dc2ff] transition-colors group"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0 text-[#8dc2ff]" aria-hidden="true" />
-                  <span className="group-hover:underline">(011) 4304-4266</span>
+                  <span className="group-hover:underline">(011) 5258-0226</span>
                 </a>
                 <a
                   href="https://wa.me/5491141899250"
@@ -175,10 +180,10 @@ export function Footer() {
         <div className="py-6 border-t border-white/10">
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-white/40">
             <div className="px-4 py-2 bg-white/5 rounded-full border border-white/10">
-              <strong className="text-white/60">CUIT:</strong> 30-70807514-7
+              <strong className="text-white/60">CUIT:</strong> 30-69894716-7
             </div>
             <div className="w-1 h-1 rounded-full bg-white/20" />
-            <span>Personería Jurídica otorgada por la IGJ</span>
+            <span>Personería Jurídica otorgada por la IGJ (1649721)</span>
           </div>
         </div>
 
