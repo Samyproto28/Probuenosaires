@@ -23,8 +23,14 @@ export default function Home() {
         <Services />
         <Programs limit={3} />
         <DonationCTA />
+      </Suspense>
+      <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
         <News />
+      </Suspense>
+      <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
         <Partners />
+      </Suspense>
+      <Suspense fallback={<div className="h-96" />}>
         <Newsletter />
         <Contact />
       </Suspense>
@@ -32,3 +38,4 @@ export default function Home() {
     </main>
   )
 }
+

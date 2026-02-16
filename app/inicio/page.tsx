@@ -12,6 +12,7 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Metadata } from "next"
 import { HashNavigationHandler } from "@/components/hash-navigation-handler"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Inicio | Fundación Pro Buenos Aires",
@@ -29,8 +30,12 @@ export default function Inicio() {
       <Services />
       <Programs limit={3} />
       <DonationCTA />
-      <News />
-      <Partners />
+      <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
+        <News />
+      </Suspense>
+      <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
+        <Partners />
+      </Suspense>
       <Newsletter />
       <Contact />
       <Footer />
