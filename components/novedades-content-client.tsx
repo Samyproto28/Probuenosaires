@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Calendar, ArrowUpRight, Newspaper, Tag, ChevronRight } from "lucide-react"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 import Link from "next/link"
+import Image from "next/image"
 
 export interface NovedadesNewsItem {
     _id: string
@@ -74,7 +75,17 @@ export function NovedadesContentClient({ blogPosts }: NovedadesContentClientProp
                             initial={{ opacity: 0, scale: 0.98 }}
                         >
                             <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#111269] via-[#111269]/90 to-[#89abe6]/50" />
+                                {blogPosts[0].mainImageUrl ? (
+                                    <Image
+                                        src={blogPosts[0].mainImageUrl}
+                                        alt={blogPosts[0].title}
+                                        fill
+                                        className="object-cover"
+                                        sizes="100vw"
+                                        priority
+                                    />
+                                ) : null}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#111269] via-[#111269]/70 to-[#111269]/30" />
 
                                 <div className="absolute inset-0 p-8 lg:p-16 flex flex-col justify-end">
                                     <div className="max-w-3xl">
@@ -115,8 +126,18 @@ export function NovedadesContentClient({ blogPosts }: NovedadesContentClientProp
                             >
                                 <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden hover:shadow-2xl hover:shadow-[#111269]/10 transition-all duration-500 h-full flex flex-col">
                                     <div className="relative h-56 overflow-hidden">
-                                        <div className={`absolute inset-0 bg-gradient-to-br from-[#111269]/5 to-[#89abe6]/20 transition-transform duration-700 group-hover:scale-110`} />
-                                        <div className="absolute top-4 left-4">
+                                        {post.mainImageUrl ? (
+                                            <Image
+                                                src={post.mainImageUrl}
+                                                alt={post.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            />
+                                        ) : (
+                                            <div className={`absolute inset-0 bg-gradient-to-br from-[#111269]/5 to-[#89abe6]/20 transition-transform duration-700 group-hover:scale-110`} />
+                                        )}
+                                        <div className="absolute top-4 left-4 z-10">
                                             <span className={`${categoryColorMap[post.category] || "bg-[#111269]"} text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider`}>
                                                 {post.category}
                                             </span>

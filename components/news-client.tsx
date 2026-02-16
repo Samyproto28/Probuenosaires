@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowRight, ArrowUpRight, Newspaper } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 
 export interface NewsItem {
@@ -92,20 +93,29 @@ export function NewsClient({ newsItems }: NewsClientProps) {
                             className="group h-full"
                         >
                             <div className="relative bg-white rounded-2xl p-0 overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-2 h-full flex flex-col">
-                                {/* Placeholder image/gradient header */}
+                                {/* Image / gradient header */}
                                 <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#111269]/5 to-[#89abe6]/10">
-                                    {/* Abstract decoration */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div
-                                            className="w-32 h-32 rounded-full opacity-20"
-                                            style={{
-                                                background: `radial-gradient(circle, ${index === 0 ? "#8dc2ff" : index === 1 ? "#89abe6" : "#111269"} 0%, transparent 70%)`,
-                                            }}
+                                    {item.mainImageUrl ? (
+                                        <Image
+                                            src={item.mainImageUrl}
+                                            alt={item.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
                                         />
-                                    </div>
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div
+                                                className="w-32 h-32 rounded-full opacity-20"
+                                                style={{
+                                                    background: `radial-gradient(circle, ${index === 0 ? "#8dc2ff" : index === 1 ? "#89abe6" : "#111269"} 0%, transparent 70%)`,
+                                                }}
+                                            />
+                                        </div>
+                                    )}
 
                                     {/* Category badge */}
-                                    <div className="absolute top-4 left-4">
+                                    <div className="absolute top-4 left-4 z-10">
                                         <span className={`${categoryColorMap[item.category] || "bg-[#111269]"} text-white text-xs font-semibold px-3 py-1.5 rounded-lg`}>
                                             {item.category}
                                         </span>

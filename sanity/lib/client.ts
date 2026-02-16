@@ -5,5 +5,5 @@ export const client = createClient({
     projectId,
     dataset,
     apiVersion,
-    useCdn: true, // CDN for fast reads in production
+    useCdn: false, // Direct API for instant updates after publishing
 })

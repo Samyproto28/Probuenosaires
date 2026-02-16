@@ -1,17 +1,45 @@
 import { createClient } from "next-sanity"
 
-const client = createClient({
+const c = createClient({
     projectId: "r2kwf8nd",
     dataset: "production",
     apiVersion: "2025-02-15",
-    useCdn: true,
+    useCdn: false,
 })
 
-// Test: fetch all noticias
-const noticias = await client.fetch('*[_type == "noticia"]')
-console.log("Noticias count:", noticias.length)
-console.log("Noticias:", JSON.stringify(noticias, null, 2))
+// Fetch the raw body of the article with the image
+const body = await c.fetch(
+    `*[_type == "noticia" && slug.current == "convenio-economia-verde"][0].body`
+)
 
-// Test: fetch all logos
-const logos = await client.fetch('*[_type == "logo"]')
-console.log("Logos count:", logos.length)
+// Show every block, especially images
+for (const block of body) {
+    if (block._type === "image") {
+        console.log("=== IMAGE BLOCK ===")
+        console.log(JSON.stringify(block, null, 2))
+    } else {
+        console.log(`[${block._type}] style=${block.style} -> ${block.children?.[0]?.text?.substring(0, 50)}...`)
+    }
+}
+
+// Also fetch with the projection (like the query does)
+const fullArticle = await c.fetch(
+    `*[_type == "noticia" && slug.current == "convenio-economia-verde"][0]{
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "url": asset->url,
+        "alt": alt,
+        "caption": caption
+      }
+    }
+  }`
+)
+
+console.log("\n=== PROJECTED IMAGE BLOCKS ===")
+for (const block of fullArticle.body) {
+    if (block._type === "image") {
+        console.log(JSON.stringify(block, null, 2))
+    }
+}
