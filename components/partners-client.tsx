@@ -136,17 +136,17 @@ export function PartnersClient({ redLogos, supportLogos }: PartnersClientProps) 
     const secondRow = supportLogos.slice(Math.ceil(supportLogos.length / 2))
 
     return (
-        <section className="py-24 lg:py-32 relative overflow-hidden bg-white">
+        <section className="py-16 lg:py-24 relative overflow-hidden bg-white">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#f0f7ff]/30 to-[#ffffff] pointer-events-none" />
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
 
                 {/* Network Section */}
-                <div className="mb-24">
+                <div className="mb-16">
                     <MotionViewport
                         initial={{ opacity: 0, y: 20 }}
-                        className="flex justify-center mb-16"
+                        className="flex justify-center mb-10"
                     >
                         <div className="relative group max-w-3xl w-full">
                             <div className="absolute -inset-1 bg-gradient-to-r from-[#8dc2ff]/20 via-[#111269]/10 to-[#8dc2ff]/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-1000"></div>
@@ -182,10 +182,10 @@ export function PartnersClient({ redLogos, supportLogos }: PartnersClientProps) 
                 </div>
 
                 {/* Support Section */}
-                <div className="mb-24 overflow-hidden">
+                <div className="mb-16 overflow-hidden">
                     <MotionViewport
                         initial={{ opacity: 0, y: 20 }}
-                        className="flex justify-center mb-16"
+                        className="flex justify-center mb-10"
                     >
                         <div className="relative group max-w-3xl w-full">
                             <div className="absolute -inset-1 bg-gradient-to-r from-[#8dc2ff]/20 via-[#111269]/10 to-[#8dc2ff]/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-1000"></div>
@@ -245,7 +245,7 @@ export function PartnersClient({ redLogos, supportLogos }: PartnersClientProps) 
                             className="group bg-[#8dc2ff] text-[#111269] hover:bg-white hover:text-[#111269] h-16 px-12 text-lg font-bold rounded-2xl shadow-xl shadow-[#8dc2ff]/20 transition-all duration-300 hover:scale-[1.05] flex-shrink-0"
                             asChild
                         >
-                            <a href="#contacto">
+                            <a href="/contacto">
                                 <span>Conocé Cómo Sumarte</span>
                                 <ArrowRight className="ml-3 h-6 w-6 transition-transform group-hover:translate-x-2" aria-hidden="true" />
                             </a>

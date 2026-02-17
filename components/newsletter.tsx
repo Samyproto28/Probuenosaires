@@ -12,7 +12,7 @@ export function Newsletter() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden" ref={sectionRef}>
+    <section className="py-16 lg:py-24 relative overflow-hidden" ref={sectionRef}>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] to-[#f0f7ff]" />
 

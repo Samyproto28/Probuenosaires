@@ -27,7 +27,7 @@ export function About() {
   ]
 
   return (
-    <section id="nosotros" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="nosotros" className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-white" />
 
@@ -52,7 +52,7 @@ export function About() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <MotionViewport className="max-w-4xl mx-auto text-center mb-20" initial={{ opacity: 0, y: 30 }}>
+        <MotionViewport className="max-w-4xl mx-auto text-center mb-12" initial={{ opacity: 0, y: 30 }}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#111269]/5 text-[#111269] text-sm font-semibold tracking-wide mb-6">
             SOBRE NOSOTROS
           </span>

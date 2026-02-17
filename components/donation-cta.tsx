@@ -11,7 +11,7 @@ export function DonationCTA() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="donaciones" className="py-24 lg:py-32 relative overflow-hidden" ref={sectionRef}>
+    <section id="donaciones" className="py-16 lg:py-24 relative overflow-hidden" ref={sectionRef}>
       {/* Background */}
       <div className="absolute inset-0 bg-[#ffffff]" />
 

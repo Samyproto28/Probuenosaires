@@ -45,7 +45,7 @@ interface NewsClientProps {
 
 export function NewsClient({ newsItems }: NewsClientProps) {
     return (
-        <section id="noticias" className="py-24 lg:py-32 relative overflow-hidden">
+        <section id="noticias" className="py-16 lg:py-24 relative overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 bg-[#ffffff]" />
 
@@ -58,7 +58,7 @@ export function NewsClient({ newsItems }: NewsClientProps) {
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <MotionViewport
-                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-16 gap-6"
+                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-6"
                     initial={{ opacity: 0, y: 20 }}
                 >
                     <div>

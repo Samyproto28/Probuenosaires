@@ -11,7 +11,6 @@ import { DonationCTA } from "@/components/donation-cta"
 import { News } from "@/components/news"
 import { Partners } from "@/components/partners"
 import { Newsletter } from "@/components/newsletter"
-import { Contact } from "@/components/contact"
 
 import { Suspense } from "react"
 
@@ -35,7 +34,6 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<div className="h-96" />}>
         <Newsletter />
-        <Contact />
       </Suspense>
 
     </main>

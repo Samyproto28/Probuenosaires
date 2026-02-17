@@ -60,9 +60,9 @@ export function Footer() {
             <MotionViewport className="lg:col-span-2" initial={{ opacity: 0, y: 20 }}>
               {/* Logo */}
               <div className="flex items-center gap-4 mb-6 group">
-                <div className="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <Image
-                    src="/logo.png"
+                    src="/logo-new2.png"
                     alt="Logo Fundación Pro Buenos Aires"
                     width={100}
                     height={100}

@@ -86,9 +86,9 @@ export function Header() {
             {/* Logo */}
             <Link href="/inicio" className="flex items-center gap-3 lg:gap-4 group">
               <div className="relative">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center bg-white rounded-xl shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                   <Image
-                    src="/logo.png"
+                    src="/logo-new2.png"
                     alt="Fundación Pro Buenos Aires"
                     width={200}
                     height={200}

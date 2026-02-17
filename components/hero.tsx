@@ -16,7 +16,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
       {/* Deep gradient background with texture */}
       <div className="absolute inset-0 z-0">
@@ -128,7 +128,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 text-balance leading-[0.95] tracking-tight"
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 text-balance leading-[0.95] tracking-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             <span className="text-white">Impulsando el</span>
@@ -169,7 +169,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-xl sm:text-2xl text-white/70 mb-12 lg:mb-14 text-pretty leading-relaxed max-w-3xl mx-auto font-light"
+            className="text-xl sm:text-2xl text-white/70 mb-8 lg:mb-10 text-pretty leading-relaxed max-w-3xl mx-auto font-light"
           >
             Transformamos comunidades a través de programas de capacitación,
             asistencia técnica y generación de <span className="text-white/90 font-medium">empleo genuino</span>.

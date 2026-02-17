@@ -42,7 +42,7 @@ export function Services() {
   ]
 
   return (
-    <section id="servicios" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="servicios" className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[#111269]" />
 
@@ -74,7 +74,7 @@ export function Services() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <MotionViewport className="text-center mb-16 lg:mb-20" initial={{ opacity: 0, y: 20 }}>
+        <MotionViewport className="text-center mb-10 lg:mb-12" initial={{ opacity: 0, y: 20 }}>
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#8dc2ff] text-sm font-semibold tracking-wide mb-6">
             <Sparkles className="w-4 h-4" />
             NUESTROS SERVICIOS

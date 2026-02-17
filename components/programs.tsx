@@ -117,7 +117,7 @@ export function Programs({ limit }: ProgramsProps) {
   const programs = limit ? allPrograms.slice(0, limit) : allPrograms
 
   return (
-    <section id="programas" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="programas" className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f0f7ff] via-[#ffffff] to-[#f0f7ff]" />
 
@@ -128,7 +128,7 @@ export function Programs({ limit }: ProgramsProps) {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <MotionViewport className="text-center mb-16 lg:mb-20" initial={{ opacity: 0, y: 20 }}>
+        <MotionViewport className="text-center mb-10 lg:mb-12" initial={{ opacity: 0, y: 20 }}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-6">
             PROGRAMAS DESTACADOS
           </span>

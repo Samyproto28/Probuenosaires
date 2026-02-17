@@ -139,7 +139,7 @@ export function ImpactStats() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="impacto" className="relative py-24 lg:py-32 overflow-hidden" ref={sectionRef}>
+    <section id="impacto" className="relative py-16 lg:py-24 overflow-hidden" ref={sectionRef}>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#f0f7ff] to-[#ffffff]" />
 
@@ -162,7 +162,7 @@ export function ImpactStats() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-10 lg:mb-12"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-4">
             NUESTRO IMPACTO
