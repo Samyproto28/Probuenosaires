@@ -1,4 +1,6 @@
 "use client"
+// Rebuild trigger
+
 
 import { Button } from "@/components/ui/button"
 import { Calendar, ArrowRight, ArrowUpRight, Newspaper } from "lucide-react"

@@ -1,6 +1,6 @@
-import { Header } from "@/components/header"
+
 import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <main className="min-h-screen">
-      <Header />
+
       <div className="pt-8">
         <Contact />
       </div>
-      <Footer />
+
     </main>
   )
 }

@@ -1,5 +1,5 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
+
 import { EquipoContent } from "@/components/equipo-content"
 import { Metadata } from "next"
 
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function EquipoPage() {
   return (
     <main className="min-h-screen bg-[#ffffff]">
-      <Header />
+
       <EquipoContent />
-      <Footer />
+
     </main>
   )
 }

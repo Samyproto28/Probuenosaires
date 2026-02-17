@@ -1,5 +1,5 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
+
 import { InstitucionalContent } from "@/components/institucional-content"
 import { SDGSection } from "@/components/sdg-section"
 import { Metadata } from "next"
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function InstitucionalPage() {
   return (
     <main className="min-h-screen bg-[#ffffff]">
-      <Header />
+
       <InstitucionalContent />
       <SDGSection />
-      <Footer />
+
     </main>
   )
 }

@@ -2,8 +2,8 @@
 
 import { ReactNode, useEffect, useState } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
+
 import { Clock, ChevronRight, Share2, Printer, ArrowUp, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -103,7 +103,7 @@ export function ArticleLayout({
                 style={{ scaleX }}
             />
 
-            <Header />
+
 
             {/* Hero Section */}
             <header className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-[#fafafa]">
@@ -318,7 +318,7 @@ export function ArticleLayout({
                 )
             }
 
-            <Footer />
+
         </div >
     )
 }

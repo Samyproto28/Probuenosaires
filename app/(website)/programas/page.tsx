@@ -1,6 +1,7 @@
-import { Header } from "@/components/header"
+
+// Rebuild trigger
 import { Programs } from "@/components/programs"
-import { Footer } from "@/components/footer"
+
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
 export default function ProgramasPage() {
   return (
     <main className="min-h-screen">
-      <Header />
+
       <div className="pt-8">
         <Programs />
       </div>
-      <Footer />
+
     </main>
   )
 }

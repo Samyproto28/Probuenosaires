@@ -1,4 +1,4 @@
-import { Header } from "@/components/header"
+
 import { Hero } from "@/components/hero"
 import { ImpactStats } from "@/components/impact-stats"
 import { About } from "@/components/about"
@@ -9,36 +9,33 @@ import { News } from "@/components/news"
 import { Partners } from "@/components/partners"
 import { Newsletter } from "@/components/newsletter"
 import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
-import { Metadata } from "next"
-import { HashNavigationHandler } from "@/components/hash-navigation-handler"
+
 import { Suspense } from "react"
 
-export const metadata: Metadata = {
-  title: "Inicio | Fundación Pro Buenos Aires",
-  description: "Desde 1998 trabajamos por el desarrollo sustentable de Argentina",
-}
-
-export default function Inicio() {
+export default function Home() {
   return (
     <main className="min-h-screen">
-      <HashNavigationHandler />
-      <Header />
+
       <Hero />
-      <ImpactStats />
-      <About />
-      <Services />
-      <Programs limit={3} />
-      <DonationCTA />
+      <Suspense fallback={<div className="h-96" />}>
+        <ImpactStats />
+        <About />
+        <Services />
+        <Programs limit={3} />
+        <DonationCTA />
+      </Suspense>
       <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
         <News />
       </Suspense>
       <Suspense fallback={<div className="h-64 animate-pulse bg-gray-50" />}>
         <Partners />
       </Suspense>
-      <Newsletter />
-      <Contact />
-      <Footer />
+      <Suspense fallback={<div className="h-96" />}>
+        <Newsletter />
+        <Contact />
+      </Suspense>
+
     </main>
   )
 }
+

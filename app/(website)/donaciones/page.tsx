@@ -1,7 +1,7 @@
 "use client"
 
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
+
 import { Heart, ShieldCheck, Copy, Check, ExternalLink, Sparkles, Building2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,7 @@ export default function DonacionesPage() {
 
     return (
         <main className="min-h-screen bg-[#fafafa] selection:bg-[#8dc2ff]/30">
-            <Header />
+
 
             {/* Hero Section - Compact & Elegant */}
             <section className="relative pt-32 pb-20 bg-[#111269] overflow-hidden">
@@ -143,7 +143,7 @@ export default function DonacionesPage() {
                 </div>
             </section>
 
-            <Footer />
+
         </main>
     )
 }
