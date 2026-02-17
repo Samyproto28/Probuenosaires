@@ -20,11 +20,23 @@ export default defineConfig({
                 return S.list()
                     .title("Contenido")
                     .items([
-                        // Logos with drag-and-drop ordering
+                        // Logos: "Integramos las siguientes redes"
                         orderableDocumentListDeskItem({
                             type: "logo",
-                            title: "Logos / Patrocinadores",
-                            icon: () => "🖼️",
+                            id: "orderable-logo-red",
+                            title: "Integramos las siguientes redes",
+                            icon: () => "🌐",
+                            filter: `tier == "red"`,
+                            S,
+                            context,
+                        }),
+                        // Logos: "Apoyan o acompañan nuestro proyecto"
+                        orderableDocumentListDeskItem({
+                            type: "logo",
+                            id: "orderable-logo-alianza",
+                            title: "Apoyan o acompañan nuestro proyecto",
+                            icon: () => "🤝",
+                            filter: `tier == "alianza"`,
                             S,
                             context,
                         }),
