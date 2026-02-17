@@ -1,4 +1,7 @@
 
+/** Re-fetch Sanity data every 30 seconds (ISR) */
+export const revalidate = 30
+
 import { Hero } from "@/components/hero"
 import { ImpactStats } from "@/components/impact-stats"
 import { About } from "@/components/about"

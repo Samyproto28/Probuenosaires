@@ -1,4 +1,6 @@
 
+/** Re-fetch Sanity data every 30 seconds (ISR) */
+export const revalidate = 30
 
 import { NovedadesContent } from "@/components/novedades-content"
 import { Metadata } from "next"

@@ -1,3 +1,6 @@
+/** Re-fetch Sanity data every 30 seconds (ISR) */
+export const revalidate = 30
+
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { client } from "@/sanity/lib/client"
