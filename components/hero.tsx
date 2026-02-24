@@ -171,8 +171,8 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-xl sm:text-2xl text-white/70 mb-8 lg:mb-10 text-pretty leading-relaxed max-w-3xl mx-auto font-light"
           >
-            Transformamos comunidades a través de programas de capacitación,
-            asistencia técnica y generación de <span className="text-white/90 font-medium">empleo genuino</span>.
+            Transformamos comunidades a través de <span className="text-[#8dc2ff] font-medium">capacitación gratuita</span>,
+            asistencia técnica y generación de <span className="text-white/90 font-medium">empleo con certificado oficial</span>.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -189,21 +189,26 @@ export function Hero() {
             >
               <Link href="/programas">
                 <span className="flex items-center gap-2">
-                  Conocer Nuestros Programas
+                  Ver Cursos Gratuitos
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </span>
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg h-14 px-8 border-2 border-white/20 bg-white/[0.05] text-white hover:bg-white/[0.1] hover:border-white/30 backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-[1.02] rounded-xl font-medium"
-              asChild
-            >
-              <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
-                Hacer Una Donación
-              </a>
-            </Button>
+            <div className="flex flex-col gap-2">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg h-14 px-8 border-2 border-white/20 bg-white/[0.05] text-white hover:bg-white/[0.1] hover:border-white/30 backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 hover:scale-[1.02] rounded-xl font-medium"
+                asChild
+              >
+                <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
+                  Hacer Una Donación
+                </a>
+              </Button>
+              <span className="text-[10px] text-white/40 uppercase tracking-widest text-center">
+                100% Deducible de Impuestos
+              </span>
+            </div>
           </motion.div>
 
           {/* Trust indicators */}

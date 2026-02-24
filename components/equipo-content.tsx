@@ -1,21 +1,26 @@
 "use client"
 
-import { Users, Award, Briefcase, GraduationCap, Mail, ArrowRight, Globe, Facebook, Linkedin, Twitter } from "lucide-react"
+import { Users } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
-interface Member {
+// --- Tipos exportados ---
+
+export interface MiembroItem {
+    _id: string
     name: string
     position: string
     bio: string
-    image: string
+    photoUrl: string | null
     expertise: string[]
     accent: string
+    section: "directiva" | "coordinacion" | "profesional" | "internacional"
 }
 
-function MemberCard({ member, index, isInView }: { member: Member, index: number, isInView: boolean }) {
+// --- Tarjeta de miembro (exactamente igual al diseño original) ---
+
+function MemberCard({ member, index, isInView }: { member: MiembroItem; index: number; isInView: boolean }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -25,9 +30,9 @@ function MemberCard({ member, index, isInView }: { member: Member, index: number
         >
             <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#111269]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#111269] to-[#89abe6] opacity-80" />
-                {member.image ? (
+                {member.photoUrl ? (
                     <Image
-                        src={member.image}
+                        src={member.photoUrl}
                         alt={member.name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -57,7 +62,7 @@ function MemberCard({ member, index, isInView }: { member: Member, index: number
                     {member.bio}
                 </p>
 
-                {member.expertise.length > 0 && (
+                {member.expertise && member.expertise.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-auto">
                         {member.expertise.map((skill, i) => (
                             <span
@@ -74,162 +79,66 @@ function MemberCard({ member, index, isInView }: { member: Member, index: number
     )
 }
 
-export function EquipoContent() {
-    const directiveTeam: Member[] = [
-        {
-            name: "Facundo Galdós",
-            position: "Presidente",
-            bio: "Empresario pyme desde 1992, dirigente gremial. Desde 2007 desempeñó funciones en Cámaras Empresarias nacionales, provinciales y regionales (CGERA, CGERA Regional Sur, CEPBA, FOCAVA). Preside Mutual 2050 mandato cumplido.",
-            image: "/Facundo Galdós.jpg",
-            expertise: ["Gestión Gremial", "PyMEs", "Mutualismo"],
-            accent: "#111269"
-        },
-        {
-            name: "María Eugenia Ruiz",
-            position: "Vicepresidenta",
-            bio: "Presidenta de la Cámara de Comerciantes y amigos del cruce de Florencio Varela. Presidenta de la Cámara de Empresarios Bonaerenses para el Fortalecimiento de las Cadenas de Valor. Secretaria de la Mujer en CEPBA.",
-            image: "/María Eugenia Ruiz.jpg",
-            expertise: ["Cadenas de Valor", "Género", "Comercio"],
-            accent: "#89abe6"
-        },
-        {
-            name: "Mariano Diaz",
-            position: "Secretario",
-            bio: "Comerciante desde el año 1998, también cumplió tareas como funcionario público en diferentes áreas relacionadas con seguridad, tránsito y fiscalización.",
-            image: "/Mariano Diaz.jpg",
-            expertise: ["Seguridad", "Fiscalización", "Comercio"],
-            accent: "#8dc2ff"
-        },
-        {
-            name: "Lic. Leandro Clavero",
-            position: "Tesorero",
-            bio: "Profesional de la comunicación especializado en el desarrollo de productos digitales. Ha trabajado para el sector público, ONG y startups. Más de 10 años como docente en marketing y estrategia.",
-            image: "/Lic.Leandro Clavero.jpeg",
-            expertise: ["Estrategia Digital", "Marketing", "Docencia"],
-            accent: "#405e8c"
-        },
-    ]
+// --- Componente de sección reutilizable ---
 
-    const coordinationTeam: Member[] = [
-        {
-            name: "Luis",
-            position: "Vendedor",
-            bio: "Integrante del equipo de ventas y promoción de los programas institucionales de la Fundación.",
-            image: "",
-            expertise: ["Ventas", "Atención al Cliente", "Promoción"],
-            accent: "#111269"
-        },
-        {
-            name: "Florencia Vega",
-            position: "Coordinadora Vinculando",
-            bio: "Responsable de la dirección comercial de acciones sociales y la coordinación operativa del programa de prácticas profesionalizantes Vinculando.",
-            image: "/Florencia Vega.jpeg",
-            expertise: ["Coordinación", "Acción Social", "Comercial"],
-            accent: "#89abe6"
-        },
-        {
-            name: "Alejandro Soria",
-            position: "Voluntario",
-            bio: "Colaborador voluntario en las acciones sociales y operativas de los diversos programas de la Fundación.",
-            image: "",
-            expertise: ["Voluntariado", "Acción Social", "Logística"],
-            accent: "#8dc2ff"
-        },
-        {
-            name: "Samuel",
-            position: "Coordinador",
-            bio: "Colaborador voluntario en las acciones sociales y operativas de los diversos programas de la Fundación",
-            image: "",
-            expertise: ["Coordinación", "Acción Social", "Operaciones"],
-            accent: "#405e8c"
-        },
-    ]
+interface TeamSectionProps {
+    title: string
+    members: MiembroItem[]
+    bgColor: "white" | "light"
+    isInView: boolean
+    centered?: boolean
+}
 
-    const professionalTeam: Member[] = [
-        {
-            name: "Lic. Gustavo Pons",
-            position: "Economista Asesor Financiero",
-            bio: "Consultoría financiera especializada y análisis económico para el desarrollo de proyectos industriales.",
-            image: "/Lic. Gustavo Pons.jpeg",
-            expertise: ["Finanzas", "Economía"],
-            accent: "#111269"
-        },
-        {
-            name: "Dra. Cynthia Abal",
-            position: "Abogada",
-            bio: "Asesoramiento legal institucional y normativo para el fortalecimiento de las organizaciones.",
-            image: "/Dra. Cynthia Abal.jpeg",
-            expertise: ["Legal", "Institucional"],
-            accent: "#89abe6"
-        },
-        {
-            name: "Dr. Joaquin Britos",
-            position: "Contador",
-            bio: "Gestión contable y auditoría de procesos financieros para asegurar la transparencia institucional.",
-            image: "/Dr. Joaquin Britos.jpeg",
-            expertise: ["Contabilidad", "Auditoría"],
-            accent: "#8dc2ff"
-        },
-        {
-            name: "Ing. Sergio Dominguez",
-            position: "Ingeniero",
-            bio: "Asesor técnico en procesos industriales y optimización de recursos energéticos.",
-            image: "/Ing. Sergio Dominguez.jpg",
-            expertise: ["Ingeniería", "Industria"],
-            accent: "#405e8c"
-        },
-        {
-            name: "Rodrigo González",
-            position: "Especialista en Relaciones Internacionales",
-            bio: "Gestión de vínculos internacionales y programas de cooperación para el desarrollo regional.",
-            image: "/Rodrigo González.jpeg",
-            expertise: ["Relaciones Internacionales", "Cooperación"],
-            accent: "#111269"
-        },
-        {
-            name: "Ing. Mariano Santos",
-            position: "Ingeniero",
-            bio: "Soporte técnico especializado en infraestructura y modernización tecnológica.",
-            image: "/Ing. Mariano Santos.jpeg",
-            expertise: ["Tecnología", "Infraestructura"],
-            accent: "#89abe6"
-        },
-        {
-            name: "Prof. Romina Damiani Ameri",
-            position: "Profesora",
-            bio: "Docencia y desarrollo de contenidos educativos para los programas de capacitación de la Fundación.",
-            image: "/Prof. Romina Damiani Ameri.jpeg",
-            expertise: ["Educación", "Capacitación"],
-            accent: "#8dc2ff"
-        },
-        {
-            name: "Prof. Marcela Crespo",
-            position: "Profesora",
-            bio: "Especialista en formación profesional y diseño pedagógico para la inserción laboral.",
-            image: "/Prof. Marcela Crespo.jpeg",
-            expertise: ["Educación", "Inserción Laboral"],
-            accent: "#405e8c"
-        },
-    ]
+function TeamSection({ title, members, bgColor, isInView, centered }: TeamSectionProps) {
+    if (members.length === 0) return null
 
-    const internationalTeam: Member[] = [
-        {
-            name: "Wang Chan Can",
-            position: "Director - Oficina en Shangai, China",
-            bio: "Liderazgo de la representation internacional en Asia, facilitando vínculos comerciales y tecnológicos.",
-            image: "/Wang Chan can.jpeg",
-            expertise: ["China", "Comercio Exterior"],
-            accent: "#111269"
-        },
-        {
-            name: "Ing. Gerardo Fernandez",
-            position: "Director - Oficina Valencia, España",
-            bio: "Coordinación de la oficina europea de la Fundación, promoviendo el intercambio con la red de Pymes de España.",
-            image: "/Ing. Gerardo Fernandez.jpg",
-            expertise: ["España", "Innovación Europea"],
-            accent: "#89abe6"
-        },
-    ]
+    const bg = bgColor === "light" ? "bg-[#f0f7ff]" : "bg-white"
+
+    return (
+        <section className={`py-24 ${bg} relative`}>
+            <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                <div className="text-center mb-16">
+                    <h2
+                        className="text-3xl lg:text-4xl font-bold text-[#111269] mb-4"
+                        style={{ fontFamily: "var(--font-playfair)" }}
+                    >
+                        {title}
+                    </h2>
+                    <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
+                </div>
+
+                {centered ? (
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {members.map((member, index) => (
+                            <div key={member._id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+                                <MemberCard member={member} index={index} isInView={isInView} />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {members.map((member, index) => (
+                            <MemberCard key={member._id} member={member} index={index} isInView={isInView} />
+                        ))}
+                    </div>
+                )}
+            </div>
+        </section>
+    )
+}
+
+// --- Componente principal ---
+
+interface EquipoContentProps {
+    members: MiembroItem[]
+}
+
+export function EquipoContent({ members }: EquipoContentProps) {
+    // Agrupar miembros por sección
+    const directiva = members.filter((m) => m.section === "directiva")
+    const coordinacion = members.filter((m) => m.section === "coordinacion")
+    const profesional = members.filter((m) => m.section === "profesional")
+    const internacional = members.filter((m) => m.section === "internacional")
 
     const sectionRef = useRef<HTMLDivElement>(null)
     const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
@@ -274,95 +183,11 @@ export function EquipoContent() {
                 </div>
             </section>
 
-            {/* Comisión Directiva */}
-            <section className="py-24 bg-[#f0f7ff] relative">
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2
-                            className="text-3xl lg:text-4xl font-bold text-[#111269] mb-4"
-                            style={{ fontFamily: "var(--font-playfair)" }}
-                        >
-                            Comisión Directiva
-                        </h2>
-                        <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {directiveTeam.map((member, index) => (
-                            <MemberCard key={index} member={member} index={index} isInView={isInView} />
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Coordinación */}
-            <section className="py-24 bg-white relative">
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2
-                            className="text-3xl lg:text-4xl font-bold text-[#111269] mb-4"
-                            style={{ fontFamily: "var(--font-playfair)" }}
-                        >
-                            Coordinación Operativa
-                        </h2>
-                        <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {coordinationTeam.map((member, index) => (
-                            <div key={index} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
-                                <MemberCard member={member} index={index} isInView={isInView} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Equipo Profesional */}
-            <section className="py-24 bg-[#f0f7ff] relative">
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2
-                            className="text-3xl lg:text-4xl font-bold text-[#111269] mb-4"
-                            style={{ fontFamily: "var(--font-playfair)" }}
-                        >
-                            Equipo Profesional de Trabajo
-                        </h2>
-                        <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {professionalTeam.map((member, index) => (
-                            <MemberCard key={index} member={member} index={index} isInView={isInView} />
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Internacional */}
-            <section className="py-24 bg-white relative">
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2
-                            className="text-3xl lg:text-4xl font-bold text-[#111269] mb-4"
-                            style={{ fontFamily: "var(--font-playfair)" }}
-                        >
-                            Institutos - Oficinas Internacionales
-                        </h2>
-                        <div className="w-20 h-1 bg-[#8dc2ff] mx-auto rounded-full" />
-                    </div>
-
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {internationalTeam.map((member, index) => (
-                            <div key={index} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
-                                <MemberCard member={member} index={index} isInView={isInView} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-
+            {/* Secciones dinámicas */}
+            <TeamSection title="Comisión Directiva" members={directiva} bgColor="light" isInView={isInView} />
+            <TeamSection title="Coordinación Operativa" members={coordinacion} bgColor="white" isInView={isInView} centered />
+            <TeamSection title="Equipo Profesional de Trabajo" members={profesional} bgColor="light" isInView={isInView} />
+            <TeamSection title="Institutos - Oficinas Internacionales" members={internacional} bgColor="white" isInView={isInView} centered />
         </div>
     )
 }

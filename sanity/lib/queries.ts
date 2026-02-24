@@ -87,3 +87,92 @@ export const allNoticiaSlugsQuery = groq`
     "slug": slug.current
   }
 `
+
+// --- PROGRAMAS ---
+
+/** Get the latest N programs for the homepage grid (respects drag-and-drop order) */
+export const latestProgramsQuery = groq`
+  *[_type == "programa" && isActive != false] | order(orderRank)[0...$limit] {
+    _id,
+    title,
+    "slug": slug.current,
+    icon,
+    description,
+    impact,
+    impactLabel,
+    "mainImageUrl": mainImage.asset->url,
+    gradient,
+    isActive
+  }
+`
+
+/** Get all active programs for the /programas page (respects drag-and-drop order) */
+export const allProgramsQuery = groq`
+  *[_type == "programa" && isActive != false] | order(orderRank) {
+    _id,
+    title,
+    "slug": slug.current,
+    icon,
+    description,
+    impact,
+    impactLabel,
+    "mainImageUrl": mainImage.asset->url,
+    gradient,
+    isActive
+  }
+`
+
+/** Get a single program by slug (full content including body) */
+export const programaBySlugQuery = groq`
+  *[_type == "programa" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    icon,
+    description,
+    impact,
+    impactLabel,
+    "mainImageUrl": mainImage.asset->url,
+    localImage,
+    gradient,
+    href,
+    isActive,
+    publishedAt,
+    author,
+    readTime,
+    summary,
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "url": asset->url,
+        "alt": alt,
+        "caption": caption
+      }
+    }
+  }
+`
+
+/** Get all program slugs for generateStaticParams */
+export const allProgramaSlugsQuery = groq`
+  *[_type == "programa" && defined(slug.current) && isActive != false] {
+    "slug": slug.current
+  }
+`
+
+// --- EQUIPO ---
+
+/** Get all active team members, ordered by drag-and-drop rank, grouped by section */
+export const allMiembrosQuery = groq`
+  *[_type == "miembro" && isActive != false] | order(orderRank) {
+    _id,
+    name,
+    position,
+    bio,
+    "photoUrl": photo.asset->url,
+    expertise,
+    accent,
+    section
+  }
+`
+

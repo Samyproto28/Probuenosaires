@@ -50,6 +50,59 @@ export default defineConfig({
                                     .title("Noticias")
                                     .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
                             ),
+                        S.divider(),
+                        // Programas
+                        orderableDocumentListDeskItem({
+                            type: "programa",
+                            id: "orderable-programas",
+                            title: "Programas",
+                            icon: () => "🚀",
+                            S,
+                            context,
+                        }),
+                        S.divider(),
+                        // Equipo — 4 secciones
+                        S.listItem()
+                            .title("Equipo")
+                            .icon(() => "👥")
+                            .child(
+                                S.list()
+                                    .title("Secciones del Equipo")
+                                    .items([
+                                        orderableDocumentListDeskItem({
+                                            type: "miembro",
+                                            id: "orderable-miembro-directiva",
+                                            title: "🏛️ Comisión Directiva",
+                                            filter: `section == "directiva"`,
+                                            S,
+                                            context,
+                                        }),
+                                        orderableDocumentListDeskItem({
+                                            type: "miembro",
+                                            id: "orderable-miembro-coordinacion",
+                                            title: "⚙️ Coordinación Operativa",
+                                            filter: `section == "coordinacion"`,
+                                            S,
+                                            context,
+                                        }),
+                                        orderableDocumentListDeskItem({
+                                            type: "miembro",
+                                            id: "orderable-miembro-profesional",
+                                            title: "👨‍💼 Equipo Profesional",
+                                            filter: `section == "profesional"`,
+                                            S,
+                                            context,
+                                        }),
+                                        orderableDocumentListDeskItem({
+                                            type: "miembro",
+                                            id: "orderable-miembro-internacional",
+                                            title: "🌍 Oficinas Internacionales",
+                                            filter: `section == "internacional"`,
+                                            S,
+                                            context,
+                                        }),
+                                    ])
+                            ),
                     ])
             },
         }),

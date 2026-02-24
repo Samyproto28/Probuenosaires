@@ -44,6 +44,13 @@ export async function POST(req: NextRequest) {
         } else if (type === "logo") {
             // Logos are shown on the homepage
             revalidatePath("/", "page")
+        } else if (type === "programa") {
+            // Programs are shown on the homepage and /programas
+            revalidatePath("/", "page")
+            revalidatePath("/programas", "page")
+        } else if (type === "miembro") {
+            // Team members are shown on /equipo
+            revalidatePath("/equipo", "page")
         } else {
             // For any other type, revalidate everything
             revalidatePath("/", "layout")

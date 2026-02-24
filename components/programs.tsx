@@ -1,250 +1,75 @@
+import { client } from "@/sanity/lib/client"
+import { latestProgramsQuery, allProgramsQuery } from "@/sanity/lib/queries"
+import { ProgramsClient, ProgramItem } from "./programs-client"
 
-// Rebuild trigger
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Handshake, Network, Globe, HeartPulse, Radio, Cpu, Palette, Flag, Video, Layers, Factory } from "lucide-react"
-import { MotionViewport } from "@/components/ui/motion-viewport"
-import Image from "next/image"
-import Link from "next/link"
+// ---------------------------------------------------------------------------
+// Fallback mínimo — solo actúa si Sanity está completamente caído.
+// No es contenido real: solo evita que la sección quede en blanco.
+// ---------------------------------------------------------------------------
+const fallbackPrograms: ProgramItem[] = [
+  {
+    _id: "fallback-p1",
+    title: "Programa Vinculando",
+    slug: "vinculando",
+    icon: "Handshake",
+    description:
+      "Conectamos a estudiantes de escuelas técnicas con empresas para sus 200 horas de prácticas profesionalizantes.",
+    impact: "200h",
+    impactLabel: "prácticas profesionalizantes por alumno",
+    gradient: "from-[#111269] to-[#405e8c]",
+  },
+  {
+    _id: "fallback-p2",
+    title: "Programa Encadenar",
+    slug: "encadenar",
+    icon: "Network",
+    description:
+      "Fortalecemos los vínculos entre PyMEs promoviendo el trabajo colaborativo mediante rondas de negocios y networking.",
+    impact: "Sinergia",
+    impactLabel: "rondas de negocios y networking",
+    gradient: "from-[#405e8c] to-[#89abe6]",
+  },
+  {
+    _id: "fallback-p3",
+    title: "Centro Tecnológico 4.0",
+    slug: "centro-tecnologico-40",
+    icon: "Cpu",
+    description:
+      "Acercamos a las PyMEs a la innovación y la transformación digital con capacitaciones técnicas de vanguardia.",
+    impact: "4.0",
+    impactLabel: "innovación y tecnología aplicada",
+    gradient: "from-[#8dc2ff] to-[#111269]",
+  },
+]
 
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
 interface ProgramsProps {
   limit?: number
 }
 
-export function Programs({ limit }: ProgramsProps) {
-  const allPrograms = [
-    {
-      icon: Handshake,
-      title: "Programa Vinculando",
-      description:
-        "Conectamos a estudiantes de escuelas técnicas con empresas para sus 200 horas de prácticas profesionalizantes. Un programa central que impulsa la formación de futuros técnicos y la empleabilidad juvenil en Quilmes, Florencio Varela y Berazategui.",
-      impact: "200h",
-      impactLabel: "prácticas profesionalizantes por alumno",
-      image: "/vinculando.webp",
-      gradient: "from-black/40 to-black/10",
-      lightGradient: "from-[#111269]/5 to-[#89abe6]/5",
-    },
-    {
-      icon: Network,
-      title: "Programa Encadenar",
-      description:
-        "Fortalecemos los vínculos entre PyMEs promoviendo el trabajo colaborativo mediante rondas de negocios, espacios de networking y articulación entre proveedores y demandantes para impulsar el sector productivo.",
-      impact: "Sinergia",
-      impactLabel: "rondas de negocios y networking",
-      image: "/encadenar.webp",
-      gradient: "from-black/40 to-black/10",
-      lightGradient: "from-[#89abe6]/5 to-[#405e8c]/5",
-      href: "/programas/encadenar",
-    },
-    {
-      icon: Globe,
-      title: "Programa Proba Comex",
-      description:
-        "Orientado a PyMEs que buscan iniciarse o fortalecerse en el comercio exterior. Brindamos capacitación en importación/exportación, asesoramiento técnico y acompañamiento en los primeros pasos del camino exportador.",
-      impact: "Exportar",
-      impactLabel: "apoyo integral al comercio exterior",
-      gradient: "from-[#8dc2ff] to-[#89abe6]",
-      lightGradient: "from-[#8dc2ff]/5 to-[#89abe6]/5",
-      href: "/programas/proba-comex",
-    },
-    {
-      icon: HeartPulse,
-      title: "Programa Pyme Saludable",
-      description:
-        "Promovemos el bienestar integral y la salud laboral en las PyMEs. Trabajamos en ejes de clima organizacional, prevención y concientización para mejorar la calidad de vida y la sostenibilidad de las organizaciones.",
-      impact: "Salud",
-      impactLabel: "bienestar y productividad organizacional",
-      gradient: "from-[#405e8c] to-[#111269]",
-      lightGradient: "from-[#405e8c]/5 to-[#111269]/5",
-      href: "/programas/pyme-saludable",
-    },
-    {
-      icon: Radio,
-      title: "Radio Empresaria",
-      description:
-        "Nuestra emisora online (RadioEmpresaria.com.ar) brinda visibilidad y posicionamiento para empresas del sector productivo. Un espacio para comunicar la realidad de las cadenas de valor regionales.",
-      impact: "Difusión",
-      impactLabel: "visibilidad para la cadena de valor",
-      image: "/radio-empresario.webp",
-      gradient: "from-black/40 to-black/10",
-      lightGradient: "from-[#89abe6]/5 to-[#8dc2ff]/5",
-      href: "/programas/radio-empresaria",
-    },
-    {
-      icon: Cpu,
-      title: "Centro Tecnológico 4.0",
-      description:
-        "Acercamos a las PyMEs a la innovación y la transformación digital. Ofrecemos capacitaciones, charlas técnicas y espacios de actualización para preparar a las empresas ante los desafíos tecnológicos actuales.",
-      impact: "4.0",
-      impactLabel: "innovación y tecnología aplicada",
-      image: "/centro-4-0.webp",
-      gradient: "from-black/40 to-black/10",
-      lightGradient: "from-[#111269]/5 to-[#8dc2ff]/5",
-      href: "/programas/centro-tecnologico",
-    },
-    {
-      icon: Layers,
-      title: "Gestión Pymes",
-      description:
-        "Asistencia integral en productividad: Implementación de 5S, mejora de procesos, planificación estratégica y transformación digital para el fortalecimiento del negocio.",
-      impact: "Eficiencia",
-      impactLabel: "optimización de procesos productivos",
-      gradient: "from-[#405e8c] to-[#89abe6]",
-      lightGradient: "from-[#405e8c]/5 to-[#89abe6]/5",
-    },
-    {
-      icon: Palette,
-      title: "Industrias Culturales",
-      description:
-        "Fomentamos el desarrollo de las industrias culturales y creativas como motor de identidad y economía regional, integrando el arte y la creatividad con el sector productivo.",
-      impact: "Cultura",
-      impactLabel: "impulso a la economía creativa",
-      gradient: "from-[#8dc2ff] to-[#111269]",
-      lightGradient: "from-[#8dc2ff]/5 to-[#111269]/5",
-    },
-    {
-      icon: Flag,
-      title: "Argentina 2050",
-      description:
-        "Plataforma de pensamiento y acción para el desarrollo sustentable del país a largo plazo, enfocada en la competitividad y la inclusión social.",
-      impact: "Futuro",
-      impactLabel: "visión estratégica de país",
-      gradient: "from-[#111269] to-[#405e8c]",
-      lightGradient: "from-[#111269]/5 to-[#405e8c]/5",
-      href: "#",
-    },
-  ]
+/**
+ * Server Component — fetcha datos de Sanity.
+ * Si Sanity está caído, muestra el fallback mínimo para no romper la página.
+ * Pattern idéntico a news.tsx.
+ */
+export async function Programs({ limit }: ProgramsProps) {
+  let programs: ProgramItem[] = fallbackPrograms
 
-  const programs = limit ? allPrograms.slice(0, limit) : allPrograms
+  try {
+    const query = limit ? latestProgramsQuery : allProgramsQuery
+    const params = limit ? { limit: limit - 1 } : {}
 
-  return (
-    <section id="programas" className="relative py-16 lg:py-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f0f7ff] via-[#ffffff] to-[#f0f7ff]" />
+    const sanityPrograms = await client.fetch<ProgramItem[]>(query, params)
 
-      {/* Decorative elements */}
-      <div
-        className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent"
-      />
+    if (sanityPrograms && sanityPrograms.length > 0) {
+      programs = sanityPrograms
+    }
+  } catch (error) {
+    console.error("Error fetching programs from Sanity:", error)
+    // fallback ya asignado — el sitio sigue funcionando
+  }
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <MotionViewport className="text-center mb-10 lg:mb-12" initial={{ opacity: 0, y: 20 }}>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#8dc2ff]/10 text-[#111269] text-sm font-semibold tracking-wide mb-6">
-            PROGRAMAS DESTACADOS
-          </span>
-
-          <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111269] mb-6"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Iniciativas que{" "}
-            <span className="bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] bg-clip-text text-transparent">
-              transforman
-            </span>
-          </h2>
-
-          <p className="text-xl text-[#111269]/60 max-w-2xl mx-auto font-light">
-            Programas especializados que generan impacto sostenible en toda Argentina
-          </p>
-        </MotionViewport>
-
-        {/* Programs Grid */}
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {programs.map((program, index) => (
-            <MotionViewport
-              key={index}
-              delay={index * 0.15}
-              initial={{ opacity: 0, y: 40 }}
-              className="group h-full"
-            >
-              <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/[0.03] border border-[#e2e8f0] hover:shadow-xl hover:shadow-black/[0.06] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-2 h-full flex flex-col">
-                {/* Header with image/gradient */}
-                <div className={`relative h-48 overflow-hidden`}>
-                  {program.image ? (
-                    <>
-                      <Image
-                        src={program.image}
-                        alt={program.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${program.gradient}`} />
-                    </>
-                  ) : (
-                    <div className={`absolute inset-0 bg-gradient-to-br ${program.gradient}`}>
-                      {/* Pattern overlay */}
-                      <div
-                        className="absolute inset-0 opacity-10"
-                        style={{
-                          backgroundImage: `
-                            linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%),
-                            linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%)
-                          `,
-                          backgroundSize: "20px 20px",
-                        }}
-                      />
-                    </div>
-                  )}
-
-                  {/* Decorative circle */}
-                  <div className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-white/10" />
-                </div>
-
-                {/* Content */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3
-                    className="text-2xl font-bold mb-4 text-[#111269] group-hover:text-[#8dc2ff] transition-colors duration-300"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                  >
-                    {program.title}
-                  </h3>
-
-                  <p className="text-[#111269]/60 leading-relaxed mb-6 flex-grow">
-                    {program.description}
-                  </p>
-
-                  {/* Impact Badge */}
-                  <div className={`flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r ${program.lightGradient} mb-6`}>
-                    <div className={`text-3xl font-bold bg-gradient-to-r ${program.gradient} bg-clip-text text-transparent`}>
-                      {program.impact}
-                    </div>
-                    <div className="text-sm text-[#111269]/60 leading-tight">
-                      {program.impactLabel}
-                    </div>
-                  </div>
-
-                  {/* CTA Button */}
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 font-medium group/btn transition-[background-color,color,border-color] duration-300"
-                  >
-                    <Link href={program.href || "#"}>
-                      <span>Conocer Más</span>
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" aria-hidden="true" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </MotionViewport>
-          ))}
-        </div>
-
-        {limit && (
-          <MotionViewport className="mt-12 flex justify-center" initial={{ opacity: 0, y: 20 }}>
-            <Link href="/programas">
-              <Button
-                variant="outline"
-                className="border-[#111269]/20 text-[#111269] hover:bg-[#111269] hover:text-white hover:border-[#111269] rounded-xl h-12 px-8 font-medium group transition-all duration-300"
-              >
-                <span>Ver Todos los Programas</span>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </MotionViewport>
-        )}
-
-      </div>
-    </section>
-  )
+  return <ProgramsClient programs={programs} limit={limit} />
 }

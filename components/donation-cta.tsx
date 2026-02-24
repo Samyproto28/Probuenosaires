@@ -85,17 +85,26 @@ export function DonationCTA() {
                 {/* Se eliminaron los botones de montos por solicitud del usuario */}
 
 
-                <Button
-                  size="lg"
-                  className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 text-base font-semibold w-fit shadow-lg shadow-[#8dc2ff]/20 rounded-xl transition-[background-color,transform,shadow] duration-300 hover:scale-[1.02]"
-                  asChild
-                >
-                  <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
-                    <Heart className="mr-2 h-5 w-5" aria-hidden="true" />
-                    Quiero Donar
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </a>
-                </Button>
+                <div className="flex flex-col gap-4">
+                  <Button
+                    size="lg"
+                    className="group bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 px-10 text-base font-semibold w-fit shadow-lg shadow-[#8dc2ff]/20 rounded-xl transition-[background-color,transform,shadow] duration-300 hover:scale-[1.02]"
+                    asChild
+                  >
+                    <a href="https://link.mercadopago.com.ar/probaires" target="_blank" rel="noopener noreferrer">
+                      <Heart className="mr-2 h-5 w-5" aria-hidden="true" />
+                      Quiero Donar
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </a>
+                  </Button>
+
+                  <div className="flex items-center gap-3 text-white/50 text-xs">
+                    <div className="px-2 py-0.5 rounded bg-white/10 border border-white/10 uppercase font-bold tracking-tighter">
+                      AFIP Art. 81
+                    </div>
+                    <span>Donaciones 100% deducibles de Ganancias</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
@@ -114,9 +123,9 @@ export function DonationCTA() {
 
                 <div className="space-y-6">
                   {[
-                    { amount: "$1.000", impact: "Material didáctico para un estudiante" },
-                    { amount: "$5.000", impact: "Capacitación completa en habilidades digitales" },
-                    { amount: "$10.000", impact: "Apoyo integral a un emprendedor" },
+                    { amount: "$5.000", impact: "Material didáctico para un aula completa" },
+                    { amount: "$15.000", impact: "Certificación oficial para un joven" },
+                    { amount: "$30.000", impact: "Becas de transporte para 5 estudiantes" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-20 text-lg font-bold text-[#8dc2ff]">
@@ -138,9 +147,14 @@ export function DonationCTA() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-white/40 text-xs leading-relaxed">
-                    Todas las donaciones son deducibles de impuestos. Recibís un comprobante oficial de la fundación.
-                  </p>
+                  <div className="flex flex-col gap-2">
+                    <p className="text-white/80 text-xs font-semibold">
+                      CUIT: 30-69894716-7 | IGJ: 1649721
+                    </p>
+                    <p className="text-white/40 text-[10px] leading-relaxed">
+                      Todas las donaciones son deducibles de impuestos según Ley 20.628. La transparencia es la base de nuestro compromiso.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
