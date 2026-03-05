@@ -36,7 +36,7 @@ export function Services() {
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
       gradient: "from-black/40 to-black/10",
       accentColor: "#8dc2ff",
-      link: "/programas/centro-tecnologico",
+      link: "/programas/centro-tecnologico-40",
       image: "/centro-4-0.webp", // Imagen añadida
     },
   ]

@@ -82,7 +82,10 @@ export function Newsletter() {
               </form>
 
               <p className="text-white/30 text-xs mt-4">
-                No spam. Podés desuscribirte cuando quieras.
+                No spam. Podés desuscribirte cuando quieras.{" "}
+                <a href="/politica-de-privacidad" className="underline hover:text-white/50 transition-colors">
+                  Política de privacidad
+                </a>.
               </p>
             </div>
           </motion.div>

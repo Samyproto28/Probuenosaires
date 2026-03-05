@@ -197,13 +197,13 @@ export function Footer() {
             </p>
             <div className="flex gap-6">
               <Link
-                href="#"
+                href="/politica-de-privacidad"
                 className="text-white/40 hover:text-[#8dc2ff] transition-colors"
               >
                 Política de Privacidad
               </Link>
               <Link
-                href="#"
+                href="/terminos"
                 className="text-white/40 hover:text-[#8dc2ff] transition-colors"
               >
                 Términos y Condiciones

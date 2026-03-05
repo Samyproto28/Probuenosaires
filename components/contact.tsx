@@ -266,7 +266,10 @@ Les escribia para ${formData.message}`
                 </div>
 
                 <p className="text-xs text-[#111269]/50 text-center">
-                  Al enviar este formulario, aceptás nuestra política de privacidad.
+                  Al enviar este formulario, aceptás nuestra{" "}
+                  <a href="/politica-de-privacidad" className="underline hover:text-[#8dc2ff] transition-colors">
+                    política de privacidad
+                  </a>.
                 </p>
               </form>
             </div>
