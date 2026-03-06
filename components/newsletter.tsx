@@ -1,13 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Mail, MessageSquare, ArrowRight, Send } from "lucide-react"
+import { Mail, Send } from "lucide-react"
 import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 
 export function Newsletter() {
-  const [email, setEmail] = useState("")
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
@@ -57,31 +55,31 @@ export function Newsletter() {
                 Recibí noticias, videos y novedades sobre nuestro trabajo y cómo podés ser parte del cambio.
               </p>
 
-              <form className="space-y-4">
-                <div className="relative">
-                  <Input
-                    type="email"
-                    placeholder="tu@email.com"
-                    aria-label="Correo electrónico para suscripción"
-                    autoComplete="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/10 backdrop-blur-sm text-white placeholder:text-white/40 h-14 border-white/10 focus:border-[#8dc2ff]/50 rounded-xl px-5 pr-12"
-                  />
-                  <Mail className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" aria-hidden="true" />
-                </div>
-
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  type="submit"
+                  asChild
                   size="lg"
                   className="w-full bg-gradient-to-r from-[#8dc2ff] to-[#89abe6] text-[#111269] hover:from-[#e0efff] hover:to-[#8dc2ff] h-14 font-semibold rounded-xl group shadow-lg shadow-[#8dc2ff]/20 transition-[background-color,transform,box-shadow] duration-300"
                 >
-                  <span>Suscribirme</span>
-                  <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  <a href="mailto:info@probuenosaires.org?subject=Suscripción%20al%20Newsletter&body=Hola%2C%20quisiera%20suscribirme%20al%20newsletter%20de%20la%20fundación.">
+                    <span>Suscribirme por Correo</span>
+                    <Mail className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </a>
                 </Button>
-              </form>
 
-              <p className="text-white/30 text-xs mt-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full bg-[#111269] hover:bg-[#1a2754] border border-white/20 text-white h-14 font-semibold rounded-xl group transition-all duration-300"
+                >
+                  <a href="https://wa.me/5491141899250?text=Hola%2C%20quisiera%20suscribirme%20al%20newsletter." target="_blank" rel="noopener noreferrer">
+                    <span>Suscribirme por WhatsApp</span>
+                    <Send className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </a>
+                </Button>
+              </div>
+
+              <p className="text-white/30 text-xs mt-6">
                 No spam. Podés desuscribirte cuando quieras.{" "}
                 <a href="/politica-de-privacidad" className="underline hover:text-white/50 transition-colors">
                   Política de privacidad

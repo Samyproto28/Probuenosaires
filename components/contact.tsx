@@ -1,41 +1,14 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef } from "react"
+import { useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Clock, Send, Building2, MessageCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Building2, MessageCircle } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    message: "",
-  })
-  const [submitMethod, setSubmitMethod] = useState<"whatsapp" | "email">("whatsapp")
-
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    const message = `Buenas soy ${formData.name}
-
-Les escribia para ${formData.message}`
-
-    if (submitMethod === "whatsapp") {
-      const encodedMessage = encodeURIComponent(message)
-      const whatsappUrl = `https://wa.me/5491141899250?text=${encodedMessage}`
-      window.open(whatsappUrl, "_blank")
-    } else {
-      const subject = encodeURIComponent(`Consulta de ${formData.name}`)
-      const body = encodeURIComponent(message)
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@probuenosaires.org&su=${subject}&body=${body}`
-      window.open(gmailUrl, "_blank")
-    }
-  }
 
   const contactInfo = [
     {
@@ -205,73 +178,46 @@ Les escribia para ${formData.message}`
           >
             <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-xl">
               <h3
-                className="text-2xl font-bold text-[#111269] mb-6"
+                className="text-2xl font-bold text-[#111269] mb-4"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 Envianos tu consulta
               </h3>
+              
+              <p className="text-[#111269]/80 mb-8 leading-relaxed">
+                Elegí el medio que te resulte más cómodo para ponerte en contacto directo con nuestro equipo.
+              </p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                    Nombre completo *
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Tu nombre"
-                    autoComplete="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="h-12 rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#111269]/80 mb-2">
-                    Mensaje *
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Contanos sobre tu consulta o proyecto…"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={6}
-                    className="rounded-xl border-[#e2e8f0] focus:border-[#8dc2ff] focus:ring-[#8dc2ff]/20 resize-none"
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Button
-                    type="submit"
-                    size="lg"
-                    onClick={() => setSubmitMethod("whatsapp")}
-                    className="w-full h-14 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20ba5a] hover:to-[#0e6e62] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300 shadow-lg shadow-green-500/20"
-                  >
-                    <span>WhatsApp</span>
+              <div className="flex flex-col gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full h-14 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20ba5a] hover:to-[#0e6e62] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300 shadow-lg shadow-green-500/20"
+                >
+                  <a href="https://wa.me/5491141899250" target="_blank" rel="noopener noreferrer">
+                    <span>Chatear por WhatsApp</span>
                     <MessageCircle className="ml-2 w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
-                  </Button>
+                  </a>
+                </Button>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    onClick={() => setSubmitMethod("email")}
-                    className="w-full h-14 bg-[#111269] hover:bg-[#1a2754] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300"
-                  >
-                    <span>Email / Gmail</span>
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full h-14 bg-[#111269] hover:bg-[#1a2754] text-white rounded-xl font-semibold group transition-[background-color,transform] duration-300"
+                >
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@probuenosaires.org" target="_blank" rel="noopener noreferrer">
+                    <span>Escribirnos por Correo</span>
                     <Mail className="ml-2 w-5 h-5 transition-transform group-hover:scale-110" aria-hidden="true" />
-                  </Button>
-                </div>
+                  </a>
+                </Button>
+              </div>
 
-                <p className="text-xs text-[#111269]/50 text-center">
-                  Al enviar este formulario, aceptás nuestra{" "}
-                  <a href="/politica-de-privacidad" className="underline hover:text-[#8dc2ff] transition-colors">
-                    política de privacidad
-                  </a>.
-                </p>
-              </form>
+              <p className="text-xs text-[#111269]/50 text-center mt-6">
+                Al contactarte, aceptás nuestra{" "}
+                <a href="/politica-de-privacidad" className="underline hover:text-[#8dc2ff] transition-colors">
+                  política de privacidad
+                </a>.
+              </p>
             </div>
           </motion.div>
         </div>
