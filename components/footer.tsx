@@ -3,6 +3,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { MotionViewport } from "@/components/ui/motion-viewport"
 
+const internalHrefs = ["/institucional", "/equipo", "/programas", "/novedades", "/contacto"]
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -159,17 +161,21 @@ export function Footer() {
               >
                 <h3 className="font-semibold mb-5 text-lg text-white/90">{title}</h3>
                 <ul className="space-y-3">
-                  {links.map((link) => (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-white/50 hover:text-[#8dc2ff] transition-colors text-sm flex items-center gap-1 group"
-                      >
-                        <span>{link.label}</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" aria-hidden="true" />
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link) => {
+                    const isInternal = internalHrefs.some(h => link.href.startsWith(h))
+                    const LinkTag = isInternal ? Link : 'a'
+                    return (
+                      <li key={link.label}>
+                        <LinkTag
+                          href={link.href}
+                          className="text-white/50 hover:text-[#8dc2ff] transition-colors text-sm flex items-center gap-1 group"
+                        >
+                          <span>{link.label}</span>
+                          <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" aria-hidden="true" />
+                        </LinkTag>
+                      </li>
+                    )
+                  })}
                 </ul>
               </MotionViewport>
             ))}

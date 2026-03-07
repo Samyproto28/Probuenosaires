@@ -76,8 +76,8 @@ export default function PoliticaDePrivacidadPage() {
                             <li className="flex items-start gap-3">
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#8dc2ff] flex-shrink-0 mt-2.5" />
                                 <span>
-                                    <strong className="text-[#111269]">Formulario de contacto:</strong> nombre
-                                    completo y mensaje.
+                                    <strong className="text-[#111269]">Contacto directo:</strong> los datos que
+                                    nos compartas voluntariamente al comunicarte por email o WhatsApp.
                                 </span>
                             </li>
                             <li className="flex items-start gap-3">

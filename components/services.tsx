@@ -15,7 +15,7 @@ export function Services() {
       gradient: "from-black/40 to-black/10",
       accentColor: "#89abe6",
       link: "/uvt",
-      image: "", // Espacio para imagen
+      image: "/vinculando.webp",
     },
     {
       icon: Users,
@@ -25,8 +25,8 @@ export function Services() {
       features: ["Bolsa de trabajo", "Capacitación laboral", "Seguimiento continuo"],
       gradient: "from-black/40 to-black/10",
       accentColor: "#405e8c",
-      link: "/programas/intermediacion-laboral",
-      image: "", // Espacio para imagen
+      link: "/programas",
+      image: "/encadenar.webp",
     },
     {
       icon: GraduationCap,
@@ -36,8 +36,8 @@ export function Services() {
       features: ["Transformación digital", "Automatización", "Análisis de datos"],
       gradient: "from-black/40 to-black/10",
       accentColor: "#8dc2ff",
-      link: "/programas/centro-tecnologico-40",
-      image: "/centro-4-0.webp", // Imagen añadida
+      link: "/programas",
+      image: "/centro-4-0.webp",
     },
   ]
 
